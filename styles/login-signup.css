@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #F5F5F5;
+  }
+  
+  .container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .left-panel {
+    flex: 0;
+    background: #a3d9ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  .logo {
+    width: 500px;
+  }
+  
+  .right-panel {
+    flex: 1;
+    display: flex;
+    padding: 40px;
+    position: relative;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  .tab-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .tab-switch button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background: #fff;
+    color: #007bff;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+  
+  .tab-switch button.active {
+    background: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+  
+  .form {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  .form.active {
+    display: flex;
+  }
+  
+  .form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form input {
+    margin-bottom: 15px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .form a,
+  .form span {
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  
+  .form p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .main-btn {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    font-size: 16px;
+  }
+  
