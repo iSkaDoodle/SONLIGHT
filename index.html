@@ -4,33 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home | SonLight</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 </head>
 <body>
 
   <header>
     <div class="left-header">
       <button id="toggleBtn" class="toggle-btn">☰</button>
-      <div class="logo">SLER <span>FIND</span></div>
+      <div class="logo"><img src="images/transparent-logo.png" alt="header-logo"></div>
     </div>
+    <div class="right-header">
+      <a href="#"><img id="header-profile" src="images/profile.svg" alt="Header Profile"></a>
+    </div>
+    <!-- Old Nav
     <nav>
       <ul>
         <li><a href="#">RENTAL STORES</a></li>
-        <li><a href="#">ABOUT US</a></li>
+        <li><a href="#">ABOUT US</a></li> 
         <li><a href="#">RATE US</a></li>
         <li><a href="https://www.facebook.com/carldariel.decastro.5" class="help-btn" target="_blank">HELP</a></li>
       </ul>
     </nav>
+    /-->
   </header>
 
   <aside class="sidebar collapsed" id="sidebar">
     <ul>
-      <li><a href="#"><img src="profile.svg" alt="Profile"><span>Profile</span></a></li>
-      <li><a href="#"><img src="store.svg" alt="Rental Stores"><span>Rental Stores</span></a></li>
-      <li><a href="#"><img src="about.svg" alt="About Us"><span>About Us</span></a></li>
-      <li><a href="#"><img src="rate.svg" alt="Rate Us"><span>Rate Us</span></a></li>
-      <li><a href="#"><img src="help.svg" alt="Help"><span>Help</span></a></li>
+      <li><a href="#"><img src="images/profile.svg" alt="Profile"><span>Profile</span></a></li>
+      <li><a href="#"><img src="images/store.svg" alt="Rental Stores"><span>Rental Stores</span></a></li>
+      <li><a href="#"><img src="images/about.svg" alt="About Us"><span>About Us</span></a></li>
+      <li><a href="#"><img src="images/rate.svg" alt="Rate Us"><span>Rate Us</span></a></li>
+      <li><a href="#"><img src="images/help.svg" alt="Help"><span>Help</span></a></li>
     </ul>
   </aside>
 
@@ -40,7 +45,18 @@
     <div class="footer-container">
       <div class="footer-section">
         <h4>Business Hours</h4>
-        <p>24/7</p>
+        <div class="business-hours">
+          <p>Mon-Tue</p>
+          <p>Wed</p>
+          <p>Thu-Sat</p>
+          <p>Sun</p>
+        </div>
+        <div id="operation-time" class="business-hours">
+          <p>8:00AM-5:00PM</p>
+          <p>Closed</p>
+          <p>8:00AM-5:00PM</p>
+          <p>Closed</p>
+        </div>
       </div>
       <div class="footer-section">
         <h4>Company</h4>
@@ -57,7 +73,7 @@
       </div>
       <div class="footer-section">
         <h4>Contact Us</h4>
-        <p>Don Ramos, something</p>
+        <p>Kumintang Ibaba, Batangas City</p>
         <p>XXX-XXXX-XXX</p>
         <a href="mailto:sonlighttechbook@gmail.com
         ">sonlighttechbook@gmail.com
@@ -67,6 +83,6 @@
     <p class="bottom-note">© 2025 SONLIGHT</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
 </html>
