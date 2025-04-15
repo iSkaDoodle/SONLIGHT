@@ -12,6 +12,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Show/hide footer on scroll
+    const footer = document.getElementById('footer');
+  
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const fullHeight = document.body.scrollHeight;
+  
+      if (scrollY + viewportHeight >= fullHeight - 10) {
+        footer.classList.add('visible');
+      } else {
+        footer.classList.remove('visible');
+      }
+    });
+  
+    // Burger toggle
+    const toggleBtn = document.getElementById('toggleBtn');
+    const sidebar = document.getElementById('sidebar');
+  
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+    });
+  });
   
 // Login-signup
 const loginForm = document.getElementById("login-form");
