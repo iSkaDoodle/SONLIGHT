@@ -37,8 +37,8 @@ header {
 }
 
 #header-profile {
-  height: 48px;
-  width: 48px;
+  height: 32px;
+  width: 32px;
 }
 
 .toggle-btn {
@@ -47,6 +47,11 @@ header {
   font-size: 25px;
   cursor: pointer;
   color: #073b4c;
+}
+
+#menu-icon {
+  height: 32px;
+  width: 32px;
 }
 
 .logo img {
@@ -139,6 +144,10 @@ nav ul li a {
 
 .sidebar.collapsed ul li span {
   display: none;
+}
+
+#sidebar-help {
+  margin-top: 350px;
 }
 
 #footer {
