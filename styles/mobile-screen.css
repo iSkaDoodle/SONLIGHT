@@ -24,9 +24,11 @@
 
     .sidebar {
       padding-top: 55px;
-      width: 180px;
+      width: 160px;
     }
-
+    .sidebar ul li a {
+      font-size: 12px;
+    }
     .sidebar.collapsed {
       width: 0px;
     }
@@ -61,7 +63,7 @@
     }
 }
 
-/* landscape */
+/* phone landscape */
 @media screen and (max-height: 450px) {
   header {
     height: 36.8px;
@@ -95,6 +97,6 @@
   }
   #sidebar-help {
     position: absolute;
-    top: 135%;
+    top: 105%;
   }
 }
