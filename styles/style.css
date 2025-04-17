@@ -117,18 +117,26 @@ nav ul li a {
   padding: 0;
 
   position: absolute;
-  left: 0px
+  left: 5px
 }
 
 .sidebar ul li {
   padding: 15px;
   display: flex;
   align-items: center;
-  transition: background 0.2s;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  transition: background 0.5s;
 }
 
 .sidebar ul li:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 1.0);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .sidebar ul li a {
