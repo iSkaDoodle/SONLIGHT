@@ -49,16 +49,15 @@ header {
   color: #073b4c;
 }
 
-#menu-icon {
+#menu-icon { /*(burger icon image)*/
   height: 32px;
   width: 32px;
 }
 
-.logo img {
-  height: 73.6px;
-}
+.logo img { height: 73.6px; }
 
-/* old sler logo style
+/*
+old sler logo style
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -69,6 +68,7 @@ header {
   color: black;
 } */
 
+/* Old nav styles
 nav ul {
   list-style: none;
   display: flex;
@@ -92,7 +92,7 @@ nav ul li a {
 .help-btn:hover {
   background-color: black;
   color: white;
-}
+} */
 
 .sidebar {
   position: fixed;
@@ -115,6 +115,9 @@ nav ul li a {
 .sidebar ul {
   list-style: none;
   padding: 0;
+
+  position: absolute;
+  left: 0px
 }
 
 .sidebar ul li {
@@ -146,9 +149,10 @@ nav ul li a {
   display: none;
 }
 
+/* help button */
 #sidebar-help {
   position: absolute;
-  bottom: 5%;
+  top: 240%;
 }
 
 #footer {
@@ -177,8 +181,10 @@ nav ul li a {
   text-align: left;
 }
 
+/* footer section styles */
 .footer-section {
   display: block;
+  float: left;
   flex: 1;
   min-width: 25%;
   margin-top: 10px;
@@ -208,14 +214,18 @@ nav ul li a {
   font-weight: 700;
 }
 
-.business-hours {
-  display: inline-block;
+/* Business schedule (footer) */
+#business-schedule p {
   font-size: 14px;
+  display: block;
+  width: fit-content;
+  margin-top: 8px;
 }
-
-#operation-time p {
-  text-align: right;
-  margin-left: 24px;
+#business-schedule p span {
+  display: inline-block;
+  width: 50%;
+  min-width: 102px;
+  max-width: 135px;
 }
 
 .bottom-note {
