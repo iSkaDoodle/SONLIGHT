@@ -135,7 +135,7 @@ nav ul li a {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #000;
+  color: #01303D;
   font-weight: bold;
 }
 
@@ -153,6 +153,7 @@ nav ul li a {
 #sidebar-help {
   position: absolute;
   top: 240%;
+  width: 100%;
 }
 
 #footer {
