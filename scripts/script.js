@@ -76,10 +76,10 @@ loginForm.addEventListener("submit", function (e) {
 }, 1000);
 });
 
+// burgar transistion tapos nabukas ang menu astig ano?
 let isMenu = true;
 const menuIcon = document.getElementById('menu-icon');
 
-// burgar transistion tapos nabukas ang menu astig ano?
 function toggleMenu(btn) {
     if(isMenu) {
     btn.classList.toggle("change");
