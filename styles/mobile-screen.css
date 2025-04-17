@@ -1,0 +1,59 @@
+/* mobile screen adaptbility (changes when screen width is less than 600px) */
+
+/* portrait */
+@media screen and (max-width: 600px) { 
+    header {
+      height: 36.8px;
+      padding: 20px 20px;
+    }
+    .logo img { height: 36.8px; }
+
+    .left-header {
+      column-gap: 10px;
+    }
+    #header-profile {
+      height: 28px;
+      width: 28px;
+    }
+    #menu-icon { /*(burger icon image)*/
+      height: 28px;
+      width: 28px;
+    }
+
+    .sidebar {
+      width: 180px;
+    }
+
+    .sidebar.collapsed {
+      width: 0px;
+    }
+    #sidebar-help {
+      position: absolute;
+      top: 250%;
+    }
+
+    #footer {
+      padding: 10px 20px;
+    }
+    .footer-section {
+      min-width: 50%;
+      font-size: 11px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .footer-section h4 { font-size: 14px; }
+  
+    #business-schedule p {
+      font-size: 11px;
+    }
+    #business-schedule p span {
+      display: inline-block;
+      min-width: 79.5px;
+      max-width: 115px;
+    }
+    .bottom-note {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 11px;
+    }
+}
