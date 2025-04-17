@@ -1,3 +1,4 @@
+/* footer scroll */
 document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
       const footer = document.getElementById('footer');
@@ -71,6 +72,21 @@ loginForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   setTimeout(function() {
-    window.location.href = 'index.html';
+    window.location.href = 'shops.html';
 }, 1000);
 });
+
+let isMenu = true;
+const menuIcon = document.getElementById('menu-icon');
+
+// burgar transistion tapos nabukas ang menu astig ano?
+function toggleMenu(btn) {
+    if(isMenu) {
+    btn.classList.toggle("change");
+    isMenu = false;
+    } else {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("collapsed");
+        isMenu = true;
+  }
+}

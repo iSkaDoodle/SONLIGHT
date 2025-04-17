@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | SonLight</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/mobile-screen.css">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+</head>
+<body>
+
+<header>
+  <div class="left-header">
+    <div id="toggleBtn" class="container" onclick="toggleMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div class="logo">
+      <a href="shops.html">
+        <img src="images/transparent-logo.png" alt="header-logo">
+      </a>
+    </div>
+  </div>
+  <div class="right-header">
+    <a href="#">
+      <img id="header-profile" src="images/icons/profile-icon.svg" alt="Header Profile">
+    </a>
+  </div>
+</header>
+    <!-- 
+        ☰ <-- menu
+        Old Nav
+          <nav>
+            <ul>
+              <li><a href="#">RENTAL STORES</a></li>
+              <li><a href="#">ABOUT US</a></li> 
+              <li><a href="#">RATE US</a></li>
+              <li><a href="https://www.facebook.com/carldariel.decastro.5" class="help-btn" target="_blank">HELP</a></li>
+            </ul>w
+          </nav>
+    /-->
+  <aside class="sidebar collapsed" id="sidebar">
+    <ul>
+      <li><a href="profile.html"><img src="images/icons/profile-icon.svg" alt="Profile"><span>Profile</span></a></li>
+      <li><a href="shops.html"><img src="images/icons/store-icon.svg" alt="Rental Stores"><span>Rental Stores</span></a></li>
+      <li><a href="about.html"><img src="images/icons/about-icon.svg" alt="About Us"><span>About Us</span></a></li>
+      <li><a href="#"><img src="images/icons/star-icon.svg" alt="Rate Us"><span>Rate Us</span></a></li>
+      <li id="sidebar-help"><a href="#"><img src="images/icons/help-icon.svg" alt="Help"><span>Help</span></a></li>
+    </ul>
+  </aside>
+
+  <div style="height: 1500px;"></div>
+
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Business Hours</h4>
+        <div id="business-schedule">
+            <p><span>Mon-Tue</span><span>8:00AM-5:00PM</span></p>
+            <p><span>Wed</span><span>Closed</span></p>
+            <p><span>Thu-Sat</span><span>8:00AM-5:00PM</span></p>
+            <p><span>Sun</span><span>Closed</span></p>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#">Rate Us</a>
+        <!-- <a href="#">Reviews</a> -->
+      </div>
+      <div class="footer-section">
+        <h4>Social Media</h4>
+        <a href="https://www.facebook.com/profile.php?id=61575287158489&rdid=9G0tAtgboeRMjx7O&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19PLDjETWB%2F" target="_blank">
+          <img class="footer-icons" src="images/footer icons/facebook.svg" alt="Facebook logo">
+          Facebook
+        </a>
+        <a href="https://www.instagram.com/so_n_light/" target="_blank">
+          <img class="footer-icons" src="images/footer icons/instagram.svg" alt="Instagram logo">
+          Instagram
+        </a>
+        <a href="https://x.com/so_n_light" target="_blank">
+          <img class="footer-icons" src="images/footer icons/x.svg" alt="X (formerly Twitter) logo">
+          X
+        </a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>
+          <img class="footer-icons" src="images/footer icons/marker.svg" alt="marker icon">
+          Kumintang Ibaba, Batangas City
+        </p>
+        <p>
+          <img class="footer-icons" src="images/footer icons/phone-call.svg" alt="phone icon">
+          XXX-XXXX-XXX
+        </p>
+        <a href="mailto:sonlighttechbook@gmail.com">
+          <img class="footer-icons" src="images/footer icons/envelope.svg" alt="envelope icon">
+          sonlighttechbook@gmail.com
+        </a>
+      </div>
+    </div>
+    <p class="bottom-note">© 2025 SONLIGHT</p>
+  </footer>
+
+  <script src="scripts/script.js"></script>
+  <script src="scripts/menu.js"></script>
+</body>
+</html>
