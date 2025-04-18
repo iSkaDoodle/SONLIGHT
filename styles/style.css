@@ -31,11 +31,13 @@ header {
   display: flex;
   align-items: center;
   gap: 15px;
+  width: 50%;
 }
 
 .right-header {
   display: flex;
   flex-direction: row-reverse;
+  width: 50%;
 }
 
 #header-profile {
@@ -84,6 +86,7 @@ header {
   background: #a3d9ec;
   border-bottom-right-radius: 20px;
   padding-top: 80px;
+  padding-left: 15.5px;
   transition: width 0.3s ease;
   overflow: hidden;
   z-index: 999;
@@ -93,6 +96,7 @@ header {
 /* naka close */
 .sidebar.collapsed {
   width: 95px;
+  padding-left: 0px;
 }
 
 .sidebar ul {
@@ -113,7 +117,7 @@ header {
 }
 
 .sidebar ul li:hover {
-  background: rgba(255, 255, 255, 1.0);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .sidebar ul li a {
@@ -134,10 +138,13 @@ header {
   display: none;
 }
 
-#sidebar-help {
-  position: absolute;
-  top: 80%;
-  width: 100%;
+.sidebar.collapsed ul li { margin-left: 15.5px; }
+.sidebar.collapsed ul li img { margin: 0px; }
+
+/* style ni help kase loner sya */
+#sidebar-help { margin-top: 50px; }
+.sidebar.collapsed #sidebar-help {
+  margin-left: 15.5px;
 }
 
 /* Footer */
