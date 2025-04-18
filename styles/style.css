@@ -113,7 +113,7 @@ header {
 }
 
 .sidebar ul li:hover {
-  background: rgba(255, 255, 255, 1.0);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .sidebar ul li a {
@@ -130,14 +130,16 @@ header {
   margin-right: 15px;
 }
 
+.sidebar.collapsed ul li img {
+  margin: 0px;
+}
+
 .sidebar.collapsed ul li span {
   display: none;
 }
 
 #sidebar-help {
-  position: absolute;
-  top: 80%;
-  width: 100%;
+  margin-top: 50px;
 }
 
 /* ========== Footer ========== */
