@@ -1,11 +1,17 @@
+
+.sidebar ul #inAbout {
+  background-color: rgba(255, 255, 255, 1);
+}
+
 /* about */
 #about-main {
   margin: 20px 120px;
   text-align: justify;
-  margin-bottom: 350px;
+  padding-bottom: 300px;
 }
 
 #about-main h1 {
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -15,31 +21,24 @@
 
 /* mission vision */
 #mission-vision-container {
+  max-width: 66.66%;
   display: flex;
   flex-direction: column;
   gap: 20px; 
   align-items: center; 
-  vertical-align: top;
   margin-top: 40px;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
   background-color: #A3D9EC;
   border-radius: 24px;
   box-shadow: 0px 0px 10px rgba(32, 32, 32, 0.5);
 }
 
-.mission-vision-section {
-  min-height: 50%;
-  min-width: 100%;
-}
-
 .mission-vision-text {
   display: inline-block;
   min-height: 50%;
-  max-width: 50%;
-}
-
-.mission-vision-img-container {
   max-width: 50%;
 }
 
@@ -63,16 +62,19 @@
 
 /* founders */
 #founders-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 40px;
+  column-gap: 20px;
   width: 100%;
   padding: 20px;
   margin-top: 40px;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
 }
 
 .founder-block {
-  display: inline-block;
-  min-width: 25%;
   max-width: 50%;
 }
 
@@ -84,8 +86,6 @@
 }
 
 .founder-block img {
-  display: block;
-  max-height: 300px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  border-radius: 24px;
 }
