@@ -1,45 +1,31 @@
-/* footer scroll */
+// ==== Footer Reveal on Scroll ====
 document.addEventListener('DOMContentLoaded', () => {
-    window.addEventListener('scroll', () => {
-      const footer = document.getElementById('footer');
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      const fullHeight = document.body.scrollHeight;
-  
-      if (scrollY + viewportHeight >= fullHeight - 10) {
-        footer.classList.add('visible');
-      } else {
-        footer.classList.remove('visible');
-      }
-    });
+  const footer = document.getElementById('footer');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const fullHeight = document.body.scrollHeight;
+
+    if (scrollY + viewportHeight >= fullHeight - 10) {
+      footer.classList.add('visible');
+    } else {
+      footer.classList.remove('visible');
+    }
   });
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Show/hide footer on scroll
-    const footer = document.getElementById('footer');
-  
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
-      const fullHeight = document.body.scrollHeight;
-  
-      if (scrollY + viewportHeight >= fullHeight - 10) {
-        footer.classList.add('visible');
-      } else {
-        footer.classList.remove('visible');
-      }
-    });
-  
-    // Burger toggle
-    const toggleBtn = document.getElementById('toggleBtn');
-    const sidebar = document.getElementById('sidebar');
-  
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('collapsed');
-    });
+  // ==== Burger + Sidebar Toggle ====
+  const toggleBtn = document.getElementById('toggleBtn');
+  const sidebar = document.getElementById('sidebar');
+
+  toggleBtn.addEventListener('click', () => {
+    toggleBtn.classList.toggle("change");
+    sidebar.classList.toggle("collapsed");
   });
-  
-// Login-signup
+});
+
+
+// ==== Login/Signup Logic ====
 const loginForm = document.getElementById("login-form");
 const signupForm = document.getElementById("signup-form");
 
@@ -63,30 +49,16 @@ function showSignup() {
   showLoginBtn.classList.remove("active");
 }
 
-showLoginBtn.addEventListener("click", showLogin);
-showSignupBtn.addEventListener("click", showSignup);
-toSignup.addEventListener("click", showSignup);
-toLogin.addEventListener("click", showLogin);
+// Login - Signup vice versa
+showLoginBtn?.addEventListener("click", showLogin);
+showSignupBtn?.addEventListener("click", showSignup);
+toSignup?.addEventListener("click", showSignup);
+toLogin?.addEventListener("click", showLogin);
 
-loginForm.addEventListener("submit", function (e) {
+// Login
+loginForm?.addEventListener("submit", function (e) {
   e.preventDefault();
-
-  setTimeout(function() {
+  setTimeout(() => {
     window.location.href = 'shops.html';
-}, 1000);
+  }, 1000);
 });
-
-// burgar transistion tapos nabukas ang menu astig ano?
-let isMenu = true;
-const menuIcon = document.getElementById('menu-icon');
-
-function toggleMenu(btn) {
-    if(isMenu) {
-    btn.classList.toggle("change");
-    isMenu = false;
-    } else {
-        const sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("collapsed");
-        isMenu = true;
-  }
-}
