@@ -8,7 +8,7 @@ body {
     display: flex;
     min-height: 100vh;
   }
-  
+
   .left-panel {
     flex: 0;
     background: #a3d9ec;
@@ -97,8 +97,6 @@ body {
     color: #555;
   }
   
-#login-form > a { text-align: center; }
-
   .main-btn {
     padding: 12px;
     background-color: #007bff;

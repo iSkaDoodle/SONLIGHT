@@ -59,6 +59,6 @@ toLogin?.addEventListener("click", showLogin);
 loginForm?.addEventListener("submit", function (e) {
   e.preventDefault();
   setTimeout(() => {
-    window.location.href = 'shops.html';
+    window.location.href = 'shop.html';
   }, 1000);
 });

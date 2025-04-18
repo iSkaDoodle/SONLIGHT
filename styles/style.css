@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* ========== Reset & Base ========== */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ html, body {
   color: #073b4c;
 }
 
-/* Header */
+/* ========== Header ========== */
 header {
   display: flex;
   justify-content: space-between;
@@ -31,13 +31,11 @@ header {
   display: flex;
   align-items: center;
   gap: 15px;
-  width: 50%;
 }
 
 .right-header {
   display: flex;
   flex-direction: row-reverse;
-  width: 50%;
 }
 
 #header-profile {
@@ -45,38 +43,40 @@ header {
   width: 32px;
 }
 
-/* nagiging X ang burger */
-.container {
-  display: inline-block;
-  cursor: pointer;
-}
-
-.bar1, .bar2, .bar3 {
-  width: 30px;
-  height: 4px;
-  background-color: #073b4c;
-  margin: 6px 0;
-  transition: 0.4s;
-  border-radius: 2px;
-}
-
-.change .bar1 {
-  transform: translateY(10px) rotate(-45deg);
-}
-
-.change .bar2 {
-  opacity: 0;
-}
-
-.change .bar3 {
-  transform: translateY(-10px) rotate(45deg);
-}
-
 .logo img {
   height: 73.6px;
 }
 
-/* Sidebar */
+/* ========== Burger Button ========== */
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 4px;
+  background-color: #333;
+  transition: 0.4s ease;
+  border-radius: 2px;
+}
+
+.burger.change .bar:nth-child(1) {
+  transform: translateY(10px) rotate(-45deg);
+}
+
+.burger.change .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.change .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(45deg);
+}
+
+/* ========== Sidebar ========== */
 .sidebar {
   position: fixed;
   top: 0;
@@ -86,26 +86,22 @@ header {
   background: #a3d9ec;
   border-bottom-right-radius: 20px;
   padding-top: 80px;
-  padding-left: 15.5px;
   transition: width 0.3s ease;
   overflow: hidden;
   z-index: 999;
   box-shadow: rgba(32,32,32, 0.25) 2px 0px 4px;
 }
 
-/* naka close */
 .sidebar.collapsed {
   width: 95px;
-  padding-left: 0px;
 }
 
 .sidebar ul {
   list-style: none;
-  padding: 0;
   display: flex;
   flex-direction: column;
+  padding-left: 13px;
   align-items: flex-start;
-  transition: all 0.3s ease;
 }
 
 .sidebar ul li {
@@ -113,11 +109,11 @@ header {
   display: flex;
   align-items: center;
   border-radius: 30px;
-  transition: background 0.5s;
+  transition: background 0.3s ease;
 }
 
 .sidebar ul li:hover {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 1.0);
 }
 
 .sidebar ul li a {
@@ -138,16 +134,13 @@ header {
   display: none;
 }
 
-.sidebar.collapsed ul li { margin-left: 15.5px; }
-.sidebar.collapsed ul li img { margin: 0px; }
-
-/* style ni help kase loner sya */
-#sidebar-help { margin-top: 50px; }
-.sidebar.collapsed #sidebar-help {
-  margin-left: 15.5px;
+#sidebar-help {
+  position: absolute;
+  top: 80%;
+  width: 100%;
 }
 
-/* Footer */
+/* ========== Footer ========== */
 #footer {
   background: #a6e0f5;
   color: black;
@@ -170,7 +163,7 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 100%;
-  margin: 16px;
+  margin: 16px auto;
   text-align: left;
 }
 
@@ -183,10 +176,10 @@ header {
 .footer-section h4 {
   margin-bottom: 10px;
   font-size: 16px;
-  width: fit-content;
 }
 
-.footer-section p, .footer-section a {
+.footer-section p,
+.footer-section a {
   display: block;
   color: black;
   text-decoration: none;
@@ -195,7 +188,7 @@ header {
 }
 
 .footer-section a:hover {
-  font-weight: 700;
+  font-weight: bold;
 }
 
 #business-schedule p {
@@ -222,4 +215,35 @@ header {
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
+}
+
+/* ========== Optional Responsive Support ========== */
+@media (max-width: 768px) {
+  header {
+    padding: 20px;
+  }
+
+  .footer-section {
+    min-width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .sidebar {
+    height: 100%;
+  }
+
+  #sidebar-help {
+    top: 90%;
+  }
 }

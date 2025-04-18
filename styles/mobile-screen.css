@@ -1,4 +1,4 @@
-/* mobile screen adaptbility */
+/* mobile screen adaptbility (changes when screen width is less than 600px) */
 
 /* portrait */
 @media screen and (max-width: 600px) { 
@@ -16,22 +16,15 @@
       width: 28px;
       margin-top: 6px;
     }
-    .bar1, .bar2, .bar3 {
-      width: 25px;
-      height: 3px;
-      background-color: #073b4c;
-      margin: 4px 0;
-      transition: 0.4s;
-      border-radius: 2px;
+    #menu-icon { /*(burger icon image)*/
+      height: 28px;
+      width: 28px;
+      margin-top: 6px;
     }
 
     .sidebar {
       padding-top: 55px;
-      padding-left: 10px;
       width: 160px;
-    }
-    .sidebar ul li {
-      padding: 10px;
     }
     .sidebar ul li a {
       font-size: 12px;
@@ -39,7 +32,10 @@
     .sidebar.collapsed {
       width: 0px;
     }
-    #sidebar-help { margin-top: 80%; }
+    #sidebar-help {
+      position: absolute;
+      top: 275%;
+    }
 
     #footer {
       padding: 10px 20px;
@@ -67,73 +63,40 @@
     }
 }
 
-/* landscape */
+/* phone landscape */
 @media screen and (max-height: 450px) {
-  /* header */
   header {
     height: 36.8px;
-    padding: 10px 15px;
+    padding: 20px 20px;
   }
-  /* left header */
   .logo img { height: 36.8px; }
+
   .left-header {
     column-gap: 10px;
-  }
-  .bar1, .bar2, .bar3 {
-    width: 25px;
-    height: 3px;
-    background-color: #073b4c;
-    margin: 4px 0;
-    transition: 0.4s;
-    border-radius: 2px;
   }
   #header-profile {
     height: 28px;
     width: 28px;
     margin-top: 6px;
   }
+  #menu-icon { /*(burger icon image)*/
+    height: 28px;
+    width: 28px;
+    margin-top: 6px;
+  }
 
   .sidebar {
-    padding-top: 45px;
-    padding-left: 10px;
+    padding-top: 50px;
     width: 160px;
   }
-  .sidebar ul li {padding: 5px;}
-  .sidebar ul li a {font-size: 11px;}
-
+  .sidebar ul li a {
+    font-size: 11px;
+  }
   .sidebar.collapsed {
     width: 0px;
   }
-  #sidebar-help {margin-top: 5%;}
-/* footer */
-  #footer {
-    padding: 10px 20px;
+  #sidebar-help {
+    position: absolute;
+    top: 105%;
   }
-  .footer-icons {
-    height: 24px;
-    margin-right: 10px;
-    padding-top: 6px;
-    vertical-align: text-bottom;
-  }
-  .footer-section {
-    min-width: 50%;
-    font-size: 11px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  .footer-section > h4 {font-size: 14px;}
-  
-    #business-schedule p {
-      font-size: 11px;
-    }
-    #business-schedule p span {
-      display: inline-block;
-      min-width: 79.5px;
-      max-width: 115px;
-    }
-    .bottom-note {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-    }
 }
