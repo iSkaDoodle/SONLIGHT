@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | SonLight</title>
+  <link rel="icon" href="images/favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 275px;
+      height: 100%;
+      background: #a3d9ec;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding-top: 20px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .sidebar .logo {
+      display: block;
+      height: 90px;
+      margin: 0 auto 20px auto;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0 20px;
+    }
+
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+
+    .sidebar ul li a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #01303f;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+    }
+
+    .sidebar ul li a:hover {
+      background: white;
+    }
+
+    .sidebar ul li img {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+    }
+
+    #sidebar-help {
+      margin-top: 150px;
+    }
+
+    /* Main Container */
+    .main-content {
+      margin-left: 275px;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    /* Profile Card */
+    .profile-card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 30px;
+      background: #a3d9ec;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+}
+
+
+    .profile-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-avatar img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+
+    .profile-avatar input[type="file"] {
+      display: none;
+    }
+
+    .profile-avatar label {
+      font-size: 0.7rem;
+      color: #01303f;
+      cursor: pointer;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .profile-info p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #01303f;
+    }
+
+    /* Profile Form */
+    .profile-form {
+      background: white;
+     padding: 30px;
+     border-radius: 20px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+     width: 100%;
+     max-width: 1000px; /* updated from 700px */
+    }
+
+    .profile-form h2 {
+      margin-bottom: 20px;
+      color: #01303f;
+    }
+
+    .profile-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #01303f;
+    }
+
+    .profile-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .profile-form button {
+      background: #A3D9EC;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      .profile-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-form {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a href="shop.html"><img src="images/transparent-logo.png" alt="SonLight Logo" class="logo" /></a>
+    <ul>
+      <li><a href="profile.html"><img src="images/icons/profile-icon.svg" /><span>Profile</span></a></li>
+      <li><a href="shop.html"><img src="images/icons/store-icon.svg" /><span>Rental Stores</span></a></li>
+      <li><a href="about.html"><img src="images/icons/about-icon.svg" /><span>About Us</span></a></li>
+      <li><a href="#"><img src="images/icons/star-icon.svg" /><span>Rate Us</span></a></li>
+      <li id="sidebar-help"><a href="#"><img src="images/icons/help-icon.svg" /><span>Help</span></a></li>
+    </ul>
+  </aside>
+
+  <section class="main-content">
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <img src="images/profile/profile_placeholder.png" alt="Profile Picture" />
+        <form method="post" enctype="multipart/form-data">
+          <input type="file" id="profile-pic" name="profile-picture" accept="image/*" />
+          <label for="profile-pic">Change Profile Picture</label>
+        </form>
+      </div>
+
+      <div class="profile-info">
+        <p><strong>Name</strong><br>Dariel Patootie</p>
+        <p><strong>Email</strong><br>decarts@songlight.com</p>
+      </div>
+    </div>
+
+    <!-- Profile Form -->
+    <div class="profile-form">
+      <form>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email account</label>
+          <input type="email" id="email" placeholder="Your email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="********">
+        </div>
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

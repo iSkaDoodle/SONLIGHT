@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullHeight = document.body.scrollHeight;
 
     if (scrollY + viewportHeight >= fullHeight - 10) {
-      footer.classList.add('visible');
+      footer?.classList.add('visible');
     } else {
-      footer.classList.remove('visible');
+      footer?.classList.remove('visible');
     }
   });
 
@@ -18,9 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('toggleBtn');
   const sidebar = document.getElementById('sidebar');
 
-  toggleBtn.addEventListener('click', () => {
+  toggleBtn?.addEventListener('click', () => {
     toggleBtn.classList.toggle("change");
     sidebar.classList.toggle("collapsed");
+  });
+
+  // ==== Sort Booking Cards Ascending/Descending ====
+  const sortButton = document.querySelector(".sort-btn");
+  const bookingContainer = document.querySelector(".booking-history");
+  let isAscending = true;
+
+  sortButton?.addEventListener("click", () => {
+    const bookingCards = Array.from(document.querySelectorAll(".booking-card"));
+
+    const sortedCards = bookingCards.sort((a, b) => {
+      const nameA = parseInt(a.querySelector(".store-name").textContent.match(/\d+/)) || 0;
+      const nameB = parseInt(b.querySelector(".store-name").textContent.match(/\d+/)) || 0;
+      return isAscending ? nameA - nameB : nameB - nameA;
+    });
+
+    // Remove old cards
+    bookingCards.forEach(card => card.remove());
+
+    // Append sorted cards
+    sortedCards.forEach(card => bookingContainer.appendChild(card));
+
+    isAscending = !isAscending;
   });
 });
 
@@ -55,7 +78,7 @@ showSignupBtn?.addEventListener("click", showSignup);
 toSignup?.addEventListener("click", showSignup);
 toLogin?.addEventListener("click", showLogin);
 
-// Login
+// Login redirect simulation
 loginForm?.addEventListener("submit", function (e) {
   e.preventDefault();
   setTimeout(() => {
