@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 
+body { padding-bottom: 300px; } /* gives space for the footer */
+
 html, body {
   width: 100%;
   min-height: 100vh;
@@ -106,6 +108,7 @@ header {
 }
 
 .sidebar ul li {
+  width: 80%;
   margin: 5px;
   padding: 15px;
   display: flex;
@@ -115,7 +118,7 @@ header {
 }
 
 .sidebar ul li:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .sidebar ul li a {
@@ -132,6 +135,10 @@ header {
   margin-right: 15px;
 }
 
+.sidebar.collapsed ul li {
+  max-width: fit-content;
+}
+
 .sidebar.collapsed ul li img {
   margin: 0px;
 }
@@ -141,7 +148,7 @@ header {
 }
 
 #sidebar-help {
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 /* ========== Footer ========== */
@@ -164,7 +171,7 @@ header {
 
 .footer-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, auto);
   grid-row: 2;
   /* display: flex;
   flex-wrap: wrap; */
