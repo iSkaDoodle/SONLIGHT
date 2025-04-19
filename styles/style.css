@@ -83,6 +83,7 @@ header {
   left: 0;
   height: 64%;
   width: 275px;
+  background-color: hsla(hue, saturation, lightness, alpha);
   background: #a3d9ec;
   border-bottom-right-radius: 20px;
   padding-top: 80px;
@@ -162,21 +163,26 @@ header {
 }
 
 .footer-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-row: 2;
+  /* display: flex;
+  flex-wrap: wrap; */
   justify-content: space-around;
   max-width: 100%;
   margin: 16px auto;
   text-align: left;
+  justify-items: center;
 }
 
 .footer-section {
-  flex: 1;
+  /* flex: 1; */
   min-width: 25%;
   margin: 10px 0;
 }
 
 .footer-section h4 {
+  width: 100%;
   margin-bottom: 10px;
   font-size: 16px;
 }

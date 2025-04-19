@@ -15,7 +15,8 @@
   margin-bottom: 20px;
 }
 
-#about-main h2 {
+#about-main > h2 {
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -60,11 +61,13 @@
   flex-direction: row-reverse;
 }
 
+#mission-vision-container h2 {margin-bottom: 10px;}
+
 /* founders */
 #founders-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 40px;
+  row-gap: 80px;
   column-gap: 20px;
   width: 100%;
   padding: 20px;
@@ -88,4 +91,5 @@
 .founder-block img {
   width: 100%;
   border-radius: 24px;
+  margin-bottom: 10px;
 }
