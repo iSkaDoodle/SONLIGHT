@@ -233,12 +233,13 @@
           <label for="password">Password</label>
           <input type="password" id="password" placeholder="********">
         </div>
-        <button type="submit" onclick="delayedRedirect()">Save Changes</button>
+        <button type="submit" onclick="delayedRedirect(event)">Save Changes</button>
       </form>
     </div>
   </section>
   <script>
-    function delayedRedirect() {
+    function delayedRedirect(event) {
+      event.preventDefault();
       setTimeout(function() {
         window.location.href = 'profile.html';
       }, 2000);
