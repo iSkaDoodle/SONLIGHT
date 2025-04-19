@@ -235,9 +235,16 @@
           <label for="password">Password</label>
           <input type="password" id="password" placeholder="********">
         </div>
-        <button type="submit">Save Changes</button>
+        <button type="submit" onclick="delayedRedirect()">Save Changes</button>
       </form>
     </div>
   </section>
+  <script>
+    function delayedRedirect() {
+      setTimeout(function() {
+        window.location.href = 'another-page.html';
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
