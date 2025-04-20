@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(329deg, #a3d9ec 0%, #a3d9ec 20%, #ffffff 50%, #ffffff 100%);
+    background-repeat: no-repeat;
   }
   
   .container {
