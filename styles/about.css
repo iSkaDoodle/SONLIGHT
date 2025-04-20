@@ -99,12 +99,18 @@
   #about-main {
     margin: 0px 20px;
     text-align: justify;
-    padding-bottom: 320px;
   }
+
+  #about-main h1 { margin-top: 20px; }
 
   #mission-vision-container {
     min-width: 100%;
   }
+  
+  #founders-container {
+    margin-top: 20px;
+  }
+
   .founder-block {
     min-width: 100%;
   }

@@ -167,7 +167,7 @@
 #submit-review {
   display: block;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   padding: 10px 20px;
   color: #fff;
   background-color: #0688ff;
@@ -175,7 +175,8 @@
   width: fit-content;
   cursor: pointer;
   margin-top: 20px;
-  margin-left: 88%;
+  justify-self: end;
+  margin-right: 20px;
 }
 
 #new-feedback-section img {margin-bottom: 10px;}
