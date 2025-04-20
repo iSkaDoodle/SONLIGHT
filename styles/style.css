@@ -217,6 +217,12 @@ header {
   width: 50%;
   min-width: 102px;
   max-width: 135px;
+  position: relative;
+  left: 50px;
+}
+.bhours{
+  position: relative;
+  left: 50px;
 }
 
 .footer-icons {
@@ -224,6 +230,10 @@ header {
   margin-right: 10px;
   padding-top: 6px;
   vertical-align: text-bottom;
+}
+.smeds{
+  position: relative;
+  left: 1000px;
 }
 
 .bottom-note {
@@ -308,32 +318,39 @@ header {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 16px; /* space sa picture */
-  margin: 100px 0; /* vertical space */
+  gap: 5px; /* space sa picture */
+  margin: 80px 0; /* vertical space */
   
 }
 
 .image-section img {
-  height: 150px; /* kahit anong size gusto mo */
+  height: 120px; /* kahit anong size gusto mo */
+  position: relative;
+  bottom: 50px;
+  overflow: hidden;
 }
 .image-box{
-  width: 200px;
-  height: 200px;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 175px;
+  height: 190px;
+  border: 1px solid rgb(92, 97, 97);
+  box-shadow: 10px 10px 5px gray;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: whitesmoke;
   overflow: hidden;
+  position: relative;
+  left: 50px;
+  border-radius: 10px;
 }
 .image-text{
   font-size: 14px;
   text-align: center;
   margin-top: 4px;
   position: relative;
-  top: 200px;
-  right: 145px;
+  top: 140px;
+  right: 125px;
+  font-family: Arial, sans-serif;
 }
 .custom-footer {
   background-color: #a3d9ec;
@@ -370,5 +387,46 @@ header {
   position: relative;
   top: 150px;
   left: 205px;
-
+}
+.b1{
+  position: relative;
+  left: 320px;
+  bottom: 422px;
+  color: gold;
+  font-size: 20px;
+}
+.b2{
+  position: relative;
+  left: 320px;
+  bottom: 180px;
+  color: gold;
+  font-size: 20px;
+}
+.b3{
+  position: relative;
+  left: 590px;
+  bottom: 208px;
+  color: gold;
+  font-size: 20px;
+}
+.b4{
+  position: relative;
+  left: 589px;
+  bottom: 504px;
+  color: gold;
+  font-size: 20px;
+}
+.b5{
+  position: relative;
+  left: 865px;
+  bottom: 530px;
+  color: gold;
+  font-size: 20px;
+}
+.b6{
+  position: relative;
+  left: 865px;
+  bottom: 287px;
+  color: gold;
+  font-size: 20px;
 }
