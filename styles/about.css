@@ -93,3 +93,47 @@
   border-radius: 24px;
   margin-bottom: 10px;
 }
+
+/* phone portrait */
+@media screen and (max-width: 450px) {
+  #about-main {
+    margin: 0px 20px;
+    text-align: justify;
+    padding-bottom: 320px;
+  }
+
+  #mission-vision-container {
+    min-width: 100%;
+  }
+  .founder-block {
+    min-width: 100%;
+  }
+
+  .founder-block img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+}
+
+/* phone landscape */
+@media screen and (max-height: 450px) {
+  #about-main {
+    margin: 0px 60px;
+    text-align: justify;
+    padding-bottom: 150px;
+  }
+
+  #mission-vision-container {
+    min-width: 100%;
+  }
+  .founder-block {
+    min-width: 60%;
+  }
+
+  .founder-block img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 10px;
+  }
+}
