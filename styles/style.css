@@ -278,155 +278,50 @@ header {
 .sidebar ul #inShop {
   background-color: rgba(255, 255, 255, 1);
 }
-
-.header-bg {
-  background-color: #a3d9ec;
-  padding: 0px;
-}
-.container{
-  text-align: center;
-  width: 100px;
-}
-
-.logo-container {
-  display: flex; 
-  align-items: center;
-  height: 30px;
-  width: 114px;
-  position: relative;
-  left: 50px;
-  top: 30px;
-}
-.icon-image{
-  display: flex;
-  height: 30px;
-  width: 30px;
-  position: relative;
-  left: 1250px;
-  top: 0px;
-
-}
-.navigationbar{
-  display: flex;
-  height: 30px;
-  width: 30px;
-  position: relative;
-  top: -30px;
-
-}
 .image-section {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 5px; /* space sa picture */
-  margin: 80px 0; /* vertical space */
-  
+  margin: 100px 0; /* vertical space */
 }
 
-.image-section img {
-  height: 120px; /* kahit anong size gusto mo */
-  position: relative;
-  bottom: 50px;
-  overflow: hidden;
-}
-.image-box{
-  width: 175px;
-  height: 190px;
-  border: 1px solid rgb(92, 97, 97);
-  box-shadow: 10px 10px 5px gray;
+.image-box {
+  width: 200px;
+  background: whitesmoke;
+  border-radius: 5px;
+  padding: 5px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: whitesmoke;
-  overflow: hidden;
-  position: relative;
-  left: 50px;
-  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 10px;
 }
-.image-text{
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.image-text {
   font-size: 14px;
+  font-weight: bold;
   text-align: center;
-  margin-top: 4px;
+  line-height: 1.2;
   position: relative;
-  top: 140px;
-  right: 125px;
-  font-family: Arial, sans-serif;
-}
-.custom-footer {
-  background-color: #a3d9ec;
-  height: 50%;
+  right: 40px;
 }
 
-.footer-content p {
+.star-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 6px;
+  position: relative;
+  right: 50px;
+}
 
-  font-family: Arial, sans-serif;
-}
-.footer2{
-  position: relative;
-  left: 500px;
-  top: 30px;
-}
-.footer3{
-  position: relative;
-  left: 780px;
-  top: 6px;
-}
-.footer4{
-  position: relative;
-  left: 1070px;
-  bottom: 17px;
-}
-.footer1{
-  position: relative;
-  top: 150px;
-  left: 200px;
-}
-.logos-image{
-  width: 100px;
-  height: 100px;
-  position: relative;
-  top: 150px;
-  left: 205px;
-}
-.b1{
-  position: relative;
-  left: 320px;
-  bottom: 422px;
+.star {
+  font-size: 18px;
   color: gold;
-  font-size: 20px;
-}
-.b2{
-  position: relative;
-  left: 320px;
-  bottom: 180px;
-  color: gold;
-  font-size: 20px;
-}
-.b3{
-  position: relative;
-  left: 590px;
-  bottom: 208px;
-  color: gold;
-  font-size: 20px;
-}
-.b4{
-  position: relative;
-  left: 589px;
-  bottom: 504px;
-  color: gold;
-  font-size: 20px;
-}
-.b5{
-  position: relative;
-  left: 865px;
-  bottom: 530px;
-  color: gold;
-  font-size: 20px;
-}
-.b6{
-  position: relative;
-  left: 865px;
-  bottom: 287px;
-  color: gold;
-  font-size: 20px;
 }
