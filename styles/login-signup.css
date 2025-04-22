@@ -2,6 +2,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(329deg, #a3d9ec 0%, #a3d9ec 20%, #ffffff 50%, #ffffff 100%);
+    background-repeat: no-repeat;
   }
   
   .container {
@@ -109,4 +110,74 @@ body {
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     font-size: 16px;
+  }
+
+  @media screen and (max-width: 450px) {
+    #login-signup-body {
+      padding-bottom: 0px;
+    }
+
+    .container {
+      flex-direction: column;
+    }
+
+    .logo {
+      width: 66.66%;
+    }
+
+    .left-panel {
+      flex: 0;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .tab-switch {
+      top: 15px;
+    }
+
+    .right-panel h1 {
+      font-size: 24px;
+    }
+
+    .tab-switch button {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-height: 450px) {
+    #login-signup-body {
+      padding: 0px;
+    }
+
+    .logo {
+      width: 300px;
+    }
+
+    .left-panel {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .right-panel  {
+      padding: 20px;
+    }
+
+    .right-panel h1 {
+      font-size: 24px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .form input {
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    form .main-btn {
+      width: 50%;
+      font-size: 14px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }

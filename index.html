@@ -1,44 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SonLight</title>
-  <link rel="stylesheet" href="styles/login-signup.css" />
-  <link rel="stylesheet" href="styles/mobile-screen.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <!-- styles -->
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/mobile-screen.css">
+  <link rel="stylesheet" href="styles/index.css">
 </head>
 <body>
-  <div class="container">
-    <div class="left-panel">
-      <img src="images/logo.png" alt="Sonlight Logo" class="logo"/>
+
+  <header id="index-header">
+    <div id="header-left-side">
+      <img id="index-logo" src="images/transparent-logo.png" alt="SonLight logo">
     </div>
-    <div class="right-panel">
-      <div class="tab-switch">
-        <button id="show-signup">SIGN UP</button>
-        <button id="show-login" class="active">LOG IN</button>
+    <div id="header-right-side">
+      <nav id="index-nav">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="login-signup.html" id="index-login">LOG IN</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="index-main">
+    <div class="index-section" id="first-section">
+      <div id="left-side">
+        <h3>EASE THE ONLINE BOOKING EXPERIENCE, LEADING THE WAY TO THE BEST EQUIPMENT RENTALS STORES.</h3>
       </div>
-      
-      <form id="login-form" class="form active">
-        <h1>Welcome back!</h1>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <a href="#">Forgot Password?</a>
-        <button type="enter" class="main-btn">LOG IN</button>
-        <p>Don’t have an account? <span id="to-signup">Sign Up</span></p>
-      </form>
-
-      <form id="signup-form" class="form">
-        <h1>Create an Account</h1>
-        <input type="email" placeholder="Email" required />
-        <input type="text" placeholder="Name" required />
-        <input type="password" placeholder="Password" required />
-        <button type="singup" class="main-btn">CREATE</button>
-        <p>Already have an account? <span id="to-login">Log In</span></p>
-      </form>
+      <div id="right-side">
+        <img src="" alt="image-01">
+      </div>
     </div>
-  </div>
-
+  
+    <div class="index-section" id="second-section">
+      <img src="" alt="image-02">
+      <img src="" alt="image-03">
+      <img src="" alt="image-04">
+      <h3>BOOK NOW AND MAKE YOUR EVENT UNFORGETTABLE!</h3>
+      <img src="" alt="image-05">
+      <img src="" alt="image-06">
+    </div>
+  
+    <div class="index-section" id="third-section">
+      <h3>PERFECT FOR EVENT ORGANIZERS, DJs, AND MORE!</h3>
+      <div id="third-section-images">
+        <img src="" alt="image-07">
+        <img src="" alt="image-08">
+        <img src="" alt="image-09">
+        <img src="" alt="image-10">
+      </div>
+    </div>
+  </main>
+    
+  <!-- footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Business Hours</h4>
+        <div id="business-schedule">
+            <p><span>Mon-Tue</span><span>8:00AM-5:00PM</span></p>
+            <p><span>Wed</span><span>Closed</span></p>
+            <p><span>Thu-Sat</span><span>8:00AM-5:00PM</span></p>
+            <p><span>Sun</span><span>Closed</span></p>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <!-- <a href="#">Plans</a> -->
+        <a href="#">Rate Us</a>
+        <!-- <a href="#">Reviews</a> -->
+      </div>
+      <div class="footer-section">
+        <h4>Follow Our Social Media</h4>
+        <a href="https://www.facebook.com/profile.php?id=61575287158489&rdid=9G0tAtgboeRMjx7O&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19PLDjETWB%2F" target="_blank">
+          <img class="footer-icons" src="images/footer icons/facebook.svg" alt="Facebook logo">
+          Facebook
+        </a>
+        <a href="https://www.instagram.com/so_n_light/" target="_blank">
+          <img class="footer-icons" src="images/footer icons/instagram.svg" alt="Instagram logo">
+          Instagram
+        </a>
+        <a href="https://x.com/so_n_light" target="_blank">
+          <img class="footer-icons" src="images/footer icons/x.svg" alt="X (formerly Twitter) logo">
+          X
+        </a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>
+          <img class="footer-icons" src="images/footer icons/marker.svg" alt="marker icon">
+          Kumintang Ibaba, Batangas City
+        </p>
+        <p>
+          <img class="footer-icons" src="images/footer icons/phone-call.svg" alt="phone icon">
+          XXX-XXXX-XXX
+        </p>
+        <a href="mailto:sonlighttechbook@gmail.com">
+          <img class="footer-icons" src="images/footer icons/envelope.svg" alt="envelope icon">
+          sonlighttechbook@gmail.com
+        </a>
+      </div>
+    </div>
+    <p class="bottom-note">© 2025 SONLIGHT</p>
+  </footer>
+  <!-- scripts -->
   <script src="scripts/script.js"></script>
 </body>
 </html>

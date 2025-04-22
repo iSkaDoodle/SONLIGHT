@@ -122,7 +122,7 @@
 
 /* phone landscape */
 @media screen and (max-height: 450px) {
-  body { padding-bottom: 275px; } /* gives space for the footer */
+  body { padding-bottom: 300px; } /* gives space for the footer */
 
   .burger {
     display: flex;

@@ -1,3 +1,4 @@
+/* main */
 #view-shop-main {
   margin: 40px 140px;
   text-align: justify;
@@ -16,6 +17,7 @@
   align-items: start;
 }
 
+/* shop image */
 #shop-image {
   grid-column: 1/2;
   grid-row: 1/4;
@@ -24,6 +26,7 @@
   border-radius: 24px;
 }
 
+/* shop details */
 #shop-details {
   grid-column: 2/3;
   grid-row: 1/3;
@@ -37,6 +40,7 @@
   text-align: left;
 }
 
+/* book button */
 #book-button {
   display: block;
   border: none;
@@ -89,6 +93,7 @@
   vertical-align: text-bottom;
 }
 
+/* shop services */
 #shop-service-h2 {
   margin-top: 20px;
   font-size: 20px;
@@ -101,6 +106,7 @@
 }
 
 #services-container {
+  padding: 10px;
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -112,7 +118,13 @@
 
 .service-block {
   height: 150px;
+  width: 100%;
 }
+
+#sevices-container .service-block img {
+  border-radius: 12px;
+}
+
 /* feedbacks */
 #feedback-section {
   margin-left: 20px;
@@ -179,5 +191,148 @@
   margin-right: 20px;
 }
 
-#new-feedback-section img {margin-bottom: 10px;}
-#new-feedback-section #review-p {margin-left: 10px;}
+#feedback-section .feedback-block .feedback-rating {
+  margin: 0px;
+  color: yellow;
+}
+
+#new-feedback-section #user-opinion-p {
+  margin-bottom: 5px;
+}
+
+#new-feedback-section .user-rating {
+  margin: 5px 0px;
+  font-size: 24px;
+  color: yellow;
+}
+
+#new-feedback-section #review-p {
+  margin-left: 10px;
+}
+
+/* phone portrait */
+@media screen and (max-width: 450px) {
+  /* shop main */
+  #view-shop-main {
+    margin: 40px 10px;
+    text-align: justify;
+    border: 1px solid #01303f;
+    border-radius: 24px;
+    padding: 10px;
+  }
+  
+  #view-shop-main h2 {
+    font-size: 20px;
+  }
+
+  /* shop image */
+  #shop-image {
+    grid-column: 1/5;
+    grid-row: 1/3;
+    min-height: 200px;
+    padding: 10px;
+  }
+
+  /* shope detals */
+  #shop-details {
+    grid-column: 1/5;
+    grid-row: 3/4;
+  }
+  
+  #shop-details h2 {
+    font-size: 18px;
+  }
+
+  #shop-details p {
+    font-size: 14px;
+  }
+
+  /* shop contact info */
+  .shop-contact-ico {
+    margin-right: 5px;
+  }
+
+  /* book button */
+  #book-button {
+    grid-column: 2/3;
+    justify-self: end;
+    margin-right: 10px;
+  }
+
+  /* shop services */
+  #view-shop-main #shop-service-h2 {
+    font-size: 14px;
+    padding: 12px 20px;
+    margin-top: 20px;
+  }
+
+  #services-container {
+    margin-top: 10px;
+    gap: 5px;
+  }
+
+  /* feedbacks */
+  .feedback {
+    font-size: 14px;
+  }
+
+  .feedback-block {
+    margin-top: 10px;
+    padding: 10px 15px;
+  }
+
+  #feedback-section, #new-feedback-section {
+    margin: 0px;
+  }
+  
+  #new-feedback-section {
+    padding: 0px;
+  }
+
+  #new-feedback-section #review-p {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    vertical-align: top;
+  }
+
+  #submit-review {
+    margin-right: 10px;
+  }
+}
+/* phone landscape */
+@media screen and (max-height: 450px) {
+  /* shop main */
+  #view-shop-main {
+    margin: 20px;
+    text-align: justify;
+    border: 1px solid #01303f;
+    border-radius: 24px;
+    padding: 20px;
+  }
+
+  #view-shop-main h2 {
+    font-size: 20px;
+  }
+
+  /* shop services */
+  #services-container {
+    gap: 5px;
+  }
+
+  #view-shop-main #shop-service-h2 {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .feedback {
+    font-size: 14px;
+  }
+
+  .feedback-block {
+    padding: 10px 15px;
+  }
+
+  #new-feedback-section {
+    margin: 0px;
+  }
+}
