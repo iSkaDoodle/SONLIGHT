@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="view-shop-title">Shop | SonLight</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <!-- styles -->
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/mobile-screen.css">
+  <link rel="stylesheet" href="styles/booking.css">
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="left-header">
+      <div id="toggleBtn" class="burger" onclick="toggleBurger(this)">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="logo">
+        <a href="shop.html"><img src="images/transparent-logo.png" alt="header-logo"></a>
+      </div>
+    </div>
+    <div class="right-header">
+      <a href="#"><img id="header-profile" src="images/icons/profile-icon.svg" alt="Header Profile"></a>
+    </div>
+  </header>
+
+  <!-- main -->
+   <main id="booking-main">
+    <form>
+      <div id="booking-left-side" class="booking-sections">
+        <h3>Booking Details</h3>
+        <div id="customer-details-container">
+            <input type="text" id="customer-name" class="customer-details" required placeholder="Full Name">
+            <input type="tel" id="customer-number" class="customer-details" required placeholder="Contact Number">
+            <input type="email" id="customer-email" class="customer-details" required placeholder="Email">
+            <input type="" id="system-set" class="customer-details" required placeholder="Light and Sound System Set">
+        </div>
+      </div>
+      <div id="booking-right-side" class="booking-sections">
+        <div id="booking-details-container">
+          <input type="text" id="booking-venue" class="booking-details" required placeholder="Venue">
+          <select name="event type" id="event-type-dropdown" class="booking-details" required placeholder="Event Type">
+            <option value="Birthday Party">Birthday Party</option>
+            <option value="Wedding Ceremony">Wedding Ceremony</option>
+            <option value="Fiesta">Fiesta</option>
+            <option value="Barangay Events">Barangay Events</option>
+            <option value="School Events">School Events</option>
+          </select>
+          <input type="time" id="event-time" class="booking-details" required placeholder="Time">
+          <input type="date" id="event-date" class="booking-details" required placeholder="Date">
+        </div>
+        <div id="button-container">
+          <button id="cancel-button" class="booking-buttons">Cancel</button>
+          <button id="place-book-button" class="booking-buttons">Book</button>
+        </div>
+      </div>
+    </form>
+   </main>
+
+  <!-- sidebar -->
+  <aside class="sidebar collapsed" id="sidebar">
+    <ul>
+      <li><a href="profile.html"><img src="images/icons/profile-icon.svg"><span>Profile</span></a></li>
+      <li id="inShop"><a href="shop.html"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></a></li>
+      <li><a href="about.html"><img src="images/icons/about-icon.svg"><span>About Us</span></a></li>
+      <li><a href="#"><img src="images/icons/star-icon.svg"><span>Rate Us</span></a></li>
+      <li id="sidebar-help"><a href="#"><img src="images/icons/help-icon.svg"><span>Help</span></a></li>
+     </ul>
+  </aside>
+
+  <!-- scripts -->
+  <script src="scripts/script.js"></script>
+</body>
+</html>

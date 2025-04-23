@@ -1,0 +1,91 @@
+#sidebar.sidebar.collapsed {
+    width: 0px;
+}
+
+body {
+    height: 100%;
+    padding: 0px;
+}
+
+#booking-main form {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.booking-sections {
+    height: 100%;
+    padding: 20px;
+}
+
+#booking-left-side {
+    background: #a3d9ec;
+    height: 100%;
+    width: 50%;
+}
+
+#booking-right-side {
+    background: #fff;
+    height: 100%;
+    width: 50%;
+}
+
+#customer-details-cotainer, #booking-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-details {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    margin: 10px 0px;
+    padding: 10px 20px;
+}
+
+#customer-name.customer-details {
+    margin-top: 40px;
+}
+
+.booking-details {
+    display: inline-block;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    margin: 10px 0px;
+    padding: 10px 20px;
+    background: #d9d9d9;
+}
+
+#event-time.booking-details {
+    margin-top: 40px;
+}
+
+#booking-right-side #button-container {
+    display: flex;
+    flex-direction: row;
+    justify-self: end;
+    width: 100%;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.booking-buttons { width: 50%; }
+
+#cancel-button {
+    border: 1px solid #10303f;
+    color: #10303f;
+    background: #fff;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 12px;
+}
+
+#place-book-button {
+    border: none;
+    color: #fff;
+    background: #0688ff;
+    padding: 10px 15px;
+    border-radius: 12px;
+}
