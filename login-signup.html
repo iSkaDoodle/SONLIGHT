@@ -22,7 +22,7 @@
       <form id="login-form" class="form active">
         <h1>Welcome back!</h1>
         <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Password" required minlength="8"/>
         <a href="#">Forgot Password?</a>
         <button type="enter" class="main-btn">LOG IN</button>
         <p>Don’t have an account? <span id="to-signup">Sign Up</span></p>
@@ -31,8 +31,8 @@
       <form id="signup-form" class="form">
         <h1>Create an Account</h1>
         <input type="email" placeholder="Email" required />
-        <input type="text" placeholder="Name" required />
-        <input type="password" placeholder="Password" required />
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required minlength="8"/>
         <button type="singup" class="main-btn">CREATE</button>
         <p>Already have an account? <span id="to-login">Log In</span></p>
       </form>
