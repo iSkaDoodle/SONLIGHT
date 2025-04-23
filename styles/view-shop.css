@@ -41,6 +41,8 @@
 }
 
 /* book button */
+a {text-decoration: none;}
+
 #book-button {
   display: block;
   border: none;
@@ -51,6 +53,7 @@
   font-weight: 700;
   width: fit-content;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 #book-button:hover {
@@ -81,6 +84,7 @@
   font-size: 14px;
   margin-top: 2.5px;
   margin-bottom: 2.5px;
+  transition: all 0.2s;
 }
 
 #shop-contact a:hover { font-weight: 700; }
@@ -168,7 +172,7 @@
   height: 150px;
   border: 1px solid #10303f;
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px 15px;
 }
 
 #new-feedback-section p {
@@ -189,6 +193,17 @@
   margin-top: 20px;
   justify-self: end;
   margin-right: 20px;
+  transition: all 0.2s;
+}
+
+#submit-review:hover {
+  background-color: #16aaf9;
+  transform: scale(1.05);
+}
+
+#submit-review:active {
+  background-color: #0688ff;
+  transform: scale(1);
 }
 
 #feedback-section .feedback-block .feedback-rating {
