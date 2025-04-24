@@ -29,8 +29,8 @@
   </header>
 
   <!-- main -->
-   <main id="booking-main">
-    <form id="booking-form">
+  <main id="booking-main">
+    <form id="booking-form" onsubmit="return validation()">
       <div id="booking-left-side" class="booking-sections">
         <h2>Booking Details</h2>
         <div id="customer-details-container">
@@ -50,7 +50,7 @@
           <input type="text" id="booking-venue" class="booking-details" required placeholder="Venue">
           <label for="event-type-dropdown">Event Type</label>
           <!-- event type -->
-          <select name="event type" id="event-type-dropdown" class="booking-details" required placeholder="Event Type">
+          <select name="event type" id="event-type-dropdown" class="booking-details" required>
             <option value="None">None</option>
             <option value="Birthday Party">Birthday Party</option>
             <option value="Wedding Ceremony">Wedding Ceremony</option>
@@ -64,15 +64,52 @@
           <!-- event time -->
           <label for="event-time">Time</label>
           <input type="time" id="event-time" class="booking-details" required placeholder="Time">
-
+    </form>
           <div id="button-container">
-            <button id="cancel-button" class="booking-buttons">Cancel</button>
+            <a href="view-shop.html"><button id="cancel-button" class="booking-buttons">Cancel</button></a>
             <button id="place-book-button" class="booking-buttons">Book</button>
           </div>
         </div>
       </div>
-    </form>
-   </main>
+
+    <!-- message -->
+    <div id="message-div">
+      <div id="message-container">
+        <div id="message-img-container">
+          <img id="message-image" src="images/profile.svg" alt="booking-successful-image">
+        </div>
+        <div id="message-text-container">
+          <h1>Booking Successful</h1>
+          <p id="message-customer-name">Full Name</p>
+        </div>
+        <button id="view-details-button">View Details</button>
+      </div>
+    </div>
+
+    <!-- receipt -->
+    <div id="receipt-div">
+      <h1 id="receipt-h1">Booking Details</h1>
+      <div id="booking-details">
+        <div id="labels-div">
+          <strong class="detail-label">Reference Number : </strong>
+          <strong class="detail-label">Full Name : </strong>
+          <strong class="detail-label">Contact Number : </strong>
+          <strong class="detail-label">Email : </strong>
+          <strong class="detail-label">Light and Sound System Set : </strong>
+          <strong class="detail-label">Date and Time : </strong>
+        </div>
+        <div id="details-div">
+          <p id="refNum-detail"></p>
+          <p id="name-detail"></p>
+          <p id="tel-detail"></p>
+          <p id="email-detail"></p>
+          <p id="light-sound-set"></p>
+          <p id="date-time-detail"></p>
+        </div>
+      </div>
+    </div>
+
+  </main>
 
   <!-- sidebar -->
   <aside class="sidebar collapsed" id="sidebar">
