@@ -423,7 +423,7 @@ input{
   background-color: #ffb300;
 }
 
-/*ITOY PARA SA DESIGN SA HELP PAGE 8*/
+/*ITOY PARA SA DESIGN SA HELP PAGE */
 
 .help-content {
   display: grid;
@@ -461,4 +461,28 @@ input{
 }
 a{
   text-decoration: none;
+}
+.help-sub{
+  display: grid;
+  justify-items: center;      
+  text-align: center;         
+  font-family: Verdana, sans-serif;
+  max-width: 500px;
+  margin: 20px auto;       
+  padding: 20px;
+  box-sizing: border-box; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.text-page {
+  padding: 20px 30px;
+  max-width: 600px;
+  margin: 40px auto; /* Horizontally center */
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 12px;
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #b7deec;
+}
+.text-page h2{
+  margin: 20px;
 }
