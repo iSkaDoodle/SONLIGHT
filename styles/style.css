@@ -358,26 +358,33 @@ input{
   font-size: 25px;
   font-family: verdana;
 }
+/*design to para sa search bar */
+
 .help-container{
   display: grid;
   text-align: center;
   font-family: verdana;
-}
-.search-box button {
-  border: none;
-  background: #4f46e5;
-  color: white;
-  font-size: 18px;
-  padding: 8px 16px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  background-color: #ffffff;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 1px solid #a3d9ec;
 }
 
 .help-title{
-  font-size: 30px;
+  font-size: 35px;
   font-family: verdana;
-  margin: 20px;
+  margin: 10px;
+  display: grid;
+  gap: 30px;
+  padding: 20px;
+  background: rgb(233, 231, 231);
+  border-radius: 8px;
+  box-shadow: 10px 10px 8px rgba(0,0,0,0.1);
+  border: 1px solid rgb(75, 74, 74);
 }
 .search-box{
   display: flex;
@@ -388,19 +395,73 @@ input{
   padding: 5px 10px;
   width: 200px;
 }
-.picture-container {
-  width: 200px;
-  background: whitesmoke;
-  border-radius: 15px;
-  padding: 3px;
-  box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.2);
-  margin: 80px auto; /* Centers horizontally */
-  display: grid;
-  flex-wrap: wrap;
-  gap: 3px; /* space between pictures */
+.search-box {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 600px;
 }
-.picture-container img {
-  width: 100px; /* fits two columns */
+
+.search-box input[type="text"] {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #ffc107;
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+.search-box button:hover {
+  background-color: #ffb300;
+}
+
+/*ITOY PARA SA DESIGN SA HELP PAGE 8*/
+
+.help-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+.help-pic {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 6px 5px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  border: 1px solid rgb(75, 74, 74);
+}
+
+.help-pic img {
+  width: 100px;
+  max-height: 180px;
+  object-fit: cover;
   border-radius: 8px;
+}
+
+.help-pic h3 {
+  margin: 15px 0 5px;
+  font-size: 18px;
+  color: #333;
+}
+.help-pic p {
+  color: #666;
+  font-size: 15px;
+}
+a{
+  text-decoration: none;
 }
