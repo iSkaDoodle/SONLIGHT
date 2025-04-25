@@ -284,6 +284,7 @@ header {
   flex-wrap: wrap;
   gap: 3px; /* space sa picture */
   margin: 100px 0; /* vertical space */
+  
 }
 
 .image-box {
@@ -294,8 +295,9 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.2);
-  margin: 10px;
+  box-shadow: 3px 5px 6px 7px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  border: 1px solid rgb(116, 111, 111);
 }
 
 .image-box img {
