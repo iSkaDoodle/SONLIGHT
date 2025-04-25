@@ -30,7 +30,7 @@
 
   <!-- main -->
   <main id="booking-main">
-    <form id="booking-form" onsubmit="return validation()">
+    <form id="booking-form">
       <div id="booking-left-side" class="booking-sections">
         <h2>Booking Details</h2>
         <div id="customer-details-container">
@@ -41,9 +41,54 @@
           <!-- customer email -->
           <input type="email" id="customer-email" class="customer-details" required maxlength="50" placeholder="Email">
           <!-- system set -->
-          <input type="" id="system-set" class="customer-details" placeholder="Light and Sound System Set">
+          <div id="light-and-sound-btn" onclick="showChoices()"><p id="lght-snd-btn-p">Light and Sound System Set</p></div>
         </div>
       </div>
+
+      <!-- set choices -->
+      <div id="choices-div">
+        <div id="choices-top">
+          <strong>Chooose a Light an Sound Equipment Set</strong>
+          <img id="close-choices-btn" src="images/icons/close-icon.svg" alt="close button" onclick="closeChoices()">
+        </div>
+        <!-- choices -->
+        <div id="choices-container">
+          <div class="set-cards" onclick="set1()">
+            <strong>Set 1</strong>
+            <img src="" alt="set1-img">
+          </div>
+          <div class="set-cards" onclick="set2()">
+            <strong>Set 2</strong>
+            <img src="" alt="set2-img">
+          </div>
+          <div class="set-cards" onclick="set3()">
+            <strong>Set 3</strong>
+            <img src="" alt="set3-img">
+          </div>
+          <div class="set-cards" onclick="set4()">
+            <strong>Set 4</strong>
+            <img src="" alt="set4-img">
+          </div>
+          <div class="set-cards" onclick="set5()">
+            <strong>Set 5</strong>
+            <img src="" alt="set6-img">
+          </div>
+          <div class="set-cards" onclick="set6()">
+            <strong>Set 6</strong>
+            <img src="" alt="set6-img">
+          </div>
+          <div class="set-cards" onclick="set7()">
+            <strong>Set 7</strong>
+            <img src="" alt="set7-img">
+          </div>
+          <div class="set-cards" onclick="set8()">
+            <strong>Set 8</strong>
+            <img src="" alt="set8-img">
+          </div>
+        </div>
+       </div>
+
+      <!-- right side -->
       <div id="booking-right-side" class="booking-sections">
         <div id="booking-details-container">
           <!-- venue -->
@@ -66,7 +111,7 @@
           <input type="time" id="event-time" class="booking-details" required placeholder="Time">
     </form>
           <div id="button-container">
-            <a href="view-shop.html"><button id="cancel-button" class="booking-buttons">Cancel</button></a>
+            <a href="view-shop.html" id="cancel-button" class="booking-buttons">Cancel</a>
             <button id="place-book-button" class="booking-buttons">Book</button>
           </div>
         </div>
@@ -108,7 +153,6 @@
         </div>
       </div>
     </div>
-
   </main>
 
   <!-- sidebar -->

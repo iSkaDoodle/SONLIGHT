@@ -10,7 +10,6 @@ const viewDetailsBtn = document.getElementById('view-details-button');
 const message = document.getElementById('message-div');
 const receipt = document.getElementById('receipt-div');
 
-
 // customer details
 const customerName = document.getElementById('customer-name');
 const customerTel = document.getElementById('customer-number');
@@ -38,15 +37,82 @@ const min = 100000000000000;
 const max = 999999999999999;
 let refNumber = Math.floor(Math.random() * (max - min) ) + min;
 
+// System Set choices
+const setChoices = document.getElementById('choices-div');
+let choice = document.getElementById('lght-snd-btn-p');
+let setChoice;
+function showChoices() {
+  setChoices.style.display = "block";
+}
+// bunch of choice functions
+function set1() {
+  setChoice = "Set 1";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
 
+function set2() {
+  setChoice = "Set 2";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
+
+function set3() {
+  setChoice = "Set 3";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
+
+function set4() {
+  setChoice = "Set 4";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
+
+function set5() {
+  setChoice = "Set 5";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
+
+function set6() {
+  setChoice = "Set 6";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
+
+function set7() {
+  setChoice = "Set 7";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
+
+function set8() {
+  setChoice = "Set 8";
+  choice.textContent = setChoice;
+  choice.style.color = "#000";
+  closeChoices();
+}
+
+function closeChoices() {
+  setChoices.style.display = "none";
+}
+
+// shows the message
 bookBtn.onclick = function()  {
   messageCustomerName.textContent = customerName.value;
-
   refNumDetail.textContent = refNumber;
   nameDetail.textContent = customerName.value;
   telDetail.textContent = customerTel.value;
   emailDetail.textContent = customerEmail.value;
-  lightSoundSet.textContent = customerSysSet.value;
+  lightSoundSet.textContent = setChoice;
   dateTimeDetail.textContent = date;
   hideForm();
 };
