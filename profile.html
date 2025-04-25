@@ -6,240 +6,275 @@
   <title>Profile | SonLight</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    html, body {
-      width: 100%;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #F5F5F5;
-    }
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #F5F5F5;
+}
 
-    .toggle-sidebar,
-    .close-sidebar {
-      display: none;
-      position: fixed;
-      top: 20px;
-      z-index: 1100;
-      background: none;
-      color: #01303f;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 28px;
-    }
+.toggle-sidebar,
+.close-sidebar {
+  display: none;
+  position: fixed;
+  top: 20px;
+  z-index: 1100;
+  background: none;
+  color: #01303f;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 28px;
+}
 
-    .toggle-sidebar:hover,
-    .close-sidebar:hover {
-      color: #000;
-      transform: scale(1.1);
-      transition: transform 0.3s ease;
-    }
+.toggle-sidebar:hover,
+.close-sidebar:hover {
+  color: #000;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
 
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 275px;
-      height: 100%;
-      background: #a3d9ec;
-      padding-top: 20px;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-      transition: transform 0.3s ease;
-      border-top-right-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 275px;
+  height: 100%;
+  background: #a3d9ec;
+  padding-top: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 
-    .sidebar.hidden {
-      transform: translateX(-100%);
-    }
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
 
-    .sidebar.show {
-      transform: translateX(0);
-    }
+.sidebar.show {
+  transform: translateX(0);
+}
 
-    .sidebar .logo {
-      display: block;
-      height: 90px;
-      margin: 0 auto 20px;
-    }
+.sidebar .logo {
+  display: block;
+  height: 90px;
+  margin: 0 auto 20px;
+}
 
-    .sidebar ul {
-      list-style: none;
-      padding: 0 20px;
-    }
+.sidebar ul {
+  list-style: none;
+  padding: 0 20px;
+}
 
-    .sidebar ul li {
-      margin: 10px 0;
-    }
+.sidebar ul li {
+  margin: 10px 0;
+}
 
-    .sidebar ul li a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: #01303f;
-      font-weight: bold;
-      padding: 10px;
-      border-radius: 25px;
-      transition: background 0.3s ease;
-    }
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #01303f;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
 
-    .sidebar ul li a:hover,
-    .sidebar ul li a.active {
-      background: white;
-    }
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: white;
+}
 
-    .sidebar ul li img {
-      width: 24px;
-      height: 24px;
-      margin-right: 15px;
-    }
+.sidebar ul li img {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
 
-    #sidebar-help {
-      margin-top: 150px;
-    }
+#sidebar-help {
+  margin-top: 150px;
+}
 
-    .profile {
-      margin-left: 275px;
-      padding: 50px 20px 20px;
-      display: flex;
-      justify-content: center;
-    }
+.profile {
+  margin-left: 275px;
+  padding: 50px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
 
-    .profile-card-grid {
-      display: grid;
-      grid-template-columns: 120px 1fr auto;
-      gap: 30px;
-      background-color: #a3d9ec;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      max-width: 1000px;
-      width: 100%;
-      position: relative;
-    }
+.profile-card-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 30px;
+  background-color: #a3d9ec;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
+  position: relative;
+}
 
-    .profile-avatar .profile-pic-preview {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #ccc;
-    }
+.profile-avatar .profile-pic-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
 
-    .profile-info p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      color: #01303F;
-    }
+.profile-info p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #01303F;
+}
 
-    .profile-edit-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      background: transparent;
-      border: none;
-      font-weight: bold;
-      color: #01303F;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-    }
+.profile-edit-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  color: #01303F;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
 
-    .profile-edit-btn:hover {
-      text-decoration: underline;
-    }
+.profile-edit-btn:hover {
+  text-decoration: underline;
+}
 
-    .booking-history {
-      margin-left: 275px;
-      padding: 20px 0 50px 0;
-    }
+.booking-history {
+  margin-left: 275px;
+  padding: 20px 0 50px 0;
+}
 
-    .booking-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 50px 20px 50px;
-    }
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 50px 20px 50px;
+}
 
-    .sort-btn {
-      background-color: white;
-      border: 1px solid #ccc;
-      padding: 0.4rem 0.8rem;
-      border-radius: 10px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      cursor: pointer;
-    }
+.sort-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
 
-    .booking-card {
-      margin: 0 50px 15px 50px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      font-weight: 500;
-    }
+.booking-card {
+  margin: 0 50px 15px 50px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
 
-    .store-name {
-      color: #01303F;
-    }
+.store-name {
+  color: #01303F;
+}
 
-    .booking-date {
-      color: #888;
-    }
+.booking-date {
+  color: #888;
+}
 
-    @media (max-width: 768px) {
-      .profile,
-      .booking-history {
-        margin-left: 0;
-        padding: 20px;
-      }
+@media (max-width: 768px) {
+  .profile,
+  .booking-history {
+    margin-left: 0;
+    padding: 20px;
+  }
 
-      .booking-header,
-      .booking-card {
-        margin: 0 20px;
-      }
+  .booking-header,
+  .booking-card {
+    margin: 0 20px;
+  }
 
-      .toggle-sidebar {
-        display: block;
-        top: 20px;
-        left: 20px;
-        font-size: 28px;
-      }
+  .toggle-sidebar {
+    display: block;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+  }
 
-      .close-sidebar {
-        display: block;
-        top: 5px;
-        right: 20px;
-        font-size: 18px;
-      }
-    }
+  .close-sidebar {
+    display: block;
+    top: 5px;
+    right: 20px;
+    font-size: 18px;
+  }
 
-    @media (min-width: 769px) {
-      .sidebar {
-        transform: translateX(0) !important;
-      }
+  .profile-card-grid {
+    display: block;
+    padding: 15px;
+    gap: 20px;
+  }
 
-      .toggle-sidebar,
-      .close-sidebar {
-        display: none !important;
-      }
+  .profile-info p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
 
-      .profile {
-        margin-left: 275px;
-        padding: 50px 20px;
-      }
-    }
+  .profile-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-avatar .profile-pic-preview {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-card-grid > .profile-info {
+    margin-top: 20px;
+  }
+
+  .profile-card-grid > .profile-info, 
+  .profile-card-grid > .profile-avatar {
+    width: 100%;
+  }
+
+  .profile-info p {
+    word-wrap: break-word;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    transform: translateX(0) !important;
+  }
+
+  .toggle-sidebar,
+  .close-sidebar {
+    display: none !important;
+  }
+
+  .profile {
+    margin-left: 275px;
+    padding: 50px 20px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -256,7 +291,6 @@
     </ul>
   </aside>
 
-  <!-- Profile -->
   <div class="profile">
     <div class="profile-card-grid">
       <div class="profile-avatar">
@@ -317,10 +351,21 @@
     });
 
     function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('show');
-      sidebar.classList.toggle('hidden');
-    }
+  const sidebar = document.getElementById('sidebar');
+  const burger = document.getElementById('burger-btn');
+  const closeBtn = document.getElementById('close-btn');
+
+  sidebar.classList.toggle('show');
+  sidebar.classList.toggle('hidden');
+
+  if (sidebar.classList.contains('show')) {
+    burger.style.display = 'none';
+    closeBtn.style.display = 'block';
+  } else {
+    burger.style.display = 'block';
+    closeBtn.style.display = 'none';
+  }
+}
   </script>
 </body>
 </html>
