@@ -8,6 +8,8 @@ const bookBtn = document.getElementById('place-book-button');
 const form = document.getElementById('booking-form');
 const viewDetailsBtn = document.getElementById('view-details-button');
 const message = document.getElementById('message-div');
+const receipt = document.getElementById('receipt-div');
+
 
 // customer details
 const customerName = document.getElementById('customer-name');
@@ -46,19 +48,22 @@ bookBtn.onclick = function()  {
   emailDetail.textContent = customerEmail.value;
   lightSoundSet.textContent = customerSysSet.value;
   dateTimeDetail.textContent = date;
-  removeForm();
+  hideForm();
 };
 
 viewDetailsBtn.onclick = function() {
-  removeMessage();
+  hideMessage();
 }
 
-function removeForm() {
-  form.remove('active');
+function hideForm() {
+  form.style.display = "none";
+  message.style.display = "block";
 }
 
-function removeMessage() {
-  message.remove('active');
+function hideMessage() {
+  message.style.display = "none";
+  receipt.style.display = "block";
+
 }
 
 // <== Definetely Unused ==>
