@@ -6,7 +6,6 @@
   <title>Profile | SonLight</title>
   <link rel="icon" href="images/favicon.ico" />
   <style>
-    /* ========== Base Reset ========== */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +17,7 @@ body {
   background: #f5f5f5;
 }
 
-/* ========== Sidebar (Navigation) ========== */
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -34,14 +33,12 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* Sidebar Logo */
 .sidebar .logo {
   display: block;
   height: 90px;
   margin: 0 auto 20px auto;
 }
 
-/* Sidebar Menu */
 .sidebar ul {
   list-style: none;
   padding: 0 20px;
@@ -66,6 +63,10 @@ body {
   background: white;
 }
 
+.sidebar ul li a.active {
+  background-color: white;
+}
+
 .sidebar ul li img {
   width: 24px;
   height: 24px;
@@ -76,7 +77,6 @@ body {
   margin-top: 150px;
 }
 
-/* ========== Main Content ========== */
 .main-content {
   margin-left: 275px;
   padding: 50px 20px;
@@ -86,7 +86,6 @@ body {
   gap: 30px;
 }
 
-/* ========== Profile Card ========== */
 .profile-card {
   display: grid;
   grid-template-columns: 120px 1fr;
@@ -100,7 +99,7 @@ body {
   position: relative;
 }
 
-/* Avatar */
+/* DP */
 .profile-avatar {
   display: flex;
   flex-direction: column;
@@ -127,14 +126,12 @@ body {
   text-align: center;
 }
 
-/* Profile Info */
 .profile-info p {
   margin-bottom: 15px;
   font-size: 1.1rem;
   color: #01303f;
 }
 
-/* ========== Profile Form ========== */
 .profile-form {
   background: white;
   padding: 30px;
@@ -174,7 +171,7 @@ body {
   font-weight: bold;
 }
 
-/* ========== Burger & Close Button ========== */
+/* ========== Burger ========== */
 .toggle-sidebar {
   display: none;
   position: fixed;
@@ -278,7 +275,6 @@ body {
     margin-left: 275px;
   }
 }
-
   </style>
 </head>
 
@@ -288,7 +284,7 @@ body {
     <button class="close-sidebar" onclick="toggleSidebar()" id="close-btn">✕</button>
     <a href="shop.html"><img src="images/transparent-logo.png" alt="SonLight Logo" class="logo" /></a>
     <ul>
-      <li><a href="profile.html"><img src="images/icons/profile-icon.svg" /><span>Profile</span></a></li>
+      <li><a href="profile.html" class="active"><img src="images/icons/profile-icon.svg" /><span>Profile</span></a></li>
       <li><a href="shop.html"><img src="images/icons/store-icon.svg" /><span>Rental Stores</span></a></li>
       <li><a href="about.html"><img src="images/icons/about-icon.svg" /><span>About Us</span></a></li>
       <li><a href="#"><img src="images/icons/star-icon.svg" /><span>Rate Us</span></a></li>
@@ -297,7 +293,6 @@ body {
   </aside>
 
   <section class="main-content">
-    <!-- profile -->
     <div class="profile-card">
       <div class="profile-avatar">
         <img src="images/profile/profile_placeholder.png" alt="Profile Picture" />
@@ -312,7 +307,6 @@ body {
       </div>
     </div>
 
-    <!-- Profile Edit-->
     <div class="profile-form">
       <form>
         <label for="name">Name</label>
@@ -328,7 +322,6 @@ body {
       </form>
     </div>
   </section>
-
 
   <script>
     function toggleSidebar() {
