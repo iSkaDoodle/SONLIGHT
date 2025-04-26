@@ -68,11 +68,6 @@
   width: 100%;
 }
 
-#index-main img {
-  /* min-width: 100%;
-  max-height: 200px; */
-}
-
 #index-main div {
   /* border: 1px solid black; */
   min-height: 50px;
@@ -90,6 +85,7 @@
 #first-section {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
 }
 
@@ -99,7 +95,7 @@
 }
 
 #first-section img {
-  max-width: 50%;
+  max-width: 100%;
 }
 
 #second-section {
@@ -115,7 +111,9 @@
 }
 
 #second-section img {
-  max-height: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  align-self: center;
 }
 
 #third-section {
@@ -145,6 +143,7 @@
 #third-section-images img {
   max-height: 100%;
   max-width: 100%;
+  border-radius: 12px;
 }
 
 #left-side {

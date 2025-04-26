@@ -68,8 +68,106 @@ body {
   background: #d9d9d9;
 }
 
-#event-time.booking-details {
+.customer-details::placeholder, .booking-details::placeholder {
+  color: #96969d;
+}
 
+#light-and-sound-btn {
+  font-family: Verdana;
+  color: #96969d;
+  background: #fff;
+  min-height: 38.4px;
+  max-height: fit-content;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 10px 0px;
+  transition: all 0.2s;
+}
+
+#light-and-sound-btn:hover {
+  transform: scale(1.025);
+  cursor: pointer;
+}
+
+#light-and-sound-btn:active {
+  transform: scale(1);
+}
+
+/* set choices */
+#choices-top strong {
+  display: inline;
+  justify-self: start;
+  font-size: 24px;
+}
+
+#close-choices-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 32px;
+}
+
+#close-choices-btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#choices-div {
+  width: 100%;
+}
+
+#choices-div h2 span {
+  justify-self: end;
+}
+
+#choices-div {
+  display: none;
+  position: fixed;
+  top: 12%;
+  bottom: 10%;
+  left: 10%;
+  right: 10%;
+  background: #fff;
+  box-shadow: 0px 0px 8px rgba(32, 32, 32, 0.2);
+  border-radius: 24px;
+  height: fit-content;
+  width: 75%;
+  justify-self: center;
+  align-content: center;
+  padding:20px;
+}
+
+#choices-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  justify-items: center;
+  height: 75%;
+}
+
+.set-cards {
+  height: 50%;
+}
+
+.set-cards img {
+  border: 1px solid #10303f;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 225px;
+  max-width: 100%;
+  transition: all 0.2s;
+}
+
+.set-cards img:hover {
+  box-shadow: 0px 0px 8px #0f0;
+  cursor: pointer;
+}
+
+.set-cards strong {
+  display: block;
+  text-align: center;
 }
 
 /* buttons */
@@ -99,7 +197,8 @@ a {
 }
 
 #cancel-button {
-  width: 100%;
+  width: 50%;
+  text-align: center;
   border: 1px solid #10303f;
   color: #10303f;
   background: #fff;

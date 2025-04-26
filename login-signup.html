@@ -4,9 +4,233 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SonLight</title>
-  <link rel="stylesheet" href="styles/login-signup.css" />
   <link rel="stylesheet" href="styles/mobile-screen.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(329deg, #a3d9ec 0%, #a3d9ec 20%, #ffffff 50%, #ffffff 100%);
+      background-repeat: no-repeat;
+    }
+    
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+  
+    .left-panel {
+      flex: 0;
+      background: #a3d9ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    
+    .logo {
+      width: 500px;
+    }
+    
+    .right-panel {
+      flex: 1;
+      display: flex;
+      padding: 40px;
+      position: relative;
+      justify-content: center;
+      align-items: center; 
+    }
+    
+    .tab-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    
+    .tab-switch button {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      background: #fff;
+      color: #007bff;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    
+    .tab-switch button.active {
+      background: #007bff;
+      color: #fff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    
+    .form {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      max-width: 700px;
+    }
+    
+    .form.active {
+      display: flex;
+    }
+    
+    .form h2 {
+      margin-bottom: 20px;
+    }
+    
+    .form input {
+      margin-bottom: 15px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    
+    .form a,
+    .form span {
+      font-size: 14px;
+      color: #007bff;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .form p {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+    
+    .main-btn {
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      font-size: 16px;
+    }
+  
+    @media screen and (max-width: 450px) {
+      #login-signup-body {
+        padding-bottom: 0px;
+      }
+  
+      .container {
+        flex-direction: column;
+      }
+  
+      .logo {
+        width: 66.66%;
+      }
+  
+      .left-panel {
+        flex: 0;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+  
+      .tab-switch {
+        top: 15px;
+      }
+  
+      .right-panel h1 {
+        font-size: 24px;
+      }
+  
+      .tab-switch button {
+        font-size: 12px;
+      }
+    }
+  
+    @media screen and (max-height: 450px) {
+      #login-signup-body {
+        padding: 0px;
+      }
+  
+      .logo {
+        width: 300px;
+      }
+  
+      .left-panel {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+  
+      .right-panel  {
+        padding: 20px;
+      }
+  
+      .right-panel h1 {
+        font-size: 24px;
+        margin-top: 40px;
+        margin-bottom: 10px;
+      }
+  
+      .form input {
+        font-size: 14px;
+        padding: 10px;
+      }
+  
+      form .main-btn {
+        width: 50%;
+        font-size: 14px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById("login-form");
+      const signupForm = document.getElementById("signup-form");
+
+      const showLoginBtn = document.getElementById("show-login");
+      const showSignupBtn = document.getElementById("show-signup");
+
+      const toSignup = document.getElementById("to-signup");
+      const toLogin = document.getElementById("to-login");
+
+      function showLogin() {
+        loginForm.classList.add("active");
+        signupForm.classList.remove("active");
+        showLoginBtn.classList.add("active");
+        showSignupBtn.classList.remove("active");
+      }
+
+      function showSignup() {
+        signupForm.classList.add("active");
+        loginForm.classList.remove("active");
+        showSignupBtn.classList.add("active");
+        showLoginBtn.classList.remove("active");
+      }
+
+      // Login - Signup vice versa
+      showLoginBtn?.addEventListener("click", showLogin);
+      showSignupBtn?.addEventListener("click", showSignup);
+      toSignup?.addEventListener("click", showSignup);
+      toLogin?.addEventListener("click", showLogin);
+
+      // Login redirect simulation
+      loginForm?.addEventListener("submit", function (e) {
+        e.preventDefault();
+        setTimeout(() => {
+          window.location.href = 'shop.html';
+        }, 1000);
+      });
+    });
+  </script>
 </head>
 <body id="login-signup-body">
   <div class="container">
@@ -24,7 +248,7 @@
         <input type="email" placeholder="Email" required />
         <input type="password" placeholder="Password" required minlength="8"/>
         <a href="#">Forgot Password?</a>
-        <button type="enter" class="main-btn">LOG IN</button>
+        <button type="submit" class="main-btn">LOG IN</button>
         <p>Don’t have an account? <span id="to-signup">Sign Up</span></p>
       </form>
 
@@ -33,12 +257,10 @@
         <input type="email" placeholder="Email" required />
         <input type="text" placeholder="Username" required />
         <input type="password" placeholder="Password" required minlength="8"/>
-        <button type="singup" class="main-btn">CREATE</button>
+        <button type="submit" class="main-btn">CREATE</button>
         <p>Already have an account? <span id="to-login">Log In</span></p>
       </form>
     </div>
   </div>
-
-  <script src="scripts/script.js"></script>
 </body>
 </html>
