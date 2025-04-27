@@ -15,10 +15,8 @@ const customerName = document.getElementById('customer-name');
 const customerTel = document.getElementById('customer-number');
 const customerEmail = document.getElementById('customer-email');
 const customerSysSet = document.getElementById('system-set');
-const date = document.getElementById('event-date').value;
-const time = document.getElementById('event-time').value;
-let strDate = String(date);
-let dateTime = strDate.concat(' ' + time);
+const date = document.getElementById('event-date');
+const time = document.getElementById('event-time');
 
 
 // message
@@ -120,7 +118,7 @@ bookBtn.onclick = function()  {
   telDetail.textContent = customerTel.value;
   emailDetail.textContent = customerEmail.value;
   lightSoundSet.textContent = setChoice;
-  dateTimeDetail.textContent = date;
+  dateTimeDetail.textContent = `${date.value} | ${time.value}`;
   hideForm();
 };
 
