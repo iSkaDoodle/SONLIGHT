@@ -47,7 +47,7 @@ function chngSetColors() {
 
 let setChoice;
 function showChoices() {
-  setChoices.style.display = "block";
+  setChoices.style.display = "grid";
 }
 // bunch of choice functions
 function set1() {
@@ -110,15 +110,34 @@ function closeChoices() {
   setChoices.style.display = "none";
 }
 
+// 24-hour to 12-hour format converter
+function convertTime(time) {
+  let timeStr = String(time).split(":");
+  let hour = Number(timeStr[0]);
+  let minute = Number(timeStr[1]);
+  let timeSuffix;
+
+  if(hour>=12) {
+    hour = hour % 12;
+    if(hour==0) hour = 12;
+    timeSuffix = 'PM';
+    return `${String(hour)}:${String(minute)} ${timeSuffix}`;
+  } else {
+    timeSuffix = 'AM';
+    return `${String(hour)}:${String(minute)} ${timeSuffix}`;
+  }
+}
+
 // shows the message
 bookBtn.onclick = function()  {
+  convertTime(time.value);
   messageCustomerName.textContent = customerName.value;
   refNumDetail.textContent = refNumber;
   nameDetail.textContent = customerName.value;
   telDetail.textContent = customerTel.value;
   emailDetail.textContent = customerEmail.value;
   lightSoundSet.textContent = setChoice;
-  dateTimeDetail.textContent = `${date.value} | ${time.value}`;
+  dateTimeDetail.textContent = `${date.value} | ${convertTime(time.value)}`;
   hideForm();
 };
 

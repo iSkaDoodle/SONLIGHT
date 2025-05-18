@@ -291,7 +291,7 @@ header {
   max-width: 275px;
   min-width: 275px;
   justify-self: center;
-  transition: all 0.25s;
+  transition: all 0.2s;
 }
 
 .image-box:hover {
@@ -300,7 +300,7 @@ header {
 
 .image-box a {
   background: #fff;
-  box-shadow: 0px 0px 8px rgba(32, 32, 32, 0.75);
+  box-shadow: 0px 0px 8px #202020bf;
   border-radius: 24px;
   padding: 10px;
   display: grid;
@@ -347,11 +347,12 @@ header {
   color: #01303F;
 }
 .image-box-bottom-row .arrow-img-container {
-  justify-self: end;
+  justify-self: center;
   align-content: center;
 }
 
 .image-box-bottom-row .arrow-img-container img {
+  min-height: 85%;
   max-width: 100%;
 }
 

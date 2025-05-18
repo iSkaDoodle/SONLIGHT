@@ -94,8 +94,7 @@ body {
 }
 
 /* set choices */
-#choices-top strong {
-  display: inline;
+#choices-div #choose-strng {
   justify-self: start;
   font-size: 24px;
 }
@@ -113,10 +112,6 @@ body {
 }
 
 #choices-div {
-  width: 100%;
-}
-
-#choices-div {
   display: none;
   position: fixed;
   top: 12%;
@@ -124,7 +119,7 @@ body {
   left: 10%;
   right: 10%;
   background: #fff;
-  box-shadow: 0px 0px 8px rgba(32, 32, 32, 0.2);
+  box-shadow: 0px 0px 8px #20202033;
   border-radius: 24px;
   height: fit-content;
   width: 75%;
@@ -132,13 +127,7 @@ body {
   justify-self: center;
   align-content: center;
   padding:20px;
-}
-
-#choices-div #choose-strng {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 24px;
+  grid-template-rows: repeat(20, 1fr);
 }
 
 #choices-container {
@@ -147,26 +136,33 @@ body {
   grid-template-rows: repeat(2, 1fr);
   gap: 20px 10px;
   justify-items: center;
-  height: 80%;
+  grid-row: 2/20;
 }
 
 .set-card-container {
-  height: 240px;
-  width: 240px;
-}
-
-
-.set-cards img {
+  height: 100%;
+  width: 100%;
   border: 1px solid #10303f;
   border-radius: 8px;
-  padding: 10px;
-  height: 100%;
-  max-width: 100%;
+  align-content: center;
+  justify-self: center;
   transition: all 0.2s;
 }
 
-.set-cards img:hover {
+.set-cards {
+  width: 100%;
+  justify-self: end;
+}
+
+.set-card-container img {
+  padding: 10px;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.set-card-container:hover {
   box-shadow: 0px 0px 8px #0f0;
+  transform: scale(1.01);
   cursor: pointer;
 }
 
@@ -262,8 +258,7 @@ a {
 }
 
 #message-image {
-  max-height: 100%;
-  min-width: 100%;
+  width: 100%;
 }
 
 #message-text-container {
@@ -356,4 +351,45 @@ a {
   width: 100%;
   height: fit-content;
   font-size: 24px;
+}
+
+@media screen and (max-width: 740px) {
+  #choices-div #choose-strng {
+    justify-self: start;
+    font-size: 18px;
+    max-width: 80%;
+  }
+
+  #choices-div {
+    max-height: 50%;
+    padding: 10px;
+  }
+
+  #close-choices-btn {
+    top: 15px;
+    right: 15px;
+  }
+
+  #message-div {
+    height: fit-content;
+    height: 100%;
+    align-content: center;
+  }
+
+  #message-div #message-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  #message-text-container h1 {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  #message-customer-name {
+    margin: 5% 0%;
+    text-align: center;
+    font-size: 20px;
+  }
 }
