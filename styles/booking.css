@@ -205,6 +205,7 @@ a {
   background: #fff;
   padding: 10px 15px;
   border-radius: 12px;
+  transition: all 0.2s;
 }
 
 #cancel-button:hover {
@@ -220,16 +221,31 @@ a {
   background: #0688ff;
   padding: 10px 15px;
   border-radius: 12px;
+  transition: all 0.2s;
 }
 
-#place-book-button:hover {
+#place-book-button:hover, #go-back:hover {
   background-color: #16aaf9;
   transform: scale(1.05);
 }
   
-#place-book-button:active {
+#place-book-button:active, #go-back:active {
   background-color: #0688ff;
   transform: scale(1);
+}
+
+#go-back {
+  display: none;
+  text-align: center;
+  justify-self: center;
+  margin-top: 20px;
+  width: 25%;
+  border: none;
+  color: #fff;
+  background: #0688ff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  transition: all 0.2s;
 }
 
 /* message */
@@ -312,15 +328,22 @@ a {
 
 /* receipt */
 #receipt-div {
+  margin-top: 50px;
+  padding: 25px 0px;
+  background: #fff;
+  box-shadow: 0px 0px 12px #20202099;
+  border-radius: 24px;
   display: block;
-  height: 100%;
-  width: 100%;
+  height: fit-content;
+  width: fit-content;
   align-content: center;
+  justify-self: center;
   display: none;
 }
 
 #receipt-h1 {
   width: 80%;
+  font-size: 28px;
   text-align: center;
   justify-self: center;
   padding-bottom: 20px;
@@ -344,13 +367,13 @@ a {
 .detail-label {
   width: 100%;
   height: fit-content;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .detail-value {
   width: 100%;
   height: fit-content;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 740px) {
@@ -391,5 +414,29 @@ a {
     margin: 5% 0%;
     text-align: center;
     font-size: 20px;
+  }
+
+  #receipt-div {
+    margin-top: 20px;
+    width: 90%;
+  }
+
+  #booking-details {
+    width: 100%;
+    column-gap: 5px;
+    row-gap: 10px;
+    border: none;
+  }
+
+  #receipt-h1 {
+    font-size: 24px;
+  }
+
+  .detail-label {
+    font-size: 16px;
+  }
+
+  .detail-value {
+    font-size: 16px;
   }
 }

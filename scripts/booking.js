@@ -9,12 +9,15 @@ const form = document.getElementById('booking-form');
 const viewDetailsBtn = document.getElementById('view-details-button');
 const message = document.getElementById('message-div');
 const receipt = document.getElementById('receipt-div');
+const goBack = document.getElementById('go-back');
 
 // customer details
 const customerName = document.getElementById('customer-name');
 const customerTel = document.getElementById('customer-number');
 const customerEmail = document.getElementById('customer-email');
 const customerSysSet = document.getElementById('system-set');
+const eventType = document.getElementById('event-type-dropdown');
+const Evntvenue = document.getElementById('booking-venue');
 const date = document.getElementById('event-date');
 const time = document.getElementById('event-time');
 
@@ -27,6 +30,7 @@ const refNumDetail = document.getElementById('refNum-detail');
 const nameDetail = document.getElementById('name-detail');
 const telDetail = document.getElementById('tel-detail');
 const emailDetail = document.getElementById('email-detail');
+const eventVenue = document.getElementById('event-venue-detail');
 const lightSoundSet = document.getElementById('light-sound-set');
 const dateTimeDetail = document.getElementById('date-time-detail');
 
@@ -114,7 +118,7 @@ function closeChoices() {
 function convertTime(time) {
   let timeStr = String(time).split(":");
   let hour = Number(timeStr[0]);
-  let minute = Number(timeStr[1]);
+  let minute = String(timeStr[1]);
   let timeSuffix;
 
   if(hour>=12) {
@@ -123,6 +127,7 @@ function convertTime(time) {
     timeSuffix = 'PM';
     return `${String(hour)}:${String(minute)} ${timeSuffix}`;
   } else {
+    if(hour==0) hour = 12;
     timeSuffix = 'AM';
     return `${String(hour)}:${String(minute)} ${timeSuffix}`;
   }
@@ -135,6 +140,7 @@ bookBtn.onclick = function()  {
   refNumDetail.textContent = refNumber;
   nameDetail.textContent = customerName.value;
   telDetail.textContent = customerTel.value;
+  eventVenue.textContent = `${eventType.value} at ${Evntvenue.value}`;
   emailDetail.textContent = customerEmail.value;
   lightSoundSet.textContent = setChoice;
   dateTimeDetail.textContent = `${date.value} | ${convertTime(time.value)}`;
@@ -153,6 +159,7 @@ function hideForm() {
 function hideMessage() {
   message.style.display = "none";
   receipt.style.display = "block";
+  goBack.style.display = "block";
 
 }
 
