@@ -511,6 +511,7 @@ input{
   max-width: 500px;
   margin: 10px auto;
   padding: 20px;
+  transition: 0.3s;
 }
 
 .help-pic {
@@ -520,7 +521,12 @@ input{
   text-align: center;
   border: 1px solid #7a7a7a;
   margin: 0 auto;
+  transition: 0.3s;
 }
+.help-pic:hover{
+  transform: scale(1.10);
+}
+
 
 .help-pic img {
   width: 100px;
