@@ -171,11 +171,8 @@ header {
 
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-row: 2;
-  /* display: flex;
-  flex-wrap: wrap; */
-  justify-content: space-around;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: 2;
   max-width: 100%;
   margin: 16px auto;
   text-align: left;
@@ -241,6 +238,10 @@ header {
   font-size: 14px;
 }
 
+#sonlight-icon-img {
+  height: 125px;
+}
+
 /* ========== Optional Responsive Support ========== */
 @media (max-width: 768px) {
   header {
@@ -291,7 +292,7 @@ header {
   max-width: 275px;
   min-width: 275px;
   justify-self: center;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .image-box:hover {
@@ -511,17 +512,17 @@ input{
   max-width: 500px;
   margin: 10px auto;
   padding: 20px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .help-pic {
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 5px 3px 5px 4px rgba(0,0,0,0.1);
+  box-shadow: 5px 3px 5px 4px #0000001a;
   text-align: center;
   border: 1px solid #7a7a7a;
   margin: 0 auto;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 .help-pic:hover{
   transform: scale(1.10);
