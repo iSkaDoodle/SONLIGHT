@@ -2,282 +2,229 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile | SonLight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Profile | SonLight</title>
   <link rel="icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="styles/rateus.css" />
   <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
-
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 275px;
-  height: 100%;
-  background: #a3d9ec;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  padding-top: 20px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transition: transform 0.3s ease;
-}
-
-.sidebar .logo {
-  display: block;
-  height: 90px;
-  margin: 0 auto 20px auto;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0 20px;
-}
-
-.sidebar ul li {
-  margin: 10px 0;
-}
-
-.sidebar ul li a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #01303f;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 25px;
-  transition: background 0.3s ease;
-}
-
-.sidebar ul li a:hover {
-  background: white;
-}
-
-.sidebar ul li a.active {
-  background-color: white;
-}
-
-.sidebar ul li img {
-  width: 24px;
-  height: 24px;
-  margin-right: 15px;
-}
-
-#sidebar-help {
-  margin-top: 150px;
-}
-
-.main-content {
-  margin-left: 275px;
-  padding: 50px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.profile-card {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 30px;
-  background: #a3d9ec;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 1000px;
-  position: relative;
-}
-
-/* DP */
-.profile-avatar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.profile-avatar img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #ccc;
-}
-
-.profile-avatar input[type="file"] {
-  display: none;
-}
-
-.profile-avatar label {
-  font-size: 0.7rem;
-  color: #01303f;
-  cursor: pointer;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.profile-info p {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-  color: #01303f;
-}
-
-.profile-form {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 1000px;
-}
-
-.profile-form h2 {
-  margin-bottom: 20px;
-  color: #01303f;
-}
-
-.profile-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #01303f;
-}
-
-.profile-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.profile-form button {
-  background: #a3d9ec;
-  color: black;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* ========== Burger ========== */
-.toggle-sidebar {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100;
-  background: none;
-  color: #01303f;
-  font-size: 28px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.close-sidebar {
-  display: none;
-  position: fixed;
-  top: 5px;
-  z-index: 1100;
-  background: none;
-  color: #01303f;
-  font-size: 18px;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.toggle-sidebar:hover,
-.close-sidebar:hover {
-  color: #000;
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-}
-
-.toggle-sidebar {
-  left: 20px;
-}
-
-.close-sidebar {
-  right: 20px;
-}
-
-
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    display: block;
-  }
-
-  .sidebar.show {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  .toggle-sidebar {
-    display: block;
-  }
-
-  .close-sidebar {
-    display: block;
-  }
-
-  .profile-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .profile-card,
-  .profile-form {
-    padding: 20px 10px;
-  }
-
-  .profile-avatar img {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-@media (min-width: 769px) {
-  .sidebar {
-    transform: translateX(0) !important;
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-  }
-
-  .toggle-sidebar,
-  .close-sidebar {
-    display: none !important;
-  }
-
-  .main-content {
-    margin-left: 275px;
-  }
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 275px;
+      height: 100%;
+      background: #a3d9ec;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding-top: 20px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .sidebar .logo {
+      display: block;
+      height: 90px;
+      margin: 0 auto 20px auto;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0 20px;
+    }
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+    .sidebar ul li a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #01303f;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+    }
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background: white;
+    }
+    .sidebar ul li img {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+    }
+    #sidebar-help {
+      margin-top: 150px;
+    }
+    .main-content {
+      margin-left: 275px;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .profile-card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 30px;
+      background: #a3d9ec;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+    }
+    .profile-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .profile-avatar img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ccc;
+    }
+    .profile-avatar input[type="file"] {
+      display: none;
+    }
+    .profile-avatar label {
+      font-size: 0.7rem;
+      color: #01303f;
+      cursor: pointer;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .profile-info p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      color: #01303f;
+    }
+    .profile-form {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 1000px;
+    }
+    .profile-form h2 {
+      margin-bottom: 20px;
+      color: #01303f;
+    }
+    .profile-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #01303f;
+    }
+    .profile-form input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .profile-form button {
+      background: #a3d9ec;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .toggle-sidebar {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1100;
+      background: none;
+      color: #01303f;
+      font-size: 28px;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .close-sidebar {
+      display: none;
+      position: fixed;
+      top: 5px;
+      right: 20px;
+      z-index: 1100;
+      background: none;
+      color: #01303f;
+      font-size: 18px;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .toggle-sidebar:hover,
+    .close-sidebar:hover {
+      color: #000;
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.show {
+        transform: translateX(0);
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+      .toggle-sidebar {
+        display: block;
+      }
+      .close-sidebar {
+        display: block;
+      }
+      .profile-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .profile-card,
+      .profile-form {
+        padding: 20px 10px;
+      }
+      .profile-avatar img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    @media (min-width: 769px) {
+      .sidebar {
+        transform: translateX(0) !important;
+        display: block;
+      }
+      .toggle-sidebar,
+      .close-sidebar {
+        display: none !important;
+      }
+      .main-content {
+        margin-left: 275px;
+      }
+    }
   </style>
 </head>
-
 <body>
   <button class="toggle-sidebar" onclick="toggleSidebar()" id="burger-btn">☰</button>
   <aside class="sidebar hidden" id="sidebar">
@@ -287,7 +234,7 @@ body {
       <li><a href="profile.html" class="active"><img src="images/icons/profile-icon.svg" /><span>Profile</span></a></li>
       <li><a href="shop.html"><img src="images/icons/store-icon.svg" /><span>Rental Stores</span></a></li>
       <li><a href="about.html"><img src="images/icons/about-icon.svg" /><span>About Us</span></a></li>
-      <li><a href="#"><img src="images/icons/star-icon.svg" /><span>Rate Us</span></a></li>
+      <li><a href="#" id="rateUsTrigger"><img src="images/icons/star-icon.svg" /><span>Rate Us</span></a></li>
       <li id="sidebar-help"><a href="#"><img src="images/icons/help-icon.svg" /><span>Help</span></a></li>
     </ul>
   </aside>
@@ -295,33 +242,48 @@ body {
   <section class="main-content">
     <div class="profile-card">
       <div class="profile-avatar">
-        <img src="images/profile/placeholdernimamtechno.png" alt="Profile Picture" />
-        <form method="post" enctype="multipart/form-data">
-          <input type="file" id="profile-pic" name="profile-picture" accept="image/*" />
-          <label for="profile-pic">Change Profile Picture</label>
-        </form>
+        <img src="images/profile/placeholdernimamtechno.png" alt="Profile Picture" id="profile-pic-display" />
+        <input type="file" id="profile-pic" accept="image/*" />
+        <label for="profile-pic">Change Profile Picture</label>
       </div>
       <div class="profile-info">
-        <p><strong>Name</strong><br>John Michael</p>
-        <p><strong>Email</strong><br>decarts@sonlight.com</p>
+        <p><strong>Name</strong><br><span id="display-name">Loading...</span></p>
+        <p><strong>Email</strong><br><span id="display-email">Loading...</span></p>
       </div>
     </div>
 
     <div class="profile-form">
-      <form>
+      <form id="edit-profile-form">
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your name">
+        <input type="text" id="name" placeholder="Your name" required />
 
         <label for="email">Email account</label>
-        <input type="email" id="email" placeholder="Your email">
+        <input type="email" id="email" placeholder="Your email" required />
 
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="********">
+        <input type="password" id="password" placeholder="********" required />
 
-        <button type="submit" onclick="delayedRedirect(event)">Save Changes</button>
+        <button type="submit">Save Changes</button>
       </form>
     </div>
   </section>
+
+
+  <div id="rateUsModal" class="rateus-modal" style="display: none;">
+    <div class="rateus-content">
+      <span class="close-rateus" id="closeRateUsBtn">&times;</span>
+      <h2>Rate Us</h2>
+      <div class="stars">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+      <textarea placeholder="Leave a comment..."></textarea>
+      <button id="submitRating">Submit</button>
+    </div>
+  </div>
 
   <script>
     function toggleSidebar() {
@@ -341,12 +303,62 @@ body {
       }
     }
 
-    function delayedRedirect(event) {
-      event.preventDefault();
-      setTimeout(function () {
-        window.location.href = 'profile.html';
-      }, 2000);
+    function loadUserData() {
+      const user = JSON.parse(localStorage.getItem('sonlight-user'));
+      if (!user) {
+        alert('No user data found. Please log in.');
+        return;
+      }
+
+      document.getElementById('display-name').textContent = user.username || '';
+      document.getElementById('display-email').textContent = user.email || '';
+
+      document.getElementById('name').value = user.username || '';
+      document.getElementById('email').value = user.email || '';
+      document.getElementById('password').value = user.password || '';
+
+      if(user.profilePicture) {
+        document.getElementById('profile-pic-display').src = user.profilePicture;
+      }
     }
+
+    // preview
+    document.getElementById('profile-pic').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('profile-pic-display').src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Prupayl at ediyt nagsave astig
+    document.getElementById('edit-profile-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const updatedUser = {
+        username: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        password: document.getElementById('password').value,
+        profilePicture: document.getElementById('profile-pic-display').src
+      };
+
+      localStorage.setItem('sonlight-user', JSON.stringify(updatedUser));
+
+      document.getElementById('display-name').textContent = updatedUser.username;
+      document.getElementById('display-email').textContent = updatedUser.email;
+
+      alert('Profile updated successfully! Redirecting to profile page...');
+
+      setTimeout(() => {
+        window.location.href = 'profile.html';
+      }, 1500);
+    });
+
+    window.addEventListener('DOMContentLoaded', loadUserData);
   </script>
+  <script src="scripts/rateus.js" defer></script>
 </body>
 </html>

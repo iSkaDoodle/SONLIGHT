@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile | SonLight</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="styles/rateus.css" />
   <style>
     * {
       margin: 0;
@@ -134,6 +135,7 @@
       margin-bottom: 20px;
       font-size: 1.1rem;
       color: #01303F;
+      word-wrap: break-word;
     }
 
     .profile-edit-btn {
@@ -177,8 +179,11 @@
       cursor: pointer;
     }
 
+    .booking-list {
+      margin: 0 50px;
+    }
+
     .booking-card {
-      margin: 0 50px 15px;
       background: white;
       border: 1px solid #ccc;
       border-radius: 15px;
@@ -186,6 +191,7 @@
       display: flex;
       justify-content: space-between;
       font-weight: 500;
+      margin-bottom: 15px;
     }
 
     .store-name {
@@ -194,6 +200,12 @@
 
     .booking-date {
       color: #888;
+    }
+
+    #no-bookings {
+      margin: 0 50px;
+      color: #888;
+      font-style: italic;
     }
 
     @media (max-width: 768px) {
@@ -270,29 +282,29 @@
     <button class="close-sidebar" id="close-btn" onclick="toggleSidebar()">✕</button>
     <a href="shop.html"><img src="images/transparent-logo.png" alt="SonLight Logo" class="logo"></a>
     <ul>
-      <li><a href="profile.html"><img src="images/icons/profile-icon.svg"><span>Profile</span></a></li>
-      <li><a href="shop.html"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></a></li>
-      <li><a href="about.html"><img src="images/icons/about-icon.svg"><span>About Us</span></a></li>
-      <li><a href="#"><img src="images/icons/star-icon.svg"><span>Rate Us</span></a></li>
-      <li id="sidebar-help"><a href="help-page.html"><img src="images/icons/help-icon.svg"><span>Help</span></a></li>
+      <li><a href="profile.html"><img src="images/icons/profile-icon.svg" /><span>Profile</span></a></li>
+      <li><a href="shop.html"><img src="images/icons/store-icon.svg" /><span>Rental Stores</span></a></li>
+      <li><a href="about.html"><img src="images/icons/about-icon.svg" /><span>About Us</span></a></li>
+      <li><a href="#" id="rateUsTrigger"><img src="images/icons/star-icon.svg" /><span>Rate Us</span></a></li>
+      <li id="sidebar-help"><a href="help-page.html"><img src="images/icons/help-icon.svg" /><span>Help</span></a></li>
     </ul>
   </aside>
 
-  <div class="profile">
+  <main class="profile">
     <div class="profile-card-grid">
       <div class="profile-avatar">
         <img src="images/profile/placeholdernimamtechno.png" alt="Profile Picture" class="profile-pic-preview" />
       </div>
       <div class="profile-info">
-        <p><strong>Name</strong><br>John Michael</p>
-        <p><strong>Email</strong><br>decarts@sonlight.com</p>
-        <p><strong>Password</strong><br>**********</p>
+        <p><strong>Name</strong><br><span id="profile-username">Loading...</span></p>
+        <p><strong>Email</strong><br><span id="profile-email">Loading...</span></p>
+        <p><strong>Password</strong><br><span id="profile-password">**********</span></p>
       </div>
       <a href="edit-profile.html" class="profile-edit-btn">Edit</a>
     </div>
-  </div>
+  </main>
 
-  <div class="booking-history">
+  <section class="booking-history">
     <div class="booking-header">
       <h2>Booking history</h2>
       <button class="sort-btn">
@@ -300,18 +312,36 @@
         <img src="images/icons/sort-icon.png" alt="Sort Icon" width="20" />
       </button>
     </div>
+    <div class="booking-list">
+      <div class="booking-card">
+        <span class="store-name">Rental Store #3</span>
+        <span class="booking-date">Date</span>
+      </div>
+      <div class="booking-card">
+        <span class="store-name">Rental Store #1</span>
+        <span class="booking-date">Date</span>
+      </div>
+      <div class="booking-card">
+        <span class="store-name">Rental Store #2</span>
+        <span class="booking-date">Date</span>
+      </div>
+    </div>
+    <p id="no-bookings" style="display:none;">No booking history available.</p>
+  </section>
 
-    <div class="booking-card">
-      <span class="store-name">Rental Store #3</span>
-      <span class="booking-date">Date</span>
-    </div>
-    <div class="booking-card">
-      <span class="store-name">Rental Store #1</span>
-      <span class="booking-date">Date</span>
-    </div>
-    <div class="booking-card">
-      <span class="store-name">Rental Store #2</span>
-      <span class="booking-date">Date</span>
+  <div id="rateUsModal" class="rateus-modal" style="display: none;">
+    <div class="rateus-content">
+      <span class="close-rateus" id="closeRateUsBtn">&times;</span>
+      <h2>Rate Us</h2>
+      <div class="stars">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+      <textarea placeholder="Leave a comment..."></textarea>
+      <button id="submitRating">Submit</button>
     </div>
   </div>
 
@@ -334,6 +364,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      // Highlight current sidebar link
       const links = document.querySelectorAll('.sidebar ul li a');
       const currentPage = window.location.pathname.split('/').pop();
 
@@ -343,9 +374,33 @@
         }
       });
 
+      // Load user info from localStorage
+      const user = JSON.parse(localStorage.getItem('sonlight-user'));
+
+      if (user && user.username && user.email) {
+        document.getElementById('profile-username').textContent = user.username;
+        document.getElementById('profile-email').textContent = user.email;
+        document.getElementById('profile-password').textContent = '**********';
+        if (user.profilePicture) {
+          document.querySelector('.profile-pic-preview').src = user.profilePicture;
+        }
+      } else {
+        document.getElementById('profile-username').textContent = 'Not logged in';
+        document.getElementById('profile-email').textContent = 'Not logged in';
+        document.getElementById('profile-password').textContent = '**********';
+      }
+
+      // Booking history sort toggle
       const sortButton = document.querySelector(".sort-btn");
-      const bookingContainer = document.querySelector(".booking-history");
+      const bookingContainer = document.querySelector(".booking-list");
+      const noBookingsMsg = document.getElementById('no-bookings');
       let isAscending = true;
+
+      if (!bookingContainer || bookingContainer.children.length === 0) {
+        noBookingsMsg.style.display = 'block';
+      } else {
+        noBookingsMsg.style.display = 'none';
+      }
 
       sortButton?.addEventListener("click", () => {
         const bookingCards = Array.from(document.querySelectorAll(".booking-card"));
@@ -363,6 +418,6 @@
       });
     });
   </script>
-
+  <script src="scripts/rateus.js"></script>
 </body>
 </html>
