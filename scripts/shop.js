@@ -44,5 +44,5 @@ const shop_main = document.getElementById('shop-main');
 
 close_ads.addEventListener("click", () => {
     ads_container.style.display = "none";
-    shop_main.style.marginRight = "0px";
+    shop_main.style.marginRight = "125px";
 });

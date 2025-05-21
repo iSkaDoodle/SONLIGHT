@@ -23,3 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     sidebar.classList.toggle("collapsed");
   });
 });
+
+const headerArrowDown = document.getElementById('header-arrow-down');
+const headerDropDown = document.getElementById('header-drop-down');
+let dropDownHidden = true;
+
+headerArrowDown.addEventListener('click', () => {
+  if(dropDownHidden) {
+    headerDropDown.style.display = "grid";
+    headerArrowDown.style.transform = "rotate(180deg)";
+    dropDownHidden = false;
+  } else {
+    headerDropDown.style.display = "none";
+    headerArrowDown.style.transform = "rotate(0deg)";
+    dropDownHidden = true;
+  }
+});

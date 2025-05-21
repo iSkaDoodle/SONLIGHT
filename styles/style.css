@@ -38,7 +38,7 @@ header {
 
 .right-header {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 #header-profile {
@@ -48,6 +48,69 @@ header {
 
 .logo img {
   height: 73.6px;
+}
+
+#header-drop-down {
+  background: #fff;
+  box-shadow: 0px 4px 8px #20202040;
+  position: fixed;
+  top: 53.6px;
+  right: 40px;
+  height: fit-content;
+  width: 200px;
+  border-radius: 24px;
+  padding: 20px;
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 10px;
+}
+
+#header-arrow-down {
+  transition: all 0.5s ease;
+}
+
+#header-arrow-down:hover {
+  cursor: pointer;
+  transform: scale(1.25);
+}
+
+#header-drop-down img {
+  grid-column: 1/2;
+  height: 48px;
+}
+
+#header-drop-down img:hover {
+  cursor: pointer;
+}
+
+#header-drop-down p {
+  grid-column: 2/4;
+  align-self: center;
+}
+
+#header-drop-down ul {
+  grid-row: 2/3;
+  grid-column: 1/4;
+  list-style: none;
+}
+
+#header-drop-down ul li a {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  color: #01303F;
+  padding: 10px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+
+#header-drop-down ul li a:hover {
+  background:#a3d9ec;
+}
+
+ul li #log-out-img {
+  height: 28px;
 }
 
 /* ========== Burger Button ========== */
@@ -85,6 +148,7 @@ header {
   top: 0;
   left: 0;
   height: 64%;
+  min-height: fit-content;
   width: 275px;
   background-color: hsla(hue, saturation, lightness, alpha);
   background: #a3d9ec;

@@ -137,12 +137,14 @@ a {
 .service-block {
   height: 200px;
   width: 200px;
-  border: solid 1px #10303f;
   border-radius: 6px;
-  padding: 5px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 6px #20202080;
 }
 
 #services-container .service-block .serv-imgs {
+  align-self: center;
   border-radius: 12px;
 }
 
@@ -151,6 +153,7 @@ a {
   min-height: 90%;
   max-height: 90%;
   justify-self: center;
+  offset: ;
 }
 
 .prices {
@@ -202,6 +205,7 @@ a {
   border-radius: 12px;
   padding: 10px 15px;
   resize: none;
+  background-color: #f0fbff;
 }
 
 #new-feedback-section p {
