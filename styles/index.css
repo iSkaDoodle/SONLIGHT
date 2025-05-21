@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+main * {
+  opacity: 100;
+  animation: reveal 0.8s ease;
+}
+
+@keyframes reveal {
+  from {opacity:0;}
+}
+
 #index-header {
   max-height: 75px;
   width: 100%;

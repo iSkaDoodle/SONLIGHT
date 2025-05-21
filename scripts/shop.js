@@ -37,3 +37,12 @@ function shop_1() {
     serv_img6.src = "images/equipment-sets/set-6.png";
     price6.textContent = "₱15,000";
 }
+
+const close_ads = document.getElementById('close-ads-btn');
+const ads_container = document.getElementById('ads-container');
+const shop_main = document.getElementById('shop-main');
+
+close_ads.addEventListener("click", () => {
+    ads_container.style.display = "none";
+    shop_main.style.marginRight = "0px";
+});
