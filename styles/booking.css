@@ -144,6 +144,10 @@ body {
   height: 75%;
 }
 
+#choices-container img {
+  border-radius: 12px;
+}
+
 .set-card-container {
   height: 90%;
   width: 100%;
@@ -394,9 +398,24 @@ a {
   }
 
   #choices-div {
-    max-height: 50%;
+    height: 100%;
+    width: 100%;
     padding: 10px;
   }
+
+  #choices-container {
+    width: 100%;
+    height: fit-content;
+  }
+
+  #choices-container img {
+    padding: 2px;
+    border-radius: 8px;
+  }
+
+   #choices-container p {
+    margin-bottom: 5px;
+   }
 
   #close-choices-btn {
     top: 15px;

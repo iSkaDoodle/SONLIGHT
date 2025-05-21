@@ -11,7 +11,7 @@ html, body {
   width: 100%;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #89d7f3 0%, #ffffff 50%, #ffffff 100%);
+  background: linear-gradient(to bottom, #89d7f3 0%, #d6f4ff 50%, #ffffff 100%);
   color: #073b4c;
 }
 
