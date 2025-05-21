@@ -23,9 +23,7 @@
       justify-content: center;
       border-radius: 0 20px 20px 0;
     }
-    .logo {
-      width: 500px;
-    }
+    .logo { width: 500px; }
     .right-panel {
       flex: 1;
       display: flex;
@@ -63,12 +61,8 @@
       width: 100%;
       max-width: 700px;
     }
-    .form.active {
-      display: flex;
-    }
-    .form h1 {
-      margin-bottom: 20px;
-    }
+    .form.active { display: flex; }
+    .form h1 { margin-bottom: 20px; }
     .form input {
       margin-bottom: 15px;
       padding: 15px;
@@ -99,7 +93,7 @@
       font-size: 16px;
       cursor: pointer;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s, transform 0.2s;
     }
     .main-btn:hover {
       background-color: #0056b3;
@@ -107,10 +101,8 @@
     }
     .terms-modal {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.6);
       display: flex;
       align-items: center;
@@ -150,16 +142,10 @@
       font-size: 14px;
       line-height: 1.5;
     }
-    .tab-content.active {
-      display: block;
-    }
-    label {
-      display: block;
-      margin: 10px 0;
-    }
-    #proceedBtn {
-      margin-top: 10px;
-    }
+    .tab-content.active { display: block; }
+    label { display: block; margin: 10px 0; }
+    #proceedBtn { margin-top: 10px; }
+
     @media(max-width: 450px) {
       .container { flex-direction: column; }
       .logo { width: 66.66%; }
@@ -211,54 +197,25 @@
       </div>
       <div class="tab-content active" id="terms-tab">
         <p><strong>Terms and Conditions</strong></p>
-        <p>
-          By accessing or using our platform, you agree to be bound by the following terms and conditions. Please read them carefully.
-
-User Responsibilities
-You agree to use SonLight only for lawful purposes. You must not misuse the platform, interfere with its normal operation, or attempt unauthorized access.
-
-Account Registration
-You must provide accurate and complete information during registration. You are responsible for maintaining the confidentiality of your login credentials.
-
-Content and Ownership
-All content, trademarks, and services on this platform are owned by SonLight. You may not copy, distribute, or reuse any content without permission.
-
-Modifications
-We reserve the right to update these terms at any time. Continued use after changes means you accept the new terms.
-
-Termination
-We may suspend or terminate your access if you violate these terms.
-
-If you have any questions, contact us at sonlighttechbook@gmail.com.
-        </p>
+        <p>By accessing or using our platform, you agree to be bound by the following terms and conditions. Please read them carefully.</p>
+        <p><strong>User Responsibilities</strong>: Use SonLight only for lawful purposes. Don’t misuse or attempt unauthorized access.</p>
+        <p><strong>Account Registration</strong>: Provide accurate info. You're responsible for your credentials.</p>
+        <p><strong>Content and Ownership</strong>: Content is owned by SonLight. Don't reuse without permission.</p>
+        <p><strong>Modifications</strong>: We may update these terms anytime. Continued use = acceptance.</p>
+        <p><strong>Termination</strong>: We may suspend access for violations. Contact support@sonlight.com for inquiries.</p>
       </div>
       <div class="tab-content" id="privacy-tab">
         <p><strong>Privacy Policy</strong></p>
-        <p>
-          Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use SonLight.
-
-Information We Collect
-We collect your email address, username, and password during account creation. We may also collect basic device and browser information automatically.
-
-How We Use Your Data
-We use your data to create and manage your account and to personalize your experience. We may also use it to provide customer support.
-
-Data Storage
-Your data is stored locally in your browser using localStorage. We do not transfer or sell your data to any third party.
-
-Security
-While we use localStorage for convenience, we recommend not storing sensitive information. Please log out when using shared or public devices.
-
-Your Rights
-You may request to delete your account data at any time by clearing your browser’s localStorage or by contacting support.
-
-For questions or concerns, email us at sonlighttechbook@gmail.com.
-        </p>
+        <p>We collect basic info like email, username, and password. Some device/browser info may be gathered automatically.</p>
+        <p><strong>Usage</strong>: To manage your account and personalize experience. We never sell your data.</p>
+        <p><strong>Storage</strong>: Stored locally via localStorage. Avoid using on public devices.</p>
+        <p><strong>Your Rights</strong>: Clear localStorage or email privacy@sonlight.com to delete account data.</p>
       </div>
       <label><input type="checkbox" id="agreeCheckbox" /> I agree to the Terms & Conditions and Privacy Policy</label>
       <button id="proceedBtn" class="main-btn" disabled>Proceed to Login</button>
     </div>
   </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const loginForm = document.getElementById("login-form"),
@@ -280,10 +237,8 @@ For questions or concerns, email us at sonlighttechbook@gmail.com.
         showSignupBtn.classList.toggle("active", showSignup);
       };
 
-      showLoginBtn.onclick = () => toggleForms(false);
-      showSignupBtn.onclick = () => toggleForms(true);
-      toSignup.onclick = () => toggleForms(true);
-      toLogin.onclick = () => toggleForms(false);
+      [showLoginBtn, toLogin].forEach(btn => btn.onclick = () => toggleForms(false));
+      [showSignupBtn, toSignup].forEach(btn => btn.onclick = () => toggleForms(true));
 
       signupForm.onsubmit = e => {
         e.preventDefault();
@@ -294,7 +249,7 @@ For questions or concerns, email us at sonlighttechbook@gmail.com.
 
       loginForm.onsubmit = e => {
         e.preventDefault();
-        const [email, password] = [...loginForm.querySelectorAll('input')].map(i => i.value);
+        const [email, , password] = [...loginForm.querySelectorAll('input')].map(i => i.value);
         const saved = JSON.parse(localStorage.getItem("sonlight-user"));
         if (saved?.email === email && saved?.password === password) {
           localStorage.setItem("sonlight-loggedin", "true");
@@ -302,24 +257,23 @@ For questions or concerns, email us at sonlighttechbook@gmail.com.
         } else alert("Invalid credentials!");
       };
 
-      agreeCheckbox.addEventListener("change", () => {
+      agreeCheckbox.onchange = () => {
         proceedBtn.disabled = !agreeCheckbox.checked;
-      });
+      };
 
-      proceedBtn.addEventListener("click", () => {
+      proceedBtn.onclick = () => {
         termsModal.style.display = "none";
         toggleForms(false);
         alert("Account created successfully! Please log in.");
-      });
+      };
 
-      tabButtons.forEach(button => {
-        button.addEventListener("click", () => {
-          const tab = button.dataset.tab;
-          tabButtons.forEach(btn => btn.classList.remove("active"));
-          tabContents.forEach(content => content.classList.remove("active"));
-          button.classList.add("active");
-          document.getElementById(`${tab}-tab`).classList.add("active");
-        });
+      tabButtons.forEach(btn => {
+        btn.onclick = () => {
+          tabButtons.forEach(b => b.classList.remove("active"));
+          tabContents.forEach(c => c.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(`${btn.dataset.tab}-tab`).classList.add("active");
+        };
       });
     });
   </script>
