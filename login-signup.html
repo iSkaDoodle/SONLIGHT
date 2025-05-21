@@ -171,7 +171,7 @@
         <h1>Welcome back!</h1>
         <input type="email" placeholder="Email" required />
         <input type="password" placeholder="Password" required minlength="8" />
-        <a href="#">Forgot Password?</a>
+        <a href="#" id="forgot-password-link">Forgot Password?</a>
         <button type="submit" class="main-btn">LOG IN</button>
         <p>Don’t have an account? <span id="to-signup">Sign Up</span></p>
       </form>
@@ -186,8 +186,6 @@
       </form>
     </div>
   </div>
-
-  <!-- Terms & Privacy Modal -->
   <div id="termsModal" class="terms-modal" style="display:none;">
     <div class="terms-content">
       <h2>Terms & Policies</h2>
@@ -215,7 +213,13 @@
       <button id="proceedBtn" class="main-btn" disabled>Proceed to Login</button>
     </div>
   </div>
-
+  <div id="forgotModal" class="terms-modal" style="display:none;">
+  <div class="terms-content">
+      <h3>Password Reset</h3>
+      <p>Instructions to reset your password have been sent to your email.</p>
+      <button class="main-btn" onclick="document.getElementById('forgotModal').style.display='none'">OK</button>
+    </div>
+  </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const loginForm = document.getElementById("login-form"),
@@ -274,6 +278,10 @@
           btn.classList.add("active");
           document.getElementById(`${btn.dataset.tab}-tab`).classList.add("active");
         };
+      });
+      document.getElementById("forgot-password-link").addEventListener("click", e => {
+      e.preventDefault();
+    document.getElementById("forgotModal").style.display = "flex";
       });
     });
   </script>
