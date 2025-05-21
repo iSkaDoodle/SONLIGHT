@@ -6,6 +6,7 @@
   <title>Home | SonLight</title>
   <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="styles/mobile-screen.css">
+  <link rel="stylesheet" href="styles/rateus.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
 </head>
 <body>
@@ -43,7 +44,7 @@
       <li><a href="profile.html"><img src="images/icons/profile-icon.svg"><span>Profile</span></a></li>
       <li id="inShop"><a href="shop.html"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></a></li>
       <li><a href="about.html"><img src="images/icons/about-icon.svg"><span>About Us</span></a></li>
-      <li><a href="#"><img src="images/icons/star-icon.svg"><span>Rate Us</span></a></li>
+      <li><a href="#"id="rateUsTrigger"><img src="images/icons/star-icon.svg"><span>Rate Us</span></a></li>
       <li id="sidebar-help"><a href="help-page.html"><img src="images/icons/help-icon.svg"><span>Help</span></a></li>
     </ul>
   </aside>
@@ -119,6 +120,22 @@
     <p class="bottom-note">© 2025 SONLIGHT</p>
   </footer>
 
+    <div id="rateUsModal" class="rateus-modal" style="display: none;">
+    <div class="rateus-content">
+      <span class="close-rateus" id="closeRateUsBtn">&times;</span>
+      <h2>Rate Us</h2>
+      <div class="stars">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+      <textarea placeholder="Leave a comment..."></textarea>
+      <button id="submitRating">Submit</button>
+    </div>
+  </div>
+  <script src="scripts/rateus.js"></script>
   <script src="scripts/script.js"></script>
 </body>
 </html>
