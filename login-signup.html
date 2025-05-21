@@ -7,76 +7,168 @@
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles/mobile-screen.css" />
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:linear-gradient(329deg,#a3d9ec 0 20%,#fff 50% 100%) no-repeat} 
-    .container{display:flex;min-height:100vh}.left-panel{background:#a3d9ec;display:flex;align-items:center;justify-content:center;border-radius:0 20px 20px 0}
-    .logo{width:500px}.right-panel{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:40px}
-    .tab-switch{position:absolute;top:20px;right:20px;display:flex;border-radius:6px;box-shadow:0 2px 5px rgba(0,0,0,0.1);overflow:hidden}
-    .tab-switch button{padding:10px 20px;border:none;cursor:pointer;font-weight:bold;background:#fff;color:#007bff;transition:.2s}
-    .tab-switch .active{background:#007bff;color:#fff;box-shadow:0 4px 6px rgba(0,0,0,0.2)}
-    .form{display:none;flex-direction:column;width:100%;max-width:700px}.form.active{display:flex}.form h1{margin-bottom:20px}
-    .form input{margin-bottom:15px;padding:15px;font-size:16px;border-radius:8px;border:1px solid #ccc}
-    .form a,.form span{font-size:14px;color:#007bff;text-align:center;cursor:pointer;margin-bottom:20px}
-    .form p{text-align:center;font-size:14px;color:#555;margin-top:10px}
-    .main-btn{padding:12px;background:#007bff;color:#fff;border:none;border-radius:20px;font-weight:bold;font-size:16px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.2)}
-    @media(max-width:450px){.container{flex-direction:column}.logo{width:66.66%}.left-panel{border-radius:0 0 20px 20px}.tab-switch{top:15px}.right-panel h1{font-size:24px}.tab-switch button{font-size:12px}}
-    @media(max-height:450px){.logo{width:300px}.right-panel{padding:20px}.right-panel h1{font-size:24px;margin:40px 0 10px}.form input{font-size:14px;padding:10px}.main-btn{width:50%;font-size:14px;margin:0 auto}}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(329deg, #a3d9ec 0 20%, #fff 50% 100%) no-repeat;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .left-panel {
+      background: #a3d9ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 20px 20px 0;
+    }
+    .logo {
+      width: 500px;
+    }
+    .right-panel {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 40px;
+    }
+    .tab-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .tab-switch button {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      background: #fff;
+      color: #007bff;
+      transition: 0.2s;
+    }
+    .tab-switch .active {
+      background: #007bff;
+      color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .form {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      max-width: 700px;
+    }
+    .form.active {
+      display: flex;
+    }
+    .form h1 {
+      margin-bottom: 20px;
+    }
+    .form input {
+      margin-bottom: 15px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .form a, .form span {
+      font-size: 14px;
+      color: #007bff;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .form p {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+    .main-btn {
+      padding: 12px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .main-btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    .terms-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .terms-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+    }
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      margin: 0 4px;
+      border: none;
+      cursor: pointer;
+      background: #eee;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    .tab-btn.active {
+      background: #007bff;
+      color: #fff;
+    }
+    .tab-content {
+      display: none;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+    #proceedBtn {
+      margin-top: 10px;
+    }
+    @media(max-width: 450px) {
+      .container { flex-direction: column; }
+      .logo { width: 66.66%; }
+      .left-panel { border-radius: 0 0 20px 20px; }
+      .tab-switch { top: 15px; }
+      .right-panel h1 { font-size: 24px; }
+      .tab-switch button { font-size: 12px; }
+    }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loginForm = document.getElementById("login-form"),
-            signupForm = document.getElementById("signup-form"),
-            showLoginBtn = document.getElementById("show-login"),
-            showSignupBtn = document.getElementById("show-signup"),
-            toSignup = document.getElementById("to-signup"),
-            toLogin = document.getElementById("to-login");
-
-      const toggleForms = showSignup => {
-        loginForm.classList.toggle("active", !showSignup);
-        signupForm.classList.toggle("active", showSignup);
-        showLoginBtn.classList.toggle("active", !showSignup);
-        showSignupBtn.classList.toggle("active", showSignup);
-      };
-
-      showLoginBtn.onclick = () => toggleForms(false);
-      showSignupBtn.onclick = () => toggleForms(true);
-      toSignup.onclick = () => toggleForms(true);
-      toLogin.onclick = () => toggleForms(false);
-
-      signupForm.onsubmit = e => {
-        e.preventDefault();
-        const [email, username, password] = [...signupForm.querySelectorAll('input')].map(i => i.value);
-        localStorage.setItem("sonlight-user", JSON.stringify({email, username, password}));
-        alert("Account created successfully! Please log in.");
-        toggleForms(false);
-      };
-
-      loginForm.onsubmit = e => {
-        e.preventDefault();
-        const [email, password] = [...loginForm.querySelectorAll('input')].map(i => i.value);
-        const saved = JSON.parse(localStorage.getItem("sonlight-user"));
-        if (saved?.email === email && saved?.password === password) {
-          localStorage.setItem("sonlight-loggedin", "true");
-          location.href = "shop.html";
-        } else alert("Invalid credentials!");
-      }
-      localStorage.setItem("sonlight-user", JSON.stringify({
-    email: "user@example.com",
-    username: "user123",
-    password: "mypassword"
-  }));
-
-  const user = JSON.parse(localStorage.getItem("sonlight-user"));
-  
-  if (user) {
-    console.log("User email:", user.email);
-    console.log("Username:", user.username);
-    console.log("Password:", user.password);
-  } else {
-    console.warn("No user data found.");
-  }
-  ;
-    });
-  </script>
 </head>
 <body>
   <div class="container">
@@ -108,5 +200,128 @@
       </form>
     </div>
   </div>
+
+  <!-- Terms & Privacy Modal -->
+  <div id="termsModal" class="terms-modal" style="display:none;">
+    <div class="terms-content">
+      <h2>Terms & Policies</h2>
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+        <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+      </div>
+      <div class="tab-content active" id="terms-tab">
+        <p><strong>Terms and Conditions</strong></p>
+        <p>
+          By accessing or using our platform, you agree to be bound by the following terms and conditions. Please read them carefully.
+
+User Responsibilities
+You agree to use SonLight only for lawful purposes. You must not misuse the platform, interfere with its normal operation, or attempt unauthorized access.
+
+Account Registration
+You must provide accurate and complete information during registration. You are responsible for maintaining the confidentiality of your login credentials.
+
+Content and Ownership
+All content, trademarks, and services on this platform are owned by SonLight. You may not copy, distribute, or reuse any content without permission.
+
+Modifications
+We reserve the right to update these terms at any time. Continued use after changes means you accept the new terms.
+
+Termination
+We may suspend or terminate your access if you violate these terms.
+
+If you have any questions, contact us at sonlighttechbook@gmail.com.
+        </p>
+      </div>
+      <div class="tab-content" id="privacy-tab">
+        <p><strong>Privacy Policy</strong></p>
+        <p>
+          Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use SonLight.
+
+Information We Collect
+We collect your email address, username, and password during account creation. We may also collect basic device and browser information automatically.
+
+How We Use Your Data
+We use your data to create and manage your account and to personalize your experience. We may also use it to provide customer support.
+
+Data Storage
+Your data is stored locally in your browser using localStorage. We do not transfer or sell your data to any third party.
+
+Security
+While we use localStorage for convenience, we recommend not storing sensitive information. Please log out when using shared or public devices.
+
+Your Rights
+You may request to delete your account data at any time by clearing your browser’s localStorage or by contacting support.
+
+For questions or concerns, email us at sonlighttechbook@gmail.com.
+        </p>
+      </div>
+      <label><input type="checkbox" id="agreeCheckbox" /> I agree to the Terms & Conditions and Privacy Policy</label>
+      <button id="proceedBtn" class="main-btn" disabled>Proceed to Login</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById("login-form"),
+            signupForm = document.getElementById("signup-form"),
+            showLoginBtn = document.getElementById("show-login"),
+            showSignupBtn = document.getElementById("show-signup"),
+            toSignup = document.getElementById("to-signup"),
+            toLogin = document.getElementById("to-login"),
+            termsModal = document.getElementById("termsModal"),
+            agreeCheckbox = document.getElementById("agreeCheckbox"),
+            proceedBtn = document.getElementById("proceedBtn"),
+            tabButtons = document.querySelectorAll(".tab-btn"),
+            tabContents = document.querySelectorAll(".tab-content");
+
+      const toggleForms = showSignup => {
+        loginForm.classList.toggle("active", !showSignup);
+        signupForm.classList.toggle("active", showSignup);
+        showLoginBtn.classList.toggle("active", !showSignup);
+        showSignupBtn.classList.toggle("active", showSignup);
+      };
+
+      showLoginBtn.onclick = () => toggleForms(false);
+      showSignupBtn.onclick = () => toggleForms(true);
+      toSignup.onclick = () => toggleForms(true);
+      toLogin.onclick = () => toggleForms(false);
+
+      signupForm.onsubmit = e => {
+        e.preventDefault();
+        const [email, username, password] = [...signupForm.querySelectorAll('input')].map(i => i.value);
+        localStorage.setItem("sonlight-user", JSON.stringify({email, username, password}));
+        termsModal.style.display = "flex";
+      };
+
+      loginForm.onsubmit = e => {
+        e.preventDefault();
+        const [email, password] = [...loginForm.querySelectorAll('input')].map(i => i.value);
+        const saved = JSON.parse(localStorage.getItem("sonlight-user"));
+        if (saved?.email === email && saved?.password === password) {
+          localStorage.setItem("sonlight-loggedin", "true");
+          location.href = "shop.html";
+        } else alert("Invalid credentials!");
+      };
+
+      agreeCheckbox.addEventListener("change", () => {
+        proceedBtn.disabled = !agreeCheckbox.checked;
+      });
+
+      proceedBtn.addEventListener("click", () => {
+        termsModal.style.display = "none";
+        toggleForms(false);
+        alert("Account created successfully! Please log in.");
+      });
+
+      tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          const tab = button.dataset.tab;
+          tabButtons.forEach(btn => btn.classList.remove("active"));
+          tabContents.forEach(content => content.classList.remove("active"));
+          button.classList.add("active");
+          document.getElementById(`${tab}-tab`).classList.add("active");
+        });
+      });
+    });
+  </script>
 </body>
 </html>
