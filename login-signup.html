@@ -187,7 +187,7 @@
     </div>
   </div>
 
-  <div id="termsModal" class="terms-modal" style="display:none;">
+ <div id="termsModal" class="terms-modal" style="display:none;">
     <div class="terms-content">
       <h2>Terms & Policies</h2>
       <div class="tab-buttons">
@@ -196,14 +196,28 @@
       </div>
       <div class="tab-content active" id="terms-tab">
         <p><strong>Terms and Conditions</strong></p>
-        <p>Use SonLight responsibly. Follow our guidelines.</p>
+        <p>By accessing or using our platform, you agree to be bound by the following terms and conditions. Please read them carefully.</p>
+        <p><strong>User Responsibilities</strong>: Use SonLight only for lawful purposes. Don’t misuse or attempt unauthorized access.</p>
+        <p><strong>Account Registration</strong>: Provide accurate info. You're responsible for your credentials.</p>
+        <p><strong>Modifications</strong>: We may update these terms anytime. Continued use = acceptance.</p>
+        <p><strong>Termination</strong>: We may suspend access for violations. Contact support@sonlight.com for inquiries.</p>
       </div>
       <div class="tab-content" id="privacy-tab">
         <p><strong>Privacy Policy</strong></p>
-        <p>We store your info securely in your browser's localStorage.</p>
+        <p>We collect basic info like email, username, and password. Some device/browser info may be gathered automatically.</p>
+        <p><strong>Usage</strong>: To manage your account and personalize experience. We never sell your data.</p>
+        <p><strong>Storage</strong>: Stored locally via localStorage. Avoid using on public devices.</p>
+        <p><strong>Your Rights</strong>: Clear localStorage or email privacy@sonlight.com to delete account data.</p>
       </div>
-      <label><input type="checkbox" id="agreeCheckbox"> I agree to the Terms & Privacy Policy</label>
+      <label><input type="checkbox" id="agreeCheckbox" /> I agree to the Terms & Conditions and Privacy Policy</label>
       <button id="proceedBtn" class="main-btn" disabled>Proceed to Login</button>
+    </div>
+  </div>
+  <div id="forgotModal" class="terms-modal" style="display:none;">
+  <div class="terms-content">
+      <h3>Password Reset</h3>
+      <p>Instructions to reset your password have been sent to your email.</p>
+      <button class="main-btn" onclick="document.getElementById('forgotModal').style.display='none'">OK</button>
     </div>
   </div>
 
