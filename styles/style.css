@@ -648,6 +648,10 @@ a{
   cursor: pointer;
 }
 
+#close-ads-btn {
+  cursor: pointer;
+}
+
 .sample-ad {
   align-self: center;
   border: 1px solid #01303F;
