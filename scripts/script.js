@@ -31,6 +31,7 @@ let dropDownHidden = true;
 headerArrowDown.addEventListener('click', () => {
   if(dropDownHidden) {
     headerDropDown.style.display = "grid";
+    headerDropDown.style.transform = "scaleY(1)";
     headerArrowDown.style.transform = "rotate(180deg)";
     dropDownHidden = false;
   } else {

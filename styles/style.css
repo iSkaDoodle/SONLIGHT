@@ -16,7 +16,6 @@ html, body {
   color: #073b4c;
 }
 
-
 header {
   display: flex;
   justify-content: space-between;
@@ -646,7 +645,7 @@ a{
 
 #ads-container img:hover {
   transform: scale(1.25);
-  
+  cursor: pointer;
 }
 
 .sample-ad {
