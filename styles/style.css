@@ -146,17 +146,16 @@ ul li #log-out-img {
   position: fixed;
   top: 0;
   left: 0;
-  height: 64%;
+  height: fit-content;
   min-height: fit-content;
   width: 275px;
-  background-color: hsla(hue, saturation, lightness, alpha);
   background: #a3d9ec;
   border-bottom-right-radius: 20px;
   padding-top: 80px;
   transition: width 0.3s ease;
   overflow: hidden;
   z-index: 999;
-  box-shadow: rgba(32,32,32, 0.25) 2px 0px 4px;
+  box-shadow: #20202040 2px 0px 4px;
 }
 
 .sidebar.collapsed {
