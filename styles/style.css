@@ -40,16 +40,22 @@ header {
   flex-direction: row;
 }
 
-/* former #header-profile */
 #header-profile {
+  min-height: 32px;
   max-height: 32px;
   min-width: 32px;
+  max-width: 32px;
+  border: 1px solid;
+  cursor: pointer;
 }
 .profile-pic {
+  min-height: 48px;
   max-height: 48px;
   min-width: 48px;
+  max-width: 48px;
   border-radius: 100%;
-  object-fit: cover
+  object-fit: cover;
+  border: 2px solid #01303F;
 }
 
 .logo img {
@@ -93,6 +99,10 @@ header {
 #header-drop-down p {
   grid-column: 2/5;
   align-self: center;
+}
+
+#header-drop-down p span {
+  cursor: pointer;
 }
 
 #header-drop-down ul {
@@ -177,9 +187,14 @@ ul li #log-out-img {
   align-items: flex-start;
 }
 
-.sidebar ul li {
+.sidebar a {
   width: 80%;
+  height: fit-content;
   margin: 5px;
+}
+
+.sidebar ul li {
+  width: 100%;
   padding: 15px;
   display: flex;
   align-items: center;
@@ -191,12 +206,17 @@ ul li #log-out-img {
   background: rgba(255, 255, 255, 0.75);
 }
 
-.sidebar ul li a {
+.sidebar ul a li {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #01303F;
   font-weight: bold;
+}
+
+.sidebar ul a li span {
+  overflow: hidden;
+  min-width: max-content;
 }
 
 .sidebar ul li img {
@@ -217,8 +237,13 @@ ul li #log-out-img {
   display: none;
 }
 
+.sidebar.collapsed #sidebar-help {
+  width: fit-content;
+}
+
 #sidebar-help {
   margin-top: 60px;
+  border-radius: 30px;
 }
 
 /* ========== Footer ========== */

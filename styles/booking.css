@@ -107,13 +107,15 @@ body {
 
 #close-choices-btn {
   grid-column: 4/5;
-  height: 32px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
   justify-self: end;
 }
 
 #close-choices-btn:hover {
-  cursor: pointer;
-  transform: scale(1.1);
+    color: #000;
 }
 
 #choices-div {

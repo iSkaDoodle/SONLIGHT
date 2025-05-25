@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const footer = document.getElementById('footer');
 
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
-    const fullHeight = document.body.scrollHeight;
+    const scrollY = window.scrollY,
+          viewportHeight = window.innerHeight,
+          fullHeight = document.body.scrollHeight;
 
     if (scrollY + viewportHeight >= fullHeight - 10) {
       footer?.classList.add('visible');
@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // profile drop down
-const headerArrowDown = document.getElementById('header-arrow-down');
-const headerDropDown = document.getElementById('header-drop-down');
+const headerArrowDown = document.getElementById('header-arrow-down'),
+      headerDropDown = document.getElementById('header-drop-down');
 let dropDownHidden = true;
 
 headerArrowDown.addEventListener('click', () => {
@@ -42,6 +42,11 @@ headerArrowDown.addEventListener('click', () => {
   }
 });
 
+function profileClicked() {
+  setTimeout(() => {
+    window.location.href = "profile.html";
+  }, 1000);
+}
 
 // Load user info from localStorage
 const user = JSON.parse(localStorage.getItem('sonlight-user'));
