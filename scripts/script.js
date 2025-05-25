@@ -26,29 +26,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // profile drop down
 const headerArrowDown = document.getElementById('header-arrow-down'),
-      headerDropDown = document.getElementById('header-drop-down');
+      headerDropDown = document.getElementById('header-drop-down'),
+      logOutBtn = document.getElementById("log-out-btn");
 let dropDownHidden = true;
 
 headerArrowDown.addEventListener('click', () => {
   if(dropDownHidden) {
-    headerDropDown.style.display = "grid";
-    headerDropDown.style.transform = "scaleY(1)";
+    headerDropDown.classList.add("open-drop-down-anim");
+    headerDropDown.classList.remove("close-drop-down-anim");
     headerArrowDown.style.transform = "rotate(180deg)";
     dropDownHidden = false;
   } else {
-    headerDropDown.style.display = "none";
+    headerDropDown.classList.add("close-drop-down-anim");
+    headerDropDown.classList.remove("open-drop-down-anim");
     headerArrowDown.style.transform = "rotate(0deg)";
     dropDownHidden = true;
   }
 });
 
+// headerDropDown.addEventListener("", () => {
+//   headerDropDown.classList.add("close-drop-down-anim");
+//   headerArrowDown.style.transform = "rotate(0deg)";
+//   dropDownHidden = true;
+// });
+
+// header profile directs to profile.html
 function profileClicked() {
   setTimeout(() => {
     window.location.href = "profile.html";
   }, 1000);
 }
 
-// Load user info from localStorage
+// load user info from localStorage
 const user = JSON.parse(localStorage.getItem('sonlight-user'));
 
 if (user && user.username && user.email) {
@@ -64,3 +73,8 @@ if (user && user.username && user.email) {
   document.getElementById('profile-username').textContent = 'Not logged in';
   document.getElementById('profile-email').textContent = 'Not logged in';
 }
+
+// clears localStorage when logged out
+logOutBtn.addEventListener("click", ()=> {
+  localStorage.clear();
+});
