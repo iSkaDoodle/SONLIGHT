@@ -140,7 +140,7 @@ bookBtn.onclick = function()  {
   refNumDetail.textContent = refNumber;
   nameDetail.textContent = customerName.value;
   telDetail.textContent = customerTel.value;
-  eventVenue.textContent = `${eventType.value} at ${Evntvenue.value}`;
+  eventVenue.textContent = `${Evntvenue.value} ${eventType.value}`;
   emailDetail.textContent = customerEmail.value;
   lightSoundSet.textContent = setChoice;
   dateTimeDetail.textContent = `${date.value} | ${convertTime(time.value)}`;
@@ -161,6 +161,12 @@ function hideMessage() {
   receipt.style.display = "block";
   goBack.style.display = "block";
 
+}
+
+// pre-loads user email
+const usrEmail = JSON.parse(localStorage.getItem('sonlight-user'));
+if (user.email) {
+  customerEmail.value = usrEmail.email;
 }
 
 // <== Definetely Unused ==>

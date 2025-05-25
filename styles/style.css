@@ -40,9 +40,16 @@ header {
   flex-direction: row;
 }
 
+/* former #header-profile */
 #header-profile {
-  height: 32px;
-  width: 32px;
+  max-height: 32px;
+  min-width: 32px;
+}
+.profile-pic {
+  max-height: 48px;
+  min-width: 48px;
+  border-radius: 100%;
+  object-fit: cover
 }
 
 .logo img {
@@ -56,12 +63,12 @@ header {
   top: 53.6px;
   right: 40px;
   height: fit-content;
-  width: 200px;
+  width: fit-content;
   border-radius: 24px;
   padding: 20px;
   display: none;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 #header-arrow-down {
@@ -76,6 +83,7 @@ header {
 #header-drop-down img {
   grid-column: 1/2;
   height: 48px;
+  border-radius: 100%;
 }
 
 #header-drop-down img:hover {
@@ -83,13 +91,13 @@ header {
 }
 
 #header-drop-down p {
-  grid-column: 2/4;
+  grid-column: 2/5;
   align-self: center;
 }
 
 #header-drop-down ul {
   grid-row: 2/3;
-  grid-column: 1/4;
+  grid-column: 1/5;
   list-style: none;
 }
 
@@ -102,7 +110,6 @@ header {
   border-radius: 12px;
   transition: all 0.3s ease;
 }
-
 
 #header-drop-down ul li a:hover {
   background:#a3d9ec;
@@ -370,6 +377,7 @@ ul li #log-out-img {
   padding: 10px;
   display: grid;
   height: 100%;
+  max-height: 327.3px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(6, 1fr);
 }
@@ -670,6 +678,7 @@ a{
   50%{opacity: 0}
 }
 
+/* some responsive css */
 @media screen and (max-width: 1100px) {
   #shop-main {
     margin: 25px 15%;

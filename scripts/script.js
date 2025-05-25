@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// profile drop down
 const headerArrowDown = document.getElementById('header-arrow-down');
 const headerDropDown = document.getElementById('header-drop-down');
 let dropDownHidden = true;
@@ -40,3 +41,21 @@ headerArrowDown.addEventListener('click', () => {
     dropDownHidden = true;
   }
 });
+
+
+// Load user info from localStorage
+const user = JSON.parse(localStorage.getItem('sonlight-user'));
+
+if (user && user.username && user.email) {
+  if (user.profilePicture) {
+    const profilePics = document.querySelectorAll('.profile-pic');
+    for(let i = 0; i<profilePics.length; i++) {
+      profilePics[i].src = user.profilePicture;
+    }
+  }
+  document.getElementById('profile-username').textContent = user.username;
+  document.getElementById('profile-email').textContent = user.email;
+} else {
+  document.getElementById('profile-username').textContent = 'Not logged in';
+  document.getElementById('profile-email').textContent = 'Not logged in';
+}
