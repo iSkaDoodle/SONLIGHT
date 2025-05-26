@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile | SonLight Dashboard</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="styles/rateus.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0077cc; /* static background instead of gradient animation */
+      color: #01303f;
+    }
+
+    .back-arrow {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.8rem;
+      text-decoration: none;
+      color: #01303f;
+      opacity: 0.8;
+      z-index: 1000;
+    }
+
+    main.profile {
+      margin-left: 0;
+      padding: 50px 40px 40px;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* vertical centering */
+      align-items: center;     /* horizontal centering */
+      gap: 35px;
+      text-align: center;
+      background: #f0f2f5;
+    }
+
+    main.profile > h1 {
+      color: #01303f;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+
+    .profile-card-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 35px;
+      background-color: white;
+      padding: 35px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 1000px;
+      width: 100%;
+      position: relative;
+      user-select: none;
+    }
+
+    .profile-avatar .profile-pic-preview {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #1e90ff;
+      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.3);
+    }
+
+    .profile-info p {
+      margin-bottom: 22px;
+      font-size: 1.15rem;
+      color: #01303F;
+      word-wrap: break-word;
+      line-height: 1.4;
+      user-select: text;
+      text-align: left;
+    }
+
+    .profile-edit-btn {
+      position: absolute;
+      top: 25px;
+      right: 40px;
+      background: #1e90ff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(30,144,255,0.4);
+      transition: background 0.3s ease;
+      user-select: none;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .profile-edit-btn:hover {
+      background: #007acc;
+      box-shadow: 0 6px 15px rgba(0,122,204,0.6);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      main.profile {
+        padding: 20px;
+        max-width: 100%;
+      }
+
+      .profile-card-grid {
+        display: block;
+        padding: 20px;
+        gap: 25px;
+      }
+
+      .profile-avatar {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .profile-avatar .profile-pic-preview {
+        width: 90px;
+        height: 90px;
+      }
+
+      .profile-card-grid > .profile-info,
+      .profile-card-grid > .profile-avatar {
+        width: 100%;
+      }
+
+      .profile-info p {
+        font-size: 1rem;
+        margin-bottom: 14px;
+        word-wrap: break-word;
+      }
+
+      .profile-edit-btn {
+        position: static;
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="admin.html" class="back-arrow" aria-label="Go back">←</a>
+
+  <main class="profile" role="main">
+    <h1>Welcome, <span id="profile-welcome-name">Admin</span></h1>
+    <div class="profile-card-grid" aria-label="Admin Profile Information">
+      <div class="profile-avatar">
+        <img src="images/profile/placeholdernimamtechno.jpg" alt="Admin Profile Picture" class="profile-pic-preview" id="profile-pic" />
+      </div>
+      <div class="profile-info">
+        <p><strong>Name</strong><br><span id="profile-username">Loading...</span></p>
+        <p><strong>Email</strong><br><span id="profile-email">Loading...</span></p>
+        <p><strong>Password</strong><br><span id="profile-password">**********</span></p>
+      </div>
+      <a href="admin-edit-profile.html" class="profile-edit-btn" role="button" tabindex="0">Edit</a>
+    </div>
+  </main>
+
+  <script>
+    // Retrieve admin user data from localStorage
+    const storedProfile = JSON.parse(localStorage.getItem('adminUser'));
+
+    // Fallback default profile
+    const defaultProfile = {
+      name: 'Admin',
+      email: 'sonlight@admin.com',
+      password: '',
+      picture: 'images/profile/placeholdernimamtechno.jpg'
+    };
+
+    const profile = storedProfile || defaultProfile;
+
+    // Display info
+    document.getElementById('profile-username').textContent = profile.name;
+    document.getElementById('profile-email').textContent = profile.email;
+
+    // Show password masked if empty or show fixed asterisks
+    document.getElementById('profile-password').textContent = profile.password ? '**********' : '**********';
+
+    // Show welcome message with name
+    document.getElementById('profile-welcome-name').textContent = profile.name;
+
+    // Set profile picture src
+    const picEl = document.getElementById('profile-pic');
+    picEl.src = profile.picture || defaultProfile.picture;
+  </script>
+
+</body>
+</html>

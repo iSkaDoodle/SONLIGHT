@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Profile | SonLight Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(329deg, #a3d9ec 0%, #fff 50%, #a3d9ec 100%);
+      background-size: 200% 200%;
+      color: #01303f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      user-select: none;
+    }
+    main.edit-profile {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 450px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    h1 {
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+      user-select: text;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      user-select: text;
+      display: block;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1.5px solid #1e90ff;
+      border-radius: 10px;
+      font-size: 1rem;
+      outline-offset: 2px;
+      outline-color: #1e90ff;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #007acc;
+    }
+    .profile-picture-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .profile-picture-wrapper img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #1e90ff;
+      user-select: none;
+    }
+    input[type="file"] {
+      cursor: pointer;
+    }
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      gap: 15px;
+    }
+    button {
+      flex: 1;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      min-width: 100px;
+    }
+    button:hover {
+      background-color: #007acc;
+    }
+    button.cancel-btn {
+      background-color: #ccc;
+      color: #333;
+    }
+    button.cancel-btn:hover {
+      background-color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <main class="edit-profile" role="main">
+    <h1>Edit Profile</h1>
+    <form id="edit-profile-form" novalidate>
+      <div class="profile-picture-wrapper">
+        <img id="profile-picture-preview" src="" alt="Profile Picture" />
+        <label for="profile-picture">Change Profile Picture</label>
+        <input id="profile-picture" type="file" accept="image/*" />
+      </div>
+
+      <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" required placeholder="Enter your name" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required placeholder="Enter your email" />
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Enter new password" />
+      </div>
+      <div class="form-buttons">
+        <button type="submit">Save</button>
+        <button type="button" class="cancel-btn" id="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('edit-profile-form');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const profilePicInput = document.getElementById('profile-picture');
+    const profilePicPreview = document.getElementById('profile-picture-preview');
+
+    // Load profile from localStorage key 'adminUser'
+    function loadProfile() {
+      const profile = JSON.parse(localStorage.getItem('adminUser')) || {
+        name: 'Admin',
+        email: 'sonlight@admin.com',
+        password: '',
+        picture: 'images/profile/placeholdernimamtechno.jpg'
+      };
+      document.getElementById('name').value = profile.name;
+      document.getElementById('email').value = profile.email;
+      // For security, do NOT prefill password input field with real password
+      document.getElementById('password').value = '';
+
+      profilePicPreview.src = profile.picture || 'images/profile/placeholdernimamtechno.jpg';
+      profilePicPreview.dataset.newPicture = ''; // clear temp new picture data
+    }
+
+    // Save profile to localStorage key 'adminUser'
+    function saveProfile(data) {
+      localStorage.setItem('adminUser', JSON.stringify(data));
+    }
+
+    loadProfile();
+
+    profilePicInput.addEventListener('change', () => {
+      const file = profilePicInput.files[0];
+      if (!file) return;
+
+      if (!file.type.startsWith('image/')) {
+        alert('Please select a valid image file.');
+        profilePicInput.value = '';
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        profilePicPreview.src = e.target.result;
+        profilePicPreview.dataset.newPicture = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        alert('Please fill out all required fields correctly.');
+        return;
+      }
+
+      // Get the existing profile to keep password if not changed
+      const existingProfile = JSON.parse(localStorage.getItem('adminUser')) || {};
+
+      const newProfile = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        // Save new password if entered, else keep old password
+        password: form.password.value.trim() || existingProfile.password || '',
+        picture: profilePicPreview.dataset.newPicture || profilePicPreview.src
+      };
+
+      saveProfile(newProfile);
+
+      alert('Profile saved successfully!');
+      window.location.href = 'admin-profile.html'; // Redirect after save
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      window.location.href = 'admin-edit-profile.html'; // Redirect on cancel
+    });
+  </script>
+</body>
+</html>
