@@ -4,39 +4,39 @@
 // let isValid = true;
 
 // elements declaration
-const bookBtn = document.getElementById('place-book-button');
-const form = document.getElementById('booking-form');
-const viewDetailsBtn = document.getElementById('view-details-button');
-const message = document.getElementById('message-div');
-const receipt = document.getElementById('receipt-div');
-const goBack = document.getElementById('go-back');
+const bookBtn = document.getElementById('place-book-button'),
+      form = document.getElementById('booking-form'),
+      viewDetailsBtn = document.getElementById('view-details-button'),
+      message = document.getElementById('message-div'),
+      receipt = document.getElementById('receipt-div'),
+      goBack = document.getElementById('go-back');
 
 // customer details
-const customerName = document.getElementById('customer-name');
-const customerTel = document.getElementById('customer-number');
-const customerEmail = document.getElementById('customer-email');
-const customerSysSet = document.getElementById('system-set');
-const eventType = document.getElementById('event-type-dropdown');
-const Evntvenue = document.getElementById('booking-venue');
-const date = document.getElementById('event-date');
-const time = document.getElementById('event-time');
+const customerName = document.getElementById('customer-name'),
+      customerTel = document.getElementById('customer-number'),
+      customerEmail = document.getElementById('customer-email'),
+      customerSysSet = document.getElementById('system-set'),
+      eventType = document.getElementById('event-type-dropdown'),
+      Evntvenue = document.getElementById('booking-venue'),
+      date = document.getElementById('event-date'),
+      time = document.getElementById('event-time');
 
 
 // message
 const messageCustomerName = document.getElementById('message-customer-name');
 
 // booking details
-const refNumDetail = document.getElementById('refNum-detail');
-const nameDetail = document.getElementById('name-detail');
-const telDetail = document.getElementById('tel-detail');
-const emailDetail = document.getElementById('email-detail');
-const eventVenue = document.getElementById('event-venue-detail');
-const lightSoundSet = document.getElementById('light-sound-set');
-const dateTimeDetail = document.getElementById('date-time-detail');
+const refNumDetail = document.getElementById('refNum-detail'),
+      nameDetail = document.getElementById('name-detail'),
+      telDetail = document.getElementById('tel-detail'),
+      emailDetail = document.getElementById('email-detail'),
+      eventVenue = document.getElementById('event-venue-detail'),
+      lightSoundSet = document.getElementById('light-sound-set'),
+      dateTimeDetail = document.getElementById('date-time-detail');
 
 // reference number generator
-const min = 100000000000000;
-const max = 999999999999999;
+const min = 100000000000000,
+      max = 999999999999999;
 let refNumber = Math.floor(Math.random() * (max - min) ) + min;
 
 // System Set choices
@@ -140,7 +140,7 @@ bookBtn.onclick = function()  {
   refNumDetail.textContent = refNumber;
   nameDetail.textContent = customerName.value;
   telDetail.textContent = customerTel.value;
-  eventVenue.textContent = `${eventType.value} at ${Evntvenue.value}`;
+  eventVenue.textContent = `${Evntvenue.value} ${eventType.value}`;
   emailDetail.textContent = customerEmail.value;
   lightSoundSet.textContent = setChoice;
   dateTimeDetail.textContent = `${date.value} | ${convertTime(time.value)}`;
@@ -163,7 +163,13 @@ function hideMessage() {
 
 }
 
-// <== Definetely Unused ==>
+// pre-loads user email
+const usrEmail = JSON.parse(localStorage.getItem('sonlight-user'));
+if (user.email) {
+  customerEmail.value = usrEmail.email;
+}
+
+// <== messy booking validation ==>
 
 // function validation() {
 //   for(let i = 0; i<elements.length; i++) {
