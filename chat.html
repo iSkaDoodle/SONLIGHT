@@ -6,7 +6,7 @@
     <title>Chat</title>
     <link rel="stylesheet" href="message.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="Virtuality.png" type="Image/svg+xml">
+    <link rel="icon" href="images/favicon.ico" />
 <style>
 body {
     margin: 0;
@@ -397,13 +397,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #a3d9ec;
+    border-bottom: 1px solid #016283;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 .info-section:hover {
-    background-color: #a3d9ec;
+    background-color: #016283;
 }
 
 .info-section h4 {
@@ -533,7 +533,7 @@ body {
         <div class="left-sidebar">
             <div class="profile-icon">
                 <a href="profile.html">
-                    <img src="images/profile/kurumiiiii.jpg" alt="Avatar" class="avatar"/>
+                    <img id="chat-profile-pic" src="images/profile/placeholdernimamtechno.jpg" alt="Profile Picture" style="width: 40px; height: 40px; border-radius: 50%;" />
                 </a>
             </div>
 
@@ -672,21 +672,43 @@ body {
                 <i class="fas fa-chevron-right"></i>
             </div>
             <div class="member-list">
-                <div class="member-item">
-                    <img src="images/profile/kurumiiiii.jpg" alt="Avatar" class="avatar"/>
-                    <div class="member-details">
-                        <span>iSkaDoodle</span>
-                        <small>Added by Dariel</small>
-                    </div>
-                </div>
-                <div class="member-item">
-                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
-                    <div class="member-details">
-                        <span>Philip</span>
-                        <small>Added by Dariel</small>
-                    </div>
-            </div>
+    <div class="member-item">
+        <img src="images/profile/kurumiiiii.jpg" alt="Avatar" class="avatar"/>
+        <div class="member-details">
+            <span>iSkaDoodle</span>
+            <small>Added by Dariel</small>
         </div>
     </div>
+    <div class="member-item">
+        <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+        <div class="member-details">
+            <span>Philip</span>
+            <small>Added by Philip</small>
+        </div>
+    </div>
+    <div class="member-item">
+        <img id="member-avatar" src="images/profile/placeholdernimamtechno.jpg" alt="Profile Picture" class="avatar" />
+        <div class="member-details">
+            <span id="member-name">You</span>
+        <small>Added by iSkaDoodle</small>
+    </div>
+</div>
+</div>
+</div>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const user = JSON.parse(localStorage.getItem('sonlight-user'));
+    if (user) {
+      const chatImg = document.getElementById('chat-profile-pic');
+      if (chatImg && user.profilePicture) chatImg.src = user.profilePicture;
+      const avatar = document.getElementById('member-avatar');
+      const nameSpan = document.getElementById('member-name');
+      if (avatar && user.profilePicture) avatar.src = user.profilePicture;
+      if (nameSpan && user.name) nameSpan.textContent = user.name;
+    }
+  });
+</script>
+</script>
+
 </body>
 </html>
