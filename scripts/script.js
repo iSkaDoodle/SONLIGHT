@@ -85,16 +85,19 @@ logOutBtn.addEventListener("click", ()=> {
 // filter scripts
 let filterClosed = true;
 const filterToggle = document.getElementById('filters-toggle'),
-      filterContainer = document.getElementById('filters-container');
+      filterContainer = document.getElementById('filters-container'),
+      filterArrow = document.getElementById('filters-arrow');
 
 filterToggle.addEventListener("click", () => {
   if(filterClosed) {
     filterContainer.classList.remove("close-filters");
     filterContainer.classList.add("open-filters");
+    filterArrow.style.transform = "rotate(270deg)";
     filterClosed = false;
   } else {
     filterContainer.classList.remove("open-filters");
     filterContainer.classList.add("close-filters");
+    filterArrow.style.transform = "rotate(90deg)";
     filterClosed = true;
   }
 });

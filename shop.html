@@ -185,8 +185,26 @@
 
    <!-- filters -->
    <div id="filters-container" class="close-filters">
-    <div id="filters-toggle"></div>
-      <h3>filters</h3>
+    <div id="filters-toggle"><img id="filters-arrow" src="images/arrow-down.svg" alt="filters arrow"></div>
+      <strong style="font-size: 24px;">Filters</strong>
+      <hr>
+      <strong>By Stars</strong>
+      <div id="star-filters-container" class="filter-containers">
+        <button>1★</button>
+        <button>2★</button>
+        <button>3★</button>
+        <button>4★</button>
+        <button>5★</button>
+      </div>
+      <hr>
+      <strong>Equipment Availability</strong>
+      <div id="Available equipments"  class="filter-containers">
+        <input id="indoor-radio" type="checkbox">
+        <label for="indoor-radio">indoor equipments</label>
+        <br>
+        <input id="outdoor-radio" type="checkbox">
+        <label for="outdoor-radio">outdoor equipments</label>
+      </div>
     </div>
   </main>
   <footer id="footer">
