@@ -23,6 +23,12 @@
         <a href="shop.html"><img src="images/transparent-logo.png" alt="header-logo"></a>
       </div>
     </div>
+    <div class="middle-header">
+      <div class="search-box">
+        <input type="text" placeholder="Search "/>
+        <button type="submit">&#128269;</button>
+      </div>
+    </div>
     <div class="right-header">
       <img id="header-profile" class="profile-pic" src="images/profile/placeholdernimamtechno.jpg" alt="Header Profile Picture" onclick="profileClicked()"/>
       <img id="header-arrow-down" src="images/arrow-down.svg" alt="arrow down">
@@ -74,57 +80,57 @@
           <div class="set-cards" onclick="set1()">
             <strong>Set 1</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set1-img">
-              <p>₱10,000</p>
+              <img id="serv-img-1" src="images/placeholder-image.webp" alt="set1-img">
+              <p id="price-1"></p>
             </div>
           </div>
           <div class="set-cards" onclick="set2()">
             <strong>Set 2</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set2-img">
-              <p>₱5,000</p>
+              <img id="serv-img-2" src="images/placeholder-image.webp" alt="set2-img">
+              <p id="price-2"></p>
             </div>
           </div>
           <div class="set-cards" onclick="set3()">
             <strong>Set 3</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set3-img">
-              <p>₱20,000</p>
+              <img id="serv-img-3" src="images/placeholder-image.webp" alt="set3-img">
+              <p id="price-3"></p>
             </div>
           </div>
           <div class="set-cards" onclick="set4()">
             <strong>Set 4</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set4-img">
-              <p>₱12,000</p>
+              <img id="serv-img-4" src="images/placeholder-image.webp" alt="set4-img">
+              <p id="price-4"></p>
             </div>
           </div>
           <div class="set-cards" onclick="set5()">
             <strong>Set 5</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set6-img">
-              <p>₱18,000</p>
+              <img id="serv-img-5" src="images/placeholder-image.webp" alt="set6-img">
+              <p id="price-5"></p>
             </div>
           </div>
           <div class="set-cards" onclick="set6()">
             <strong>Set 6</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set6-img">
-              <p>₱15,000</p>
+              <img id="serv-img-6" src="images/placeholder-image.webp" alt="set6-img">
+              <p id="price-6"></p>
             </div>
           </div>
           <div class="set-cards" onclick="set7()">
             <strong>Set 7</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set7-img">
-              <p>₱28,000</p>
+              <img id="serv-img-7" src="images/placeholder-image.webp" alt="set7-img">
+              <p id="price-7"></p>
             </div>
           </div>
           <div class="set-cards" onclick="set8()">
             <strong>Set 8</strong>
             <div class="set-card-container">
-              <img src="images/placeholder-image.webp" alt="set8-img">
-              <p>₱23,000</p>
+              <img id="serv-img-8" src="images/placeholder-image.webp" alt="set8-img">
+              <p id="price-8"></p>
             </div>
           </div>
         </div>
@@ -142,7 +148,6 @@
             <option value="Closed Space">Closed Space</option>
           </select>
 
-          
           <!-- event type -->
           <label for="event-type-dropdown">Event Type</label>
           <select name="event type" id="event-type-dropdown" class="booking-details" required>
@@ -216,6 +221,53 @@
     </ul>
   </aside>
   <!-- scripts -->
+   <script>
+    // viewShop elements
+    const shopImage = document.getElementById('shop-image'),
+          shopName = document.getElementById('shop-name'),
+          shopAddress = document.getElementById('shop-address');
+
+    // those damn sets
+    const serv_img1 = document.getElementById('serv-img-1'),
+          serv_img2 = document.getElementById('serv-img-2'),
+          serv_img3 = document.getElementById('serv-img-3'),
+          serv_img4 = document.getElementById('serv-img-4'),
+          serv_img5 = document.getElementById('serv-img-5'),
+          serv_img6 = document.getElementById('serv-img-6'),
+          serv_img7 = document.getElementById('serv-img-7'),
+          serv_img8 = document.getElementById('serv-img-8');
+    // their prices
+    const price1 = document.getElementById('price-1'),
+          price2 = document.getElementById('price-2'),
+          price3 = document.getElementById('price-3'),
+          price4 = document.getElementById('price-4'),
+          price5 = document.getElementById('price-5'),
+          price6 = document.getElementById('price-6');
+          price7 = document.getElementById('price-7');
+          price8 = document.getElementById('price-8');
+
+    // loads bunch of stuffs
+    const loadChoice = JSON.parse(localStorage.getItem("shopDetails"));
+    if(loadChoice) {
+      console.log(loadChoice.equip_1);
+      serv_img1.src = loadChoice.equip_1;
+      serv_img2.src = loadChoice.equip_2;
+      serv_img3.src = loadChoice.equip_3;
+      serv_img4.src = loadChoice.equip_4;
+      serv_img5.src = loadChoice.equip_5;
+      serv_img6.src = loadChoice.equip_6;
+      serv_img7.src = loadChoice.equip_7;
+      serv_img8.src = loadChoice.equip_8;
+      price1.textContent = loadChoice.price_1;
+      price2.textContent = loadChoice.price_2;
+      price3.textContent = loadChoice.price_3;
+      price4.textContent = loadChoice.price_4;
+      price5.textContent = loadChoice.price_5;
+      price6.textContent = loadChoice.price_6;
+      price7.textContent = loadChoice.price_7;
+      price8.textContent = loadChoice.price_8;
+    }
+  </script>
   <script src="scripts/script.js"></script>
   <script src="scripts/booking.js"></script>
 </body>

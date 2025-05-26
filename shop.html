@@ -21,6 +21,12 @@
         <a href="shop.html"><img src="images/transparent-logo.png" alt="header-logo"></a>
       </div>
     </div>
+    <div class="middle-header">
+      <div class="search-box">
+        <input type="text" placeholder="Search "/>
+        <button type="submit">&#128269;</button>
+      </div>
+    </div>
     <div class="right-header">
       <img id="header-profile" class="profile-pic" src="images/profile/placeholdernimamtechno.jpg" alt="Header Profile Picture" onclick="profileClicked()"/>
       <img id="header-arrow-down" src="images/arrow-down.svg" alt="arrow down">
@@ -53,9 +59,9 @@
 
 <!-- new layout -->
   <main id="shop-main">
-    <div class="image-box">
+    <div id="shop-A" class="image-box">
       <a href="view-shop.html">
-        <div class="image-box-img" style="background-color: #0d4b0d;"></div>
+        <div class="image-box-img"></div>
         <div class="star-row">
           <span class="shop-stars">★</span>
           <span class="shop-stars">★</span>
@@ -72,9 +78,9 @@
       </a>
     </div>
 
-    <div class="image-box">
+    <div id="shop-B" class="image-box">
       <a href="view-shop.html">
-        <div class="image-box-img" style="background-color: #01303D;"></div>
+        <div class="image-box-img"></div>
         <div class="star-row">
           <span class="shop-stars">★</span>
           <span class="shop-stars">★</span>
@@ -91,9 +97,9 @@
       </a>
     </div>
 
-    <div class="image-box">
+    <div id="shop-C" class="image-box">
       <a href="view-shop.html">
-        <div class="image-box-img" style="background-color: #8451A2;"></div>
+        <div class="image-box-img"></div>
         <div class="star-row">
           <span class="shop-stars">★</span>
           <span class="shop-stars">★</span>
@@ -110,9 +116,9 @@
       </a>
     </div>
 
-    <div class="image-box">
+    <div id="shop-D" class="image-box">
       <a href="view-shop.html">
-        <div class="image-box-img" style="background-color: #C91919;"></div>
+        <div class="image-box-img"></div>
         <div class="star-row">
           <span class="shop-stars">★</span>
           <span class="shop-stars">★</span>
@@ -129,9 +135,9 @@
       </a>
     </div>
 
-    <div class="image-box">
+    <div id="shop-E" class="image-box">
       <a href="view-shop.html">
-        <div class="image-box-img" style="background-color: #D94C10;"></div>
+        <div class="image-box-img"></div>
         <div class="star-row">
           <span class="shop-stars">★</span>
           <span class="shop-stars">★</span>
@@ -148,9 +154,9 @@
       </a>
     </div>
 
-    <div class="image-box">
+    <div id="shop-F" class="image-box">
       <a href="view-shop.html">
-        <div class="image-box-img" style="background-color: #2117AF;"></div>
+        <div class="image-box-img"></div>
         <div class="star-row">
           <span class="shop-stars">★</span>
           <span class="shop-stars">★</span>
@@ -166,7 +172,8 @@
         </div>
       </a>
     </div>
-    <div id="ads-container">
+    <!-- ads -->
+    <!-- <div id="ads-container">
       <img id="close-ads-btn" src="images/icons/close-icon.svg" alt="close ads">
       <div class="sample-ad">
         <p>Sample<br>Advertisment</p>
@@ -174,7 +181,13 @@
       <div class="sample-ad">
         <p>Sample<br>Advertisment</p>
       </div>
-   </div>
+   </div> -->
+
+   <!-- filters -->
+   <div id="filters-container" class="close-filters">
+    <div id="filters-toggle"></div>
+      <h3>filters</h3>
+    </div>
   </main>
   <footer id="footer">
     <div class="footer-container">

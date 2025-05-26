@@ -143,7 +143,7 @@ body {
   grid-row: 2/20;
   padding: 20px;
   width: 60%;
-  height: 75%;
+  height: fit-content;
 }
 
 #choices-container img {
@@ -155,7 +155,7 @@ body {
   width: 100%;
   border: 1px solid #10303f;
   border-radius: 8px;
-  align-content: center;
+  align-content: end;
   justify-self: center;
   transition: all 0.2s ease;
 }

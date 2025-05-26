@@ -61,15 +61,18 @@ function profileClicked() {
 const user = JSON.parse(localStorage.getItem('sonlight-user'));
 
 if (user && user.username && user.email) {
+  // loads pfp
   if (user.profilePicture) {
     const profilePics = document.querySelectorAll('.profile-pic');
-    for(let i = 0; i<profilePics.length; i++) {
-      profilePics[i].src = user.profilePicture;
-    }
+    profilePics.forEach(profilePic => {
+      profilePic.src = user.profilePicture;
+    });
   }
+  // loads username and email
   document.getElementById('profile-username').textContent = user.username;
   document.getElementById('profile-email').textContent = user.email;
 } else {
+  // default
   document.getElementById('profile-username').textContent = 'Not logged in';
   document.getElementById('profile-email').textContent = 'Not logged in';
 }
@@ -77,4 +80,21 @@ if (user && user.username && user.email) {
 // clears localStorage when logged out
 logOutBtn.addEventListener("click", ()=> {
   localStorage.clear();
+});
+
+// filter scripts
+let filterClosed = true;
+const filterToggle = document.getElementById('filters-toggle'),
+      filterContainer = document.getElementById('filters-container');
+
+filterToggle.addEventListener("click", () => {
+  if(filterClosed) {
+    filterContainer.classList.remove("close-filters");
+    filterContainer.classList.add("open-filters");
+    filterClosed = false;
+  } else {
+    filterContainer.classList.remove("open-filters");
+    filterContainer.classList.add("close-filters");
+    filterClosed = true;
+  }
 });
