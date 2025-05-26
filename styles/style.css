@@ -35,9 +35,21 @@ header {
   gap: 15px;
 }
 
+.middle-header {
+  width: 33.33%;
+  overflow: hidden;
+  animation: openSesame 1s ease-in-out 0s 1;
+}
+
+/* @keyframes openSesame {
+  from{width: 0px;}
+  to{width: 33.33%;}
+} */
+
 .right-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 #header-profile {
@@ -558,7 +570,7 @@ input{
 input{
   font-size: 15px;
   padding: 5px 10px;
-  width: 200px;
+  width: 400px;
 }
 .search-box {
   display: flex;
@@ -616,7 +628,6 @@ input{
   transform: scale(1.10);
 }
 
-
 .help-pic img {
   width: 100px;
   max-height: 180px;
@@ -663,6 +674,38 @@ a{
 .bullet-text{
   margin: 20px;
 }/*wasup*/
+
+#filters-container {
+  width: 15%;
+  height: 100%;
+  padding: 20px;
+  padding-top: 115px;
+  top: 0px;
+  right: 0px;
+  position: fixed;
+  background-color: #fff;
+  box-shadow: -4px 0px 8px #20202040;
+  transition: all 0.3s ease-in;
+}
+#filters-toggle {
+  height: 48px;
+  width: 48px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  background: #fff;
+  box-shadow: -4px 0px 8px #20202040;
+  position: absolute;
+  left: -48px;
+  cursor: pointer;
+}
+
+.open-filters {
+  transform: translateX(0px);
+}
+
+.close-filters {
+  transform: translateX(100%);
+}
 
 /* ads css */
 #ads-container {

@@ -81,3 +81,20 @@ if (user && user.username && user.email) {
 logOutBtn.addEventListener("click", ()=> {
   localStorage.clear();
 });
+
+// filter scripts
+let filterClosed = true;
+const filterToggle = document.getElementById('filters-toggle'),
+      filterContainer = document.getElementById('filters-container');
+
+filterToggle.addEventListener("click", () => {
+  if(filterClosed) {
+    filterContainer.classList.remove("close-filters");
+    filterContainer.classList.add("open-filters");
+    filterClosed = false;
+  } else {
+    filterContainer.classList.remove("open-filters");
+    filterContainer.classList.add("close-filters");
+    filterClosed = true;
+  }
+});
