@@ -61,15 +61,18 @@ function profileClicked() {
 const user = JSON.parse(localStorage.getItem('sonlight-user'));
 
 if (user && user.username && user.email) {
+  // loads pfp
   if (user.profilePicture) {
     const profilePics = document.querySelectorAll('.profile-pic');
-    for(let i = 0; i<profilePics.length; i++) {
-      profilePics[i].src = user.profilePicture;
-    }
+    profilePics.forEach(profilePic => {
+      profilePic.src = user.profilePicture;
+    });
   }
+  // loads username and email
   document.getElementById('profile-username').textContent = user.username;
   document.getElementById('profile-email').textContent = user.email;
 } else {
+  // default
   document.getElementById('profile-username').textContent = 'Not logged in';
   document.getElementById('profile-email').textContent = 'Not logged in';
 }
