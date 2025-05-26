@@ -51,7 +51,7 @@ function chngSetColors() {
 
 let setChoice;
 function showChoices() {
-  setChoices.style.display = "grid";
+  setChoices.style.display = "block";
 }
 // bunch of choice functions
 function set1() {

@@ -7,81 +7,159 @@
   <link rel="icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles/mobile-screen.css" />
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:linear-gradient(329deg,#a3d9ec 0 20%,#fff 50% 100%) no-repeat} 
-    .container{display:flex;min-height:100vh}.left-panel{background:#a3d9ec;display:flex;align-items:center;justify-content:center;border-radius:0 20px 20px 0}
-    .logo{width:500px}.right-panel{flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:40px}
-    .tab-switch{position:absolute;top:20px;right:20px;display:flex;border-radius:6px;box-shadow:0 2px 5px rgba(0,0,0,0.1);overflow:hidden}
-    .tab-switch button{padding:10px 20px;border:none;cursor:pointer;font-weight:bold;background:#fff;color:#007bff;transition:.2s}
-    .tab-switch .active{background:#007bff;color:#fff;box-shadow:0 4px 6px rgba(0,0,0,0.2)}
-    .form{display:none;flex-direction:column;width:100%;max-width:700px}.form.active{display:flex}.form h1{margin-bottom:20px}
-    .form input{margin-bottom:15px;padding:15px;font-size:16px;border-radius:8px;border:1px solid #ccc}
-    .form a,.form span{font-size:14px;color:#007bff;text-align:center;cursor:pointer;margin-bottom:20px}
-    .form p{text-align:center;font-size:14px;color:#555;margin-top:10px}
-    .main-btn{padding:12px;background:#007bff;color:#fff;border:none;border-radius:20px;font-weight:bold;font-size:16px;cursor:pointer;box-shadow:0 4px 6px rgba(0,0,0,0.2)}
-    @media(max-width:450px){.container{flex-direction:column}.logo{width:66.66%}.left-panel{border-radius:0 0 20px 20px}.tab-switch{top:15px}.right-panel h1{font-size:24px}.tab-switch button{font-size:12px}}
-    @media(max-height:450px){.logo{width:300px}.right-panel{padding:20px}.right-panel h1{font-size:24px;margin:40px 0 10px}.form input{font-size:14px;padding:10px}.main-btn{width:50%;font-size:14px;margin:0 auto}}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(329deg, #a3d9ec 0 20%, #fff 50% 100%) no-repeat;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .left-panel {
+      background: #a3d9ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 20px 20px 0;
+    }
+    .logo { width: 500px; }
+    .right-panel {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 40px;
+    }
+    .tab-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .tab-switch button {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      background: #fff;
+      color: #007bff;
+      transition: 0.2s;
+    }
+    .tab-switch .active {
+      background: #007bff;
+      color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .form {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      max-width: 700px;
+    }
+    .form.active { display: flex; }
+    .form h1 { margin-bottom: 20px; }
+    .form input {
+      margin-bottom: 15px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .form a, .form span {
+      font-size: 14px;
+      color: #007bff;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .form p {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+    .main-btn {
+      padding: 12px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .main-btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    .terms-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .terms-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+    }
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      margin: 0 4px;
+      border: none;
+      cursor: pointer;
+      background: #eee;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    .tab-btn.active {
+      background: #007bff;
+      color: #fff;
+    }
+    .tab-content {
+      display: none;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .tab-content.active { display: block; }
+    label { display: block; margin: 10px 0; }
+    #proceedBtn { margin-top: 10px; }
+
+    @media(max-width: 450px) {
+      .container { flex-direction: column; }
+      .logo { width: 66.66%; }
+      .left-panel { border-radius: 0 0 20px 20px; }
+      .tab-switch { top: 15px; }
+      .right-panel h1 { font-size: 24px; }
+      .tab-switch button { font-size: 12px; }
+    }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loginForm = document.getElementById("login-form"),
-            signupForm = document.getElementById("signup-form"),
-            showLoginBtn = document.getElementById("show-login"),
-            showSignupBtn = document.getElementById("show-signup"),
-            toSignup = document.getElementById("to-signup"),
-            toLogin = document.getElementById("to-login");
-
-      const toggleForms = showSignup => {
-        loginForm.classList.toggle("active", !showSignup);
-        signupForm.classList.toggle("active", showSignup);
-        showLoginBtn.classList.toggle("active", !showSignup);
-        showSignupBtn.classList.toggle("active", showSignup);
-      };
-
-      showLoginBtn.onclick = () => toggleForms(false);
-      showSignupBtn.onclick = () => toggleForms(true);
-      toSignup.onclick = () => toggleForms(true);
-      toLogin.onclick = () => toggleForms(false);
-
-      signupForm.onsubmit = e => {
-        e.preventDefault();
-        const [email, username, password] = [...signupForm.querySelectorAll('input')].map(i => i.value);
-        localStorage.setItem("sonlight-user", JSON.stringify({email, username, password}));
-        alert("Account created successfully! Please log in.");
-        toggleForms(false);
-      };
-
-      loginForm.onsubmit = e => {
-        e.preventDefault();
-        const [email, password] = [...loginForm.querySelectorAll('input')].map(i => i.value);
-        const saved = JSON.parse(localStorage.getItem("sonlight-user"));
-        if (saved?.email === email && saved?.password === password) {
-          localStorage.setItem("sonlight-loggedin", "true");
-          location.href = "shop.html";
-        } else alert("Invalid credentials!");
-      }
-      localStorage.setItem("sonlight-user", JSON.stringify({
-    email: "user@example.com",
-    username: "user123",
-    password: "mypassword"
-  }));
-
-  const user = JSON.parse(localStorage.getItem("sonlight-user"));
-  
-  if (user) {
-    console.log("User email:", user.email);
-    console.log("Username:", user.username);
-    console.log("Password:", user.password);
-  } else {
-    console.warn("No user data found.");
-  }
-  ;
-    });
-  </script>
 </head>
 <body>
   <div class="container">
     <div class="left-panel">
-      <img src="images/logo.png" alt="Sonlight Logo" class="logo" />
+      <img src="images/logo.png" alt="Sonlight Logo" class="logo">
     </div>
     <div class="right-panel">
       <div class="tab-switch">
@@ -91,22 +169,146 @@
 
       <form id="login-form" class="form">
         <h1>Welcome back!</h1>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required minlength="8" />
-        <a href="#">Forgot Password?</a>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required minlength="8">
+        <a href="#" id="forgot-password-link">Forgot Password?</a>
         <button type="submit" class="main-btn">LOG IN</button>
         <p>Don’t have an account? <span id="to-signup">Sign Up</span></p>
       </form>
 
       <form id="signup-form" class="form active">
         <h1>Create an Account</h1>
-        <input type="email" placeholder="Email" required />
-        <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required minlength="8" />
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required minlength="8">
         <button type="submit" class="main-btn">CREATE</button>
         <p>Already have an account? <span id="to-login">Log In</span></p>
       </form>
     </div>
   </div>
+
+ <div id="termsModal" class="terms-modal" style="display:none;">
+    <div class="terms-content">
+      <h2>Terms & Policies</h2>
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="terms">Terms & Conditions</button>
+        <button class="tab-btn" data-tab="privacy">Privacy Policy</button>
+      </div>
+      <div class="tab-content active" id="terms-tab">
+        <p><strong>Terms and Conditions</strong></p>
+        <p>By accessing or using our platform, you agree to be bound by the following terms and conditions. Please read them carefully.</p>
+        <p><strong>User Responsibilities</strong>: Use SonLight only for lawful purposes. Don’t misuse or attempt unauthorized access.</p>
+        <p><strong>Account Registration</strong>: Provide accurate info. You're responsible for your credentials.</p>
+        <p><strong>Modifications</strong>: We may update these terms anytime. Continued use = acceptance.</p>
+        <p><strong>Termination</strong>: We may suspend access for violations. Contact support@sonlight.com for inquiries.</p>
+      </div>
+      <div class="tab-content" id="privacy-tab">
+        <p><strong>Privacy Policy</strong></p>
+        <p>We collect basic info like email, username, and password. Some device/browser info may be gathered automatically.</p>
+        <p><strong>Usage</strong>: To manage your account and personalize experience. We never sell your data.</p>
+        <p><strong>Storage</strong>: Stored locally via localStorage. Avoid using on public devices.</p>
+        <p><strong>Your Rights</strong>: Clear localStorage or email privacy@sonlight.com to delete account data.</p>
+      </div>
+      <label><input type="checkbox" id="agreeCheckbox" /> I agree to the Terms & Conditions and Privacy Policy</label>
+      <button id="proceedBtn" class="main-btn" disabled>Proceed to Login</button>
+    </div>
+  </div>
+  <div id="forgotModal" class="terms-modal" style="display:none;">
+  <div class="terms-content">
+      <h3>Password Reset</h3>
+      <p>Instructions to reset your password have been sent to your email.</p>
+      <button class="main-btn" onclick="document.getElementById('forgotModal').style.display='none'">OK</button>
+    </div>
+  </div>
+
+  <div id="forgotModal" class="terms-modal" style="display:none;">
+    <div class="terms-content">
+      <h3>Password Reset</h3>
+      <p>Instructions have been sent to your email.</p>
+      <button class="main-btn" onclick="document.getElementById('forgotModal').style.display='none'">OK</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      const showLoginBtn = document.getElementById('show-login');
+      const showSignupBtn = document.getElementById('show-signup');
+      const toSignup = document.getElementById('to-signup');
+      const toLogin = document.getElementById('to-login');
+      const termsModal = document.getElementById('termsModal');
+      const agreeCheckbox = document.getElementById('agreeCheckbox');
+      const proceedBtn = document.getElementById('proceedBtn');
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+      let tempSignupData = null;
+
+      const toggleForms = showSignup => {
+        loginForm.classList.toggle('active', !showSignup);
+        signupForm.classList.toggle('active', showSignup);
+        showLoginBtn.classList.toggle('active', !showSignup);
+        showSignupBtn.classList.toggle('active', showSignup);
+      };
+
+      [showLoginBtn, toLogin].forEach(btn => btn.onclick = () => toggleForms(false));
+      [showSignupBtn, toSignup].forEach(btn => btn.onclick = () => toggleForms(true));
+
+      signupForm.onsubmit = e => {
+        e.preventDefault();
+        const [email, username, password] = [...signupForm.querySelectorAll('input')].map(i => i.value.trim());
+        if (!email || !username || !password) {
+          alert('Please fill in all fields.');
+          return;
+        }
+        tempSignupData = { email, username, password };
+        termsModal.style.display = 'flex';
+      };
+
+      proceedBtn.onclick = () => {
+        if (!agreeCheckbox.checked) return;
+        if (tempSignupData) {
+          localStorage.setItem('sonlight-user', JSON.stringify(tempSignupData));
+          tempSignupData = null;
+          termsModal.style.display = 'none';
+          toggleForms(false);
+          alert('Account created successfully! Please log in.');
+        }
+      };
+
+      loginForm.onsubmit = e => {
+        e.preventDefault();
+        const [emailInput, passwordInput] = loginForm.querySelectorAll('input');
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        const savedUser = JSON.parse(localStorage.getItem('sonlight-user'));
+        if (savedUser?.email === email && savedUser?.password === password) {
+          localStorage.setItem('sonlight-loggedin', 'true');
+          location.href = 'shop.html';
+        } else {
+          alert('Invalid credentials!');
+        }
+      };
+
+      agreeCheckbox.onchange = () => {
+        proceedBtn.disabled = !agreeCheckbox.checked;
+      };
+
+      tabButtons.forEach(btn => {
+        btn.onclick = () => {
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(`${btn.dataset.tab}-tab`).classList.add('active');
+        };
+      });
+
+      document.getElementById('forgot-password-link').addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('forgotModal').style.display = 'flex';
+      });
+    });
+  </script>
 </body>
 </html>

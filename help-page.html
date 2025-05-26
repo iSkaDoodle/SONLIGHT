@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home | SonLight</title>
+  <title>Help | SonLight</title>
   <link rel="stylesheet" href="styles/style.css" />
   <link rel="stylesheet" href="styles/mobile-screen.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
@@ -22,17 +22,31 @@
       </div>
     </div>
     <div class="right-header">
-      <a href="index.html"><img id="header-profile" src="images/icons/profile-icon.svg" alt="Header Profile"></a>
+      <a href="profile.html"><img id="header-profile" src="images/icons/profile-icon.svg" alt="Header Profile"></a>
+      <img id="header-arrow-down" src="images/arrow-down.svg" alt="arrow down">
+    </div>
+    <div id="header-drop-down">
+      <img src="images/icons/profile-icon.svg" alt="profile picture">
+      <ul>
+        <li>
+          <a href="index.html">
+            <img id="log-out-img" src="images/icons/log-out-icon.svg" alt="log out icon">
+            <p><strong>Log Out</strong></p>
+          </a>
+        </li>
+      </ul>
+      <p><strong>Name</strong><br><em>email</em></p>
     </div>
   </header>
 
   <aside class="sidebar collapsed" id="sidebar">
     <ul>
       <li><a href="profile.html"><img src="images/icons/profile-icon.svg"><span>Profile</span></a></li>
-      <li id="inShop"><a href="shop.html"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></a></li>
+      <li><a href="shop.html"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></a></li>
       <li><a href="about.html"><img src="images/icons/about-icon.svg"><span>About Us</span></a></li>
       <li><a href="#" id="rateUsTrigger"><img src="images/icons/star-icon.svg" /><span>Rate Us</span></a></li>
-      <li id="sidebar-help"><a href="#"><img src="images/icons/help-icon.svg"><span>Help</span></a></li>
+      <li><a href="chat.html"><img src="images/icons/mail.svg"/><span>Messages</span></a></li>
+      <li id="sidebar-help" style="background: #fff;"><a href="#"><img src="images/icons/help-icon.svg"><span>Help</span></a></li>
     </ul>
   </aside>
 
@@ -77,7 +91,7 @@
   
   <footer id="footer">
     <div class="footer-container">
-      <div class="footer-section">
+      <div id="sonlight-icon-img-section" class="footer-section">
         <img id="sonlight-icon-img" src="images/sonlight-icon.png" alt="Sonlight textless logo">
       </div>
       <div class="footer-section">

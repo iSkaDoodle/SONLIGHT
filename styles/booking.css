@@ -1,3 +1,7 @@
+/* burgar */
+/* .burger {
+  display: none;
+} */
 /* sidebar */
 #sidebar.sidebar.collapsed {
   width: 0px;
@@ -94,16 +98,17 @@ body {
 }
 
 /* set choices */
-#choices-div #choose-strng {
+#choices-container #choose-strng {
   justify-self: start;
   font-size: 24px;
+  grid-column: 1/4;
+  grid-row: 1/2;
 }
 
 #close-choices-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  grid-column: 4/5;
   height: 32px;
+  justify-self: end;
 }
 
 #close-choices-btn:hover {
@@ -114,33 +119,37 @@ body {
 #choices-div {
   display: none;
   position: fixed;
-  top: 12%;
-  bottom: 10%;
-  left: 10%;
-  right: 10%;
-  background: #fff;
-  box-shadow: 0px 0px 8px #20202033;
-  border-radius: 24px;
   height: fit-content;
-  width: 75%;
-  height: 75%;
+  width: 100%;
+  height: 100%;
   justify-self: center;
-  align-content: center;
+  align-content: start;
   padding:20px;
   grid-template-rows: repeat(20, 1fr);
+  backdrop-filter: blur(5px); /* Blur the background */
 }
 
 #choices-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 32px 1fr 1fr;
   gap: 20px 10px;
-  justify-items: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 8px #20202033;
+  border-radius: 24px;
+  justify-self: center;
   grid-row: 2/20;
+  padding: 20px;
+  width: 60%;
+  height: 75%;
+}
+
+#choices-container img {
+  border-radius: 12px;
 }
 
 .set-card-container {
-  height: 100%;
+  height: 90%;
   width: 100%;
   border: 1px solid #10303f;
   border-radius: 8px;
@@ -156,8 +165,14 @@ body {
 
 .set-card-container img {
   padding: 10px;
-  min-width: 100%;
-  min-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+}
+
+.set-card-container p {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .set-card-container:hover {
@@ -383,9 +398,24 @@ a {
   }
 
   #choices-div {
-    max-height: 50%;
+    height: 100%;
+    width: 100%;
     padding: 10px;
   }
+
+  #choices-container {
+    width: 100%;
+    height: fit-content;
+  }
+
+  #choices-container img {
+    padding: 2px;
+    border-radius: 8px;
+  }
+
+   #choices-container p {
+    margin-bottom: 5px;
+   }
 
   #close-choices-btn {
     top: 15px;

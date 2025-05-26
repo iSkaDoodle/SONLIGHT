@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+main * {
+  opacity: 100;
+  animation: reveal 0.8s ease;
+}
+
+@keyframes reveal {
+  from {opacity:0;}
+}
+
 #index-header {
   max-height: 75px;
   width: 100%;
@@ -184,12 +193,27 @@
   }
 
   #second-section {
+    grid-template-columns: repeat(2, 1fr);
     padding: 20px;
     gap: 5px;
   }
 
+  #second-section h3 {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    align-self: center;
+  }
+
+  #second-section-graphic {
+    grid-column: 1/2;
+  }
+
   #second-section img {
     max-width: 100%;
+  }
+
+  #third-section-images {
+    gap: 10px;
   }
 }
 

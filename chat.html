@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="Virtuality.png" type="Image/svg+xml">
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2f3136; 
+    color: #dcddde; 
+    display: flex;
+    height: 100vh;
+    transition: background 0.3s, color 0.3s;
+    background-color: #1f1f1f;
+}
+
+
+.chat-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.left-sidebar {
+    width: 70px;
+    background-color: #01303F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    position: relative; 
+    overflow-y: auto;
+    font-weight: lighter;
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile-icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.server-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: black;
+}
+
+.server-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #36393f; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.server-icon:hover, .server-icon.active {
+    border-radius: 30%; 
+    background-color: #01303F; 
+    color: white;
+}
+
+.bottom-icons {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bottom-icons i {
+    font-size: 20px;
+    color: #b9bbbe;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.bottom-icons i:hover {
+    color: #dcddde;
+}
+
+.middle-column {
+    width: 280px;
+    background-color: #01303F; 
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-right: 1px solid #202225;
+}
+
+.search-bar {
+    background-color: #202225;
+    border-radius: 5px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.search-bar i {
+    color: #ffff;
+    margin-right: 10px;
+}
+
+.search-bar input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #dcddde;
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.search-bar input::placeholder {
+    color: #8e9297;
+}
+
+.chat-list {
+    flex-grow: 1;
+    overflow-y: auto; 
+    padding-right: 5px;
+}
+
+.chat-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-list::-webkit-scrollbar-track {
+    background: #ffff; 
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+    background-color: #40444b; 
+    border-radius: 4px;
+    border: 2px solid #2f3136; 
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.chat-item:hover {
+    background-color: #016283;
+}
+
+.chat-item.active {
+    background-color: #016283;
+}
+
+.chat-item img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.chat-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.chat-name {
+    font-weight: bold;
+    color: #dcddde;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.last-message {
+    font-size: 13px;
+    color: #b9bbbe;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-chat-area {
+    flex-grow: 1;
+    background-color: #01303f; 
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #01303F;
+    border-bottom: 1px solid #202225;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.chat-title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #dcddde;
+}
+
+.chat-title img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.header-icons i {
+    font-size: 20px;
+    color: #b9bbbe;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.header-icons i:hover {
+    color: #dcddde;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #36393f; 
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #a3d9ec; 
+    border-radius: 4px;
+    border: 2px solid #36393f; 
+}
+
+.message-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.message-group img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.message-content {
+    background-color: #ffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sender-name {
+    font-weight: bold;
+    color: #88b6c6; 
+    margin-bottom: 5px;
+    display: block; 
+}
+
+.sender-name .timestamp {
+    font-weight: normal;
+    font-size: 12px;
+    color: #01303F;
+    margin-left: 8px;
+}
+
+.message-content p {
+    margin: 0;
+    color: #a3d9ec;
+    line-height: 1.4;
+    word-wrap: break-word; 
+}
+
+.chat-image {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+}
+
+.chat-input-area {
+    display: flex;
+    align-items: center;
+    background-color: #40444b;
+    padding: 15px 20px;
+    margin: 15px;
+    border-radius: 8px;
+}
+
+.chat-input-area i {
+    font-size: 22px;
+    color: #b9bbbe;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.chat-input-area i:last-child {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.chat-input-area i:hover {
+    color: #dcddde;
+}
+
+.chat-input-area input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #dcddde;
+    flex-grow: 1;
+    font-size: 16px;
+    padding: 8px 0;
+}
+
+.chat-input-area input::placeholder {
+    color: #8e9297;
+}
+
+.right-sidebar {
+    width: 250px;
+    background-color: #01303F; 
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-left: 1px solid #202225;
+}
+
+.chat-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chat-info-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #dcddde;
+}
+
+.chat-info-header i {
+    font-size: 18px;
+    color: #b9bbbe;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.chat-info-header i:hover {
+    color: #dcddde;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #a3d9ec;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.info-section:hover {
+    background-color: #a3d9ec;
+}
+
+.info-section h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #b9bbbe;
+}
+
+.info-section i {
+    font-size: 12px;
+    color: #8e9297;
+}
+
+.member-list {
+    margin-top: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.member-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.member-list::-webkit-scrollbar-track {
+    background: #2f3136; 
+}
+
+.member-list::-webkit-scrollbar-thumb {
+    background-color: #a3d9ec; 
+    border-radius: 4px;
+    border: 2px solid #ffff;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    margin-bottom: 5px;
+}
+
+.member-item img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.member-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-details span {
+    font-size: 14px;
+    color: #dcddde;
+    font-weight: bold;
+}
+
+.member-details small {
+    font-size: 11px;
+    color: #8e9297;
+}
+
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+    }
+
+    .left-sidebar {
+        width: 100%; 
+        height: auto; 
+        flex-direction: row; 
+        justify-content: space-around;
+        padding: 10px;
+        box-shadow: none; 
+        position: static; 
+    }
+
+    .bottom-icons {
+        position: static; 
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .middle-column {
+        width: 100%; 
+        border-right: none;
+        border-bottom: 1px solid #202225; 
+    }
+
+    .right-sidebar {
+        display: none; 
+        width: 100%;
+    }
+
+    .main-chat-area {
+        width: 100%; 
+    }
+
+    .chat-item img, .message-group img {
+        width: 35px; 
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar input {
+        font-size: 12px;
+    }
+
+    .chat-input-area input {
+        font-size: 14px;
+    }
+
+    .header-icons i {
+        margin-left: 10px;
+    }
+}
+</style>
+
+
+</head>
+<body>
+    <div class="chat-container">
+        <div class="left-sidebar">
+            <div class="profile-icon">
+             <img src="images/profile/pusa.png" alt="Avatar" class="avatar"/>
+            </div>
+
+            
+
+            <div class="server-icons" id="sidebar">
+                <a class="server-icon active"><i class="fas fa-bars"></i></a>
+                <a href="shop.html" class="server-icon"><i class="fas fa-home"></i></a>
+
+            </div>
+            <div class="bottom-icons">
+                
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+
+        <div class="middle-column">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Messenger">
+            </div>
+            <div class="chat-list">
+                <div class="chat-item active">
+                    <img src="images/profile/prupayl.png" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">SonLight</span>
+                        <span class="last-message">SonLight: Book the Vibe.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                   <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+                <div class="chat-item">
+                   <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="chat-info">
+                        <span class="chat-name">Rental Store #</span>
+                        <span class="last-message">Rental Store # sent a clip.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-chat-area">
+            <div class="chat-header">
+                <div class="chat-title">
+                  <img src="images/profile/prupayl.png" alt="Avatar" class="avatar"/>
+                    <span>SonLight</span>
+                </div>
+                <div class="header-icons">
+                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            <div class="chat-messages">
+                <div class="message-group">
+                   <img src="images/profile/kurumiiiii.jpg" alt="Avatar" class="avatar"/>
+                    <div class="message-content">
+                        <span class="sender-name">iSkaDoodle<span class="timestamp">12:11 PM</span></span>
+                        <p>Book the vibe.</p>
+                       
+                    </div>
+                </div>
+                <div class="message-group">
+                   <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="message-content">
+                        <span class="sender-name">Philip<span class="timestamp">12:11 PM</span></span>
+                     <p>Meeting tomorrow 10PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <i class="fas fa-plus-circle"></i>
+                <input type="text" placeholder="Aa">
+                <i class="fas fa-smile"></i>
+                <i class="fas fa-gift"></i>
+                <i class="fas fa-image"></i>
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <div class="chat-info-header">
+                <h3>Chat info</h3>
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="info-section">
+                <h4>Customize chat</h4>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="info-section">
+                <h4>Chat members</h4>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="member-list">
+                <div class="member-item">
+                    <img src="images/profile/kurumiiiii.jpg" alt="Avatar" class="avatar"/>
+                    <div class="member-details">
+                        <span>iSkaDoodle</span>
+                        <small>Added by Dariel</small>
+                    </div>
+                </div>
+                <div class="member-item">
+                    <img src="images/profile/placeholdernimamtechno.jpg" alt="Avatar" class="avatar"/>
+                    <div class="member-details">
+                        <span>Philip</span>
+                        <small>Added by Dariel</small>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
