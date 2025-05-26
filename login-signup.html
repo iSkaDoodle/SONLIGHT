@@ -321,8 +321,8 @@
         }
 
         const userData = { email, username, password, role };
-        localStorage.setItem(email, JSON.stringify(userData));
-        alert('Account created! Please log in.');
+        localStorage.setItem('sonlight-user', JSON.stringify(userData));
+        alert('Signup successful! Please login.');
         signupForm.reset();
         showLogin();
       });
@@ -333,45 +333,34 @@
         const password = loginForm.querySelector('input[type="password"]').value.trim();
 
         if (!email || !password) {
-          alert('Please fill all fields.');
+          alert('Please enter email and password.');
           return;
         }
 
-        if (email === adminUser.email && password === adminUser.password) {
-          alert('Welcome, admin!');
-          localStorage.setItem('adminLoggedIn', 'true');
-          window.location.href = 'admin.html';
+        // Admin login with exact match on email & password
+        if (email.toLowerCase() === adminUser.email.toLowerCase() && password === adminUser.password) {
+          localStorage.setItem('sonlight-loggedin', 'true');
+          localStorage.setItem('sonlight-role', 'admin');
+          location.href = 'admin.html';
           return;
         }
 
-        const storedData = localStorage.getItem(email);
-        if (!storedData) {
-          alert('Account not found.');
-          return;
-        }
+        // Regular user login
+        const savedUser = JSON.parse(localStorage.getItem('sonlight-user'));
 
-        try {
-          const user = JSON.parse(storedData);
-          if (user.password === password) {
-            alert(`Welcome back, ${user.username}!`);
-            localStorage.setItem('currentUser', email);
-            if(user.role === 'owner') {
-              window.location.href = 'owner.html';
-            } else {
-              window.location.href = 'buyer.html';
-            }
+        if (savedUser?.email === email && savedUser?.password === password) {
+          localStorage.setItem('sonlight-loggedin', 'true');
+          localStorage.setItem('sonlight-role', savedUser.role);
+
+          if (savedUser.role === 'owner') {
+            location.href = 'shop.html';
           } else {
-            alert('Incorrect password.');
+            location.href = 'shop.html';
           }
-        } catch {
-          alert('Error reading user data.');
+        } else {
+          alert('Invalid credentials!');
         }
       });
-
-      window.onclick = e => {
-        if (e.target === termsModal) termsModal.style.display = 'none';
-        if (e.target === forgotModal) forgotModal.style.display = 'none';
-      };
     });
   </script>
 </body>
