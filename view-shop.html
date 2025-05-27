@@ -74,11 +74,8 @@
         <p id="shop-time"><strong>10:00AM-6:00PM</strong></p>
         <p id="shop-ratings">
           <div class="star-row">
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
+            <p style="height: fit-content; align-self: flex-end; font-size: 18px; font-weight: 550; margin: 0px;" id="num-ratings"></p>
+            <span style="height: fit-content; align-self: flex-end; font-size: 24px;" class="shop-stars">★</span>
           </div>
         </p>
         
@@ -251,7 +248,8 @@
     // viewShop elements
     const shopImage = document.getElementById('shop-image'),
           shopName = document.getElementById('shop-name'),
-          shopAddress = document.getElementById('shop-address');
+          shopAddress = document.getElementById('shop-address'),
+          shopRatings = document.getElementById('num-ratings');
 
     // those damn sets
     const serv_img1 = document.getElementById('serv-img-1'),
@@ -277,6 +275,7 @@
     if(loadChoice) {
       console.log(loadChoice.equip_1);
       shopName.textContent = loadChoice.name;
+      shopRatings.textContent = loadChoice.ratings;
       serv_img1.src = loadChoice.equip_1;
       serv_img2.src = loadChoice.equip_2;
       serv_img3.src = loadChoice.equip_3;
