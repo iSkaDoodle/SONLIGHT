@@ -248,7 +248,7 @@ ratingBtn5.addEventListener("click", () => {
   if(filterOn) {
     showAllShops();
   } else {
-    shopA.style.display = "noe";
+    shopA.style.display = "none";
     shopB.style.display = "none";
     shopC.style.display = "grid";
     shopD.style.display = "none";
