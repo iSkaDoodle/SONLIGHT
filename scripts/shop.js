@@ -151,10 +151,117 @@ shopF.addEventListener("click", () => {
     localStorage.setItem("shopDetails", JSON.stringify(shopDetails));
 });
 
+// filter scripts
+let filterClosed = true;
+const filterToggle = document.getElementById('filters-toggle'),
+      filterContainer = document.getElementById('filters-container'),
+      filterArrow = document.getElementById('filters-arrow');
+
+filterToggle.addEventListener("click", () => {
+  if(filterClosed) {
+    filterContainer.classList.remove("close-filters");
+    filterContainer.classList.add("open-filters");
+    filterArrow.style.transform = "rotate(270deg)";
+    filterClosed = false;
+  } else {
+    filterContainer.classList.remove("open-filters");
+    filterContainer.classList.add("close-filters");
+    filterArrow.style.transform = "rotate(90deg)";
+    filterClosed = true;
+  }
+});
+
+const ratingBtn1 = document.getElementById("rating-btn-1"),
+      ratingBtn2 = document.getElementById("rating-btn-2"),
+      ratingBtn3 = document.getElementById("rating-btn-3"),
+      ratingBtn4 = document.getElementById("rating-btn-4"),
+      ratingBtn5 = document.getElementById("rating-btn-5")
+let filterOn = false;
+
+function showAllShops() {
+  shopA.style.display = "grid";
+  shopB.style.display = "grid";
+  shopC.style.display = "grid";
+  shopD.style.display = "grid";
+  shopE.style.display = "grid";
+  shopF.style.display = "grid";
+  filterOn = false;
+}
+
+ratingBtn1.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "none";
+    shopB.style.display = "grid";
+    shopC.style.display = "none";
+    shopD.style.display = "none";
+    shopE.style.display = "none";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
+ratingBtn2.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "none";
+    shopB.style.display = "none";
+    shopC.style.display = "none";
+    shopD.style.display = "grid";
+    shopE.style.display = "none";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
+ratingBtn3.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "none";
+    shopB.style.display = "none";
+    shopC.style.display = "none";
+    shopD.style.display = "none";
+    shopE.style.display = "none";
+    shopF.style.display = "grid";
+    filterOn = true;
+  }
+});
+
+ratingBtn4.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "grid";
+    shopB.style.display = "none";
+    shopC.style.display = "none";
+    shopD.style.display = "none";
+    shopE.style.display = "none";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
+ratingBtn5.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "noe";
+    shopB.style.display = "none";
+    shopC.style.display = "grid";
+    shopD.style.display = "none";
+    shopE.style.display = "grid";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
 // ads
 const close_ads = document.getElementById('close-ads-btn'),
-      ads_container = document.getElementById('ads-container'),
-      shop_main = document.getElementById('shop-main');
+    ads_container = document.getElementById('ads-container'),
+    shop_main = document.getElementById('shop-main');
 
 close_ads.addEventListener("click", () => {
     ads_container.style.display = "none";
