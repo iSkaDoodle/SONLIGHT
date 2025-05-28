@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | SonLight Dashboard</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .dashboard-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #a3d9ec;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar-header h2 {
+      color: #000;
+      font-size: 1.8em;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+    }
+
+    .sidebar-nav ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-nav ul li a {
+      display: block;
+      padding: 10px 15px;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .sidebar-nav ul li a:hover,
+    .sidebar-nav ul li a.active {
+      background-color: #0056b3;
+      color: #fff;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .main-header h1 {
+      font-size: 2em;
+      color: #333;
+    }
+
+    .header-actions input[type="search"] {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .header-actions button {
+      padding: 8px 15px;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: 5px;
+    }
+
+    .header-actions button:hover {
+      background-color: #003f88;
+    }
+
+    .chart-section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .chart-controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .chart-btn {
+      padding: 10px 20px;
+      margin: 0 5px;
+      border: 1px solid #ddd;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.95em;
+    }
+
+    .chart-btn:hover {
+      background-color: #e0e0e0;
+    }
+
+    .chart-btn.active {
+      background-color: #0056b3;
+      color: white;
+      border-color: #0056b3;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 400px;
+      width: 100%;
+    }
+
+    .data-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #94cade;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .card h3 {
+      font-size: 1.2em;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .sidebar-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .sidebar-nav ul li {
+        margin: 0 5px 10px;
+      }
+
+      .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .header-actions input[type="search"] {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      .header-actions button {
+        flex-grow: 1;
+        margin-bottom: 10px;
+        margin-right: 10px;
+      }
+
+      .chart-container {
+        height: 300px;
+      }
+
+      .data-cards {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .main-header h1 {
+        font-size: 1.5em;
+      }
+
+      .header-actions button {
+        font-size: 0.9em;
+      }
+
+      .chart-btn {
+        font-size: 0.85em;
+        padding: 8px 15px;
+      }
+
+      .chart-container {
+        height: 250px;
+      }
+
+      .card h3 {
+        font-size: 1em;
+      }
+
+      .card p {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Sonlight Admin Panel</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#">Manage Bookings</a></li>
+          <li><a href="#">My Shops</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#" id="logout-link">Log out</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="main-header">
+        <h1>Overview</h1>
+        <div class="header-actions">
+          <input type="search" placeholder="Search...">
+          <button>Notifications</button>
+          <button id="profile-btn">Profile</button>
+        </div>
+      </header>
+
+      <section class="chart-section">
+        <div class="chart-controls">
+          <button class="chart-btn active" data-chart-type="daily">Daily</button>
+          <button class="chart-btn" data-chart-type="weekly">Weekly</button>
+          <button class="chart-btn" data-chart-type="monthly">Monthly</button>
+          <button class="chart-btn" data-chart-type="yearly">Yearly</button>
+        </div>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+      </section>
+
+      <section class="data-cards">
+        <div class="card"><h3>Total Sales</h3><p>$345</p></div>
+        <div class="card"><h3>New Users</h3><p>150</p></div>
+        <div class="card"><h3>New Companies</h3><p>25</p></div>
+        <div class="card"><h3>Revenue Growth</h3><p>+5%</p></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const chartCanvas = document.getElementById('myChart');
+    const chartButtons = document.querySelectorAll('.chart-btn');
+    let myChart;
+
+    const stats = [
+      { selector: '.card:nth-child(1) p', value: `$${(Math.random() * 1000 + 100).toFixed(2)}` },
+      { selector: '.card:nth-child(2) p', value: Math.floor(Math.random() * 500 + 50) },
+      { selector: '.card:nth-child(3) p', value: Math.floor(Math.random() * 50 + 10) },
+      { selector: '.card:nth-child(4) p', value: `${(Math.random() * 20 - 5).toFixed(2)}%` }
+    ];
+    stats.forEach(stat => {
+      const el = document.querySelector(stat.selector);
+      if (el) el.textContent = stat.value;
+    });
+
+    const dummyData = {
+      daily: {
+        labels: [...Array(24).keys()].map(h => (h % 12 || 12) + (h < 12 ? ' AM' : ' PM')),
+        data: Array.from({ length: 24 }, () => Math.floor(Math.random() * 500) + 50)
+      },
+      weekly: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        data: Array.from({ length: 7 }, () => Math.floor(Math.random() * 3000) + 500)
+      },
+      monthly: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        data: Array.from({ length: 12 }, () => Math.floor(Math.random() * 15000) + 2000)
+      },
+      yearly: {
+        labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+        data: Array.from({ length: 6 }, () => Math.floor(Math.random() * 100000) + 10000)
+      }
+    };
+
+    function renderChart(chartType) {
+      if (myChart) myChart.destroy();
+
+      const { data, labels } = dummyData[chartType];
+
+      myChart = new Chart(chartCanvas, {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: `Sales Data (${chartType.charAt(0).toUpperCase() + chartType.slice(1)})`,
+            data,
+            backgroundColor: 'rgba(0, 86, 179, 0.2)',
+            borderColor: '#0056b3',
+            borderWidth: 2,
+            fill: true,
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true, grid: { color: 'rgba(0, 0, 0, 0.05)' }},
+            x: { grid: { color: 'rgba(0, 0, 0, 0.05)' }}
+          },
+          plugins: {
+            legend: { display: true, position: 'top' },
+            tooltip: { mode: 'index', intersect: false }
+          }
+        }
+      });
+    }
+
+    chartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        chartButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        renderChart(button.dataset.chartType);
+      });
+    });
+
+    renderChart('daily');
+
+    document.querySelectorAll('.sidebar-nav ul li a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.sidebar-nav ul li a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    document.getElementById('logout-link').addEventListener('click', function (e) {
+  e.preventDefault();
+
+  localStorage.clear();
+  sessionStorage.clear();
+
+
+  window.location.href = 'index.html';
+    });
+
+    document.getElementById('profile-btn').addEventListener('click', function () {
+  window.location.href = 'admin-profile.html';
+    });
+  });
+</script>
+</body>
+</html>

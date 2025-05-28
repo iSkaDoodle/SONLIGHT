@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SonLight</title>
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="stylesheet" href="styles/mobile-screen.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -146,6 +146,18 @@
     label { display: block; margin: 10px 0; }
     #proceedBtn { margin-top: 10px; }
 
+    /* Role selector styles */
+    .role-selector {
+      margin-bottom: 15px;
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+      color: #333;
+    }
+    .role-selector label {
+      cursor: pointer;
+    }
+
     @media(max-width: 450px) {
       .container { flex-direction: column; }
       .logo { width: 66.66%; }
@@ -159,7 +171,7 @@
 <body>
   <div class="container">
     <div class="left-panel">
-      <img src="images/logo.png" alt="Sonlight Logo" class="logo">
+      <img src="images/logo.png" alt="Sonlight Logo" class="logo" />
     </div>
     <div class="right-panel">
       <div class="tab-switch">
@@ -167,27 +179,39 @@
         <button id="show-login">LOG IN</button>
       </div>
 
+      <form id="signup-form" class="form active">
+        <h1>Create an Account</h1>
+        <input type="email" placeholder="Email" required />
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required minlength="8" />
+        
+        <div class="role-selector">
+          <label>
+            <input type="radio" name="role" value="buyer" checked />
+            Buyer
+          </label>
+          <label>
+            <input type="radio" name="role" value="owner" />
+            Shop Owner
+          </label>
+        </div>
+
+        <button type="submit" class="main-btn">CREATE</button>
+        <p>Already have an account? <span id="to-login">Log In</span></p>
+      </form>
+
       <form id="login-form" class="form">
         <h1>Welcome back!</h1>
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required minlength="8">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required minlength="8" />
         <a href="#" id="forgot-password-link">Forgot Password?</a>
         <button type="submit" class="main-btn">LOG IN</button>
         <p>Don’t have an account? <span id="to-signup">Sign Up</span></p>
       </form>
-
-      <form id="signup-form" class="form active">
-        <h1>Create an Account</h1>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required minlength="8">
-        <button type="submit" class="main-btn">CREATE</button>
-        <p>Already have an account? <span id="to-login">Log In</span></p>
-      </form>
     </div>
   </div>
 
- <div id="termsModal" class="terms-modal" style="display:none;">
+  <div id="termsModal" class="terms-modal" style="display:none;">
     <div class="terms-content">
       <h2>Terms & Policies</h2>
       <div class="tab-buttons">
@@ -213,100 +237,129 @@
       <button id="proceedBtn" class="main-btn" disabled>Proceed to Login</button>
     </div>
   </div>
+
   <div id="forgotModal" class="terms-modal" style="display:none;">
-  <div class="terms-content">
+    <div class="terms-content">
       <h3>Password Reset</h3>
       <p>Instructions to reset your password have been sent to your email.</p>
       <button class="main-btn" onclick="document.getElementById('forgotModal').style.display='none'">OK</button>
     </div>
   </div>
 
-  <div id="forgotModal" class="terms-modal" style="display:none;">
-    <div class="terms-content">
-      <h3>Password Reset</h3>
-      <p>Instructions have been sent to your email.</p>
-      <button class="main-btn" onclick="document.getElementById('forgotModal').style.display='none'">OK</button>
-    </div>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const adminUser = { email: 'sonlight@admin.com', password: 'Cloud9niDariel' };
       const loginForm = document.getElementById('login-form');
       const signupForm = document.getElementById('signup-form');
       const showLoginBtn = document.getElementById('show-login');
       const showSignupBtn = document.getElementById('show-signup');
-      const toSignup = document.getElementById('to-signup');
       const toLogin = document.getElementById('to-login');
+      const toSignup = document.getElementById('to-signup');
+      const forgotPasswordLink = document.getElementById('forgot-password-link');
       const termsModal = document.getElementById('termsModal');
+      const forgotModal = document.getElementById('forgotModal');
       const agreeCheckbox = document.getElementById('agreeCheckbox');
       const proceedBtn = document.getElementById('proceedBtn');
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      const tabContents = document.querySelectorAll('.tab-content');
-      let tempSignupData = null;
+      const tabBtns = document.querySelectorAll('.tab-btn');
 
-      const toggleForms = showSignup => {
-        loginForm.classList.toggle('active', !showSignup);
-        signupForm.classList.toggle('active', showSignup);
-        showLoginBtn.classList.toggle('active', !showSignup);
-        showSignupBtn.classList.toggle('active', showSignup);
-      };
+      function showLogin() {
+        signupForm.classList.remove('active');
+        loginForm.classList.add('active');
+        showLoginBtn.classList.add('active');
+        showSignupBtn.classList.remove('active');
+      }
+      function showSignup() {
+        loginForm.classList.remove('active');
+        signupForm.classList.add('active');
+        showSignupBtn.classList.add('active');
+        showLoginBtn.classList.remove('active');
+      }
 
-      [showLoginBtn, toLogin].forEach(btn => btn.onclick = () => toggleForms(false));
-      [showSignupBtn, toSignup].forEach(btn => btn.onclick = () => toggleForms(true));
+      showLoginBtn.addEventListener('click', showLogin);
+      showSignupBtn.addEventListener('click', showSignup);
+      toLogin.addEventListener('click', showLogin);
+      toSignup.addEventListener('click', showSignup);
 
-      signupForm.onsubmit = e => {
+      proceedBtn.disabled = true;
+      agreeCheckbox.addEventListener('change', () => {
+        proceedBtn.disabled = !agreeCheckbox.checked;
+      });
+      proceedBtn.addEventListener('click', () => {
+        termsModal.style.display = 'none';
+        showLogin();
+      });
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('terms-tab').classList.toggle('active', btn.dataset.tab === 'terms');
+          document.getElementById('privacy-tab').classList.toggle('active', btn.dataset.tab === 'privacy');
+        });
+      });
+
+      forgotPasswordLink.addEventListener('click', e => {
         e.preventDefault();
-        const [email, username, password] = [...signupForm.querySelectorAll('input')].map(i => i.value.trim());
+        forgotModal.style.display = 'flex';
+      });
+
+      signupForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const email = signupForm.querySelector('input[type="email"]').value.trim();
+        const username = signupForm.querySelector('input[type="text"]').value.trim();
+        const password = signupForm.querySelector('input[type="password"]').value.trim();
+        const role = signupForm.querySelector('input[name="role"]:checked').value;
+
         if (!email || !username || !password) {
-          alert('Please fill in all fields.');
+          alert('Please fill all fields.');
           return;
         }
-        tempSignupData = { email, username, password };
-        termsModal.style.display = 'flex';
-      };
 
-      proceedBtn.onclick = () => {
-        if (!agreeCheckbox.checked) return;
-        if (tempSignupData) {
-          localStorage.setItem('sonlight-user', JSON.stringify(tempSignupData));
-          tempSignupData = null;
-          termsModal.style.display = 'none';
-          toggleForms(false);
-          alert('Account created successfully! Please log in.');
+        if (password.length < 8) {
+          alert('Password must be at least 8 characters.');
+          return;
         }
-      };
 
-      loginForm.onsubmit = e => {
+        const userData = { email, username, password, role };
+        localStorage.setItem('sonlight-user', JSON.stringify(userData));
+        alert('Signup successful! Please login.');
+        signupForm.reset();
+        showLogin();
+      });
+
+      loginForm.addEventListener('submit', e => {
         e.preventDefault();
-        const [emailInput, passwordInput] = loginForm.querySelectorAll('input');
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
+        const email = loginForm.querySelector('input[type="email"]').value.trim();
+        const password = loginForm.querySelector('input[type="password"]').value.trim();
 
+        if (!email || !password) {
+          alert('Please enter email and password.');
+          return;
+        }
+
+        // Admin login with exact match on email & password
+        if (email.toLowerCase() === adminUser.email.toLowerCase() && password === adminUser.password) {
+          localStorage.setItem('sonlight-loggedin', 'true');
+          localStorage.setItem('sonlight-role', 'admin');
+          location.href = 'admin.html';
+          return;
+        }
+
+        // Regular user login
         const savedUser = JSON.parse(localStorage.getItem('sonlight-user'));
+
         if (savedUser?.email === email && savedUser?.password === password) {
           localStorage.setItem('sonlight-loggedin', 'true');
-          location.href = 'shop.html';
+          localStorage.setItem('sonlight-role', savedUser.role);
+
+          if (savedUser.role === 'owner') {
+            location.href = 'shop.html';
+          } else {
+            location.href = 'shop.html';
+          }
         } else {
           alert('Invalid credentials!');
         }
-      };
-
-      agreeCheckbox.onchange = () => {
-        proceedBtn.disabled = !agreeCheckbox.checked;
-      };
-
-      tabButtons.forEach(btn => {
-        btn.onclick = () => {
-          tabButtons.forEach(b => b.classList.remove('active'));
-          tabContents.forEach(c => c.classList.remove('active'));
-          btn.classList.add('active');
-          document.getElementById(`${btn.dataset.tab}-tab`).classList.add('active');
-        };
-      });
-
-      document.getElementById('forgot-password-link').addEventListener('click', e => {
-        e.preventDefault();
-        document.getElementById('forgotModal').style.display = 'flex';
       });
     });
   </script>

@@ -1,46 +1,273 @@
-// viewShop elements
-const shopImage = document.getElementById('shop-image');
-const shopName = document.getElementById('shop-name');
-const shopAddress = document.getElementById('shop-address');
+// shop choices
+const shopA = document.getElementById('shop-A'),
+      shopB = document.getElementById('shop-B'),
+      shopC = document.getElementById('shop-C'),
+      shopD = document.getElementById('shop-D'),
+      shopE = document.getElementById('shop-E'),
+      shopF = document.getElementById('shop-F');
 
-const a = document.getElementById('shp1');
+// choice events
+shopA.addEventListener("click", () => {
+    const shopDetails = {
+        name: "Light and Sound A",
+        ratings: "4",
+        equip_1: "images/equipment-sets/set-1.png",
+        equip_2: "images/equipment-sets/unavailable.png",
+        equip_3: "images/equipment-sets/set-3.png",
+        equip_4: "images/equipment-sets/set-4.png",
+        equip_5: "images/equipment-sets/set-5.png",
+        equip_6: "images/equipment-sets/set-6.png",
+        equip_7: "images/equipment-sets/set-7.svg",
+        equip_8: "images/equipment-sets/set-8.svg",
+        price_1: "₱10,000",
+        price_2: "",
+        price_3: "₱20,000",
+        price_4: "₱12,000",
+        price_5: "₱18,000",
+        price_6: "₱15,000",
+        price_7: "₱28,000",
+        price_8: "₱23,000"
+    };
+    // saves choice
+    localStorage.setItem("shopDetails", JSON.stringify(shopDetails));
+});
 
-// those damn sets
-const serv_img1 = document.getElementById('serv-img-1');
-const serv_img2 = document.getElementById('serv-img-2');
-const serv_img3 = document.getElementById('serv-img-3');
-const serv_img4 = document.getElementById('serv-img-4');
-const serv_img5 = document.getElementById('serv-img-5');
-const serv_img6 = document.getElementById('serv-img-6');
+shopB.addEventListener("click", () => {
+    const shopDetails = {
+        name: "Light and Sound B",
+        ratings: "1",
+        equip_1: "images/equipment-sets/unavailable.png",
+        equip_2: "images/equipment-sets/set-3.png",
+        equip_3: "images/equipment-sets/set-8.svg",
+        equip_4: "images/equipment-sets/set-2.png",
+        equip_5: "images/equipment-sets/set-6.png",
+        equip_6: "images/equipment-sets/set-1.png",
+        equip_7: "images/equipment-sets/set-5.png",
+        equip_8: "images/equipment-sets/set-4.png",
+        price_1: "",
+        price_2: "₱13,500",
+        price_3: "₱8,000",
+        price_4: "₱3,000",
+        price_5: "₱5,000",
+        price_6: "₱3,500",
+        price_7: "₱4,500",
+        price_8: "₱3,000"
+    };
+    // saves choice
+    localStorage.setItem("shopDetails", JSON.stringify(shopDetails));
+});
 
-const price1 = document.getElementById('price-1');
-const price2 = document.getElementById('price-2');
-const price3 = document.getElementById('price-3');
-const price4 = document.getElementById('price-4');
-const price5 = document.getElementById('price-5');
-const price6 = document.getElementById('price-6');
+shopC.addEventListener("click", () => {
+    const shopDetails = {
+        name: "Light and Sound C",
+        ratings: "5",
+        equip_1: "images/equipment-sets/set-8.svg",
+        equip_2: "images/equipment-sets/set-7.svg",
+        equip_3: "images/equipment-sets/set-5.png",
+        equip_4: "images/equipment-sets/set-3.png",
+        equip_5: "images/equipment-sets/unavailable.png",
+        equip_6: "images/equipment-sets/set-4.png",
+        equip_7: "images/equipment-sets/set-2.png",
+        equip_8: "images/equipment-sets/unavailable.png",
+        price_1: "₱8,000",
+        price_2: "₱10.000",
+        price_3: "₱2,500",
+        price_4: "₱3,000",
+        price_5: "",
+        price_6: "₱1,500",
+        price_7: "₱1,000",
+        price_8: ""
+    };
+    // saves choice
+    localStorage.setItem("shopDetails", JSON.stringify(shopDetails));
+});
 
-function shop_1() {
-    shopImage.src = "images/shopicon/basilan.jpg";
-    shopName.textContent = "AMA Light & Sound";
-    shopAddress.textContent = "Blk3-Lot21, Mercedes Homes Parcel III, Sorosoro Ilaya Batangas City";
-    serv_img1.src = "images/equipment-sets/set-1.png";
-    price1.textContent = "₱10,000";
-    serv_img2.src = "images/equipment-sets/set-2.png";
-    price2.textContent = "₱5000";
-    serv_img3.src = "images/equipment-sets/set-3.png";
-    price3.textContent = "₱20,000";
-    serv_img4.src = "images/equipment-sets/set-4.png";
-    price4.textContent = "₱12,000";
-    serv_img5.src = "images/equipment-sets/set-5.png";
-    price5.textContent = "₱18,000";
-    serv_img6.src = "images/equipment-sets/set-6.png";
-    price6.textContent = "₱15,000";
+shopD.addEventListener("click", () => {
+    const shopDetails = {
+        name: "Light and Sound D",
+        ratings: "2",
+        equip_1: "images/equipment-sets/set-8.svg",
+        equip_2: "images/equipment-sets/set-7.svg",
+        equip_3: "images/equipment-sets/set-6.png",
+        equip_4: "images/equipment-sets/set-5.png",
+        equip_5: "images/equipment-sets/set-4.png",
+        equip_6: "images/equipment-sets/set-3.png",
+        equip_7: "images/equipment-sets/set-2.png",
+        equip_8: "images/equipment-sets/set-1.png",
+        price_1: "₱30,000",
+        price_2: "₱33.000",
+        price_3: "₱17,250",
+        price_4: "₱19,500",
+        price_5: "₱15,000",
+        price_6: "₱22,250",
+        price_7: "₱7,500",
+        price_8: "₱12,000"
+    };
+    // saves choice
+    localStorage.setItem("shopDetails", JSON.stringify(shopDetails));
+});
+
+shopE.addEventListener("click", () => {
+    const shopDetails = {
+        name: "Light and Sound E",
+        ratings: "5",
+        equip_1: "images/equipment-sets/set-4.png",
+        equip_2: "images/equipment-sets/set-3.png",
+        equip_3: "images/equipment-sets/unavailable.png",
+        equip_4: "images/equipment-sets/set-1.png",
+        equip_5: "images/equipment-sets/set-5.png",
+        equip_6: "images/equipment-sets/unavailable.png",
+        equip_7: "images/equipment-sets/set-7.svg",
+        equip_8: "images/equipment-sets/set-8.svg",
+        price_1: "₱7,500",
+        price_2: "₱11,125",
+        price_3: "",
+        price_4: "₱6.000",
+        price_5: "₱9,750",
+        price_6: "",
+        price_7: "₱16,500",
+        price_8: "₱15,000"
+    };
+    // saves choice
+    localStorage.setItem("shopDetails", JSON.stringify(shopDetails));
+});
+
+shopF.addEventListener("click", () => {
+    const shopDetails = {
+        name: "Light and Sound F",
+        ratings: "3",
+        equip_1: "images/equipment-sets/unavailable.png",
+        equip_2: "images/equipment-sets/set-7.svg",
+        equip_3: "images/equipment-sets/set-8.svg",
+        equip_4: "images/equipment-sets/unavailable.png",
+        equip_5: "images/equipment-sets/set-2.png",
+        equip_6: "images/equipment-sets/unavailable.png",
+        equip_7: "images/equipment-sets/unavailable.png",
+        equip_8: "images/equipment-sets/set-1.png",
+        price_1: "",
+        price_2: "₱5,000",
+        price_3: "₱4,000",
+        price_4: "",
+        price_5: "₱750",
+        price_6: "",
+        price_7: "",
+        price_8: "₱1,250"
+    };
+    // saves choice
+    localStorage.setItem("shopDetails", JSON.stringify(shopDetails));
+});
+
+// filter scripts
+let filterClosed = true;
+const filterToggle = document.getElementById('filters-toggle'),
+      filterContainer = document.getElementById('filters-container'),
+      filterArrow = document.getElementById('filters-arrow');
+
+filterToggle.addEventListener("click", () => {
+  if(filterClosed) {
+    filterContainer.classList.remove("close-filters");
+    filterContainer.classList.add("open-filters");
+    filterArrow.style.transform = "rotate(270deg)";
+    filterClosed = false;
+  } else {
+    filterContainer.classList.remove("open-filters");
+    filterContainer.classList.add("close-filters");
+    filterArrow.style.transform = "rotate(90deg)";
+    filterClosed = true;
+  }
+});
+
+const ratingBtn1 = document.getElementById("rating-btn-1"),
+      ratingBtn2 = document.getElementById("rating-btn-2"),
+      ratingBtn3 = document.getElementById("rating-btn-3"),
+      ratingBtn4 = document.getElementById("rating-btn-4"),
+      ratingBtn5 = document.getElementById("rating-btn-5")
+let filterOn = false;
+
+function showAllShops() {
+  shopA.style.display = "grid";
+  shopB.style.display = "grid";
+  shopC.style.display = "grid";
+  shopD.style.display = "grid";
+  shopE.style.display = "grid";
+  shopF.style.display = "grid";
+  filterOn = false;
 }
 
-const close_ads = document.getElementById('close-ads-btn');
-const ads_container = document.getElementById('ads-container');
-const shop_main = document.getElementById('shop-main');
+ratingBtn1.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "none";
+    shopB.style.display = "grid";
+    shopC.style.display = "none";
+    shopD.style.display = "none";
+    shopE.style.display = "none";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
+ratingBtn2.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "none";
+    shopB.style.display = "none";
+    shopC.style.display = "none";
+    shopD.style.display = "grid";
+    shopE.style.display = "none";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
+ratingBtn3.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "none";
+    shopB.style.display = "none";
+    shopC.style.display = "none";
+    shopD.style.display = "none";
+    shopE.style.display = "none";
+    shopF.style.display = "grid";
+    filterOn = true;
+  }
+});
+
+ratingBtn4.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "grid";
+    shopB.style.display = "none";
+    shopC.style.display = "none";
+    shopD.style.display = "none";
+    shopE.style.display = "none";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
+ratingBtn5.addEventListener("click", () => {
+  if(filterOn) {
+    showAllShops();
+  } else {
+    shopA.style.display = "none";
+    shopB.style.display = "none";
+    shopC.style.display = "grid";
+    shopD.style.display = "none";
+    shopE.style.display = "grid";
+    shopF.style.display = "none";
+    filterOn = true;
+  }
+});
+
+// ads
+const close_ads = document.getElementById('close-ads-btn'),
+    ads_container = document.getElementById('ads-container'),
+    shop_main = document.getElementById('shop-main');
 
 close_ads.addEventListener("click", () => {
     ads_container.style.display = "none";

@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const footer = document.getElementById('footer');
 
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
-    const fullHeight = document.body.scrollHeight;
+    const scrollY = window.scrollY,
+          viewportHeight = window.innerHeight,
+          fullHeight = document.body.scrollHeight;
 
     if (scrollY + viewportHeight >= fullHeight - 10) {
       footer?.classList.add('visible');
@@ -24,19 +24,60 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const headerArrowDown = document.getElementById('header-arrow-down');
-const headerDropDown = document.getElementById('header-drop-down');
+// profile drop down
+const headerArrowDown = document.getElementById('header-arrow-down'),
+      headerDropDown = document.getElementById('header-drop-down'),
+      logOutBtn = document.getElementById("log-out-btn");
 let dropDownHidden = true;
 
 headerArrowDown.addEventListener('click', () => {
   if(dropDownHidden) {
-    headerDropDown.style.display = "grid";
-    headerDropDown.style.transform = "scaleY(1)";
+    headerDropDown.classList.add("open-drop-down-anim");
+    headerDropDown.classList.remove("close-drop-down-anim");
     headerArrowDown.style.transform = "rotate(180deg)";
     dropDownHidden = false;
   } else {
-    headerDropDown.style.display = "none";
+    headerDropDown.classList.add("close-drop-down-anim");
+    headerDropDown.classList.remove("open-drop-down-anim");
     headerArrowDown.style.transform = "rotate(0deg)";
     dropDownHidden = true;
   }
+});
+
+// headerDropDown.addEventListener("", () => {
+//   headerDropDown.classList.add("close-drop-down-anim");
+//   headerArrowDown.style.transform = "rotate(0deg)";
+//   dropDownHidden = true;
+// });
+
+// header profile directs to profile.html
+function profileClicked() {
+  setTimeout(() => {
+    window.location.href = "profile.html";
+  }, 1000);
+}
+
+// load user info from localStorage
+const user = JSON.parse(localStorage.getItem('sonlight-user'));
+
+if (user && user.username && user.email) {
+  // loads pfp
+  if (user.profilePicture) {
+    const profilePics = document.querySelectorAll('.profile-pic');
+    profilePics.forEach(profilePic => {
+      profilePic.src = user.profilePicture;
+    });
+  }
+  // loads username and email
+  document.getElementById('profile-username').textContent = user.username;
+  document.getElementById('profile-email').textContent = user.email;
+} else {
+  // default
+  document.getElementById('profile-username').textContent = 'Not logged in';
+  document.getElementById('profile-email').textContent = 'Not logged in';
+}
+
+// clears localStorage when logged out
+logOutBtn.addEventListener("click", ()=> {
+  localStorage.clear();
 });

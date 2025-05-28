@@ -44,7 +44,7 @@ body {
   flex-direction: column;
 }
 
-#booking-details-container label {
+* label {
   font-size: 11px;
   margin-left: 10px;
 }
@@ -54,11 +54,11 @@ body {
   width: 100%;
   border: none;
   border-radius: 12px;
-  margin: 10px 0px;
+  margin-bottom: 10px;
   padding: 10px 20px;
 }
 
-#customer-name.customer-details {
+#customer-details-container {
   margin-top: 40px;
 }
 
@@ -84,7 +84,7 @@ body {
   max-height: fit-content;
   padding: 10px 20px;
   border-radius: 12px;
-  margin: 10px 0px;
+  margin-bottom: 10px;
   transition: all 0.2s ease;
 }
 
@@ -107,13 +107,15 @@ body {
 
 #close-choices-btn {
   grid-column: 4/5;
-  height: 32px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
   justify-self: end;
 }
 
 #close-choices-btn:hover {
-  cursor: pointer;
-  transform: scale(1.1);
+    color: #000;
 }
 
 #choices-div {
@@ -141,7 +143,7 @@ body {
   grid-row: 2/20;
   padding: 20px;
   width: 60%;
-  height: 75%;
+  height: fit-content;
 }
 
 #choices-container img {
@@ -153,7 +155,7 @@ body {
   width: 100%;
   border: 1px solid #10303f;
   border-radius: 8px;
-  align-content: center;
+  align-content: end;
   justify-self: center;
   transition: all 0.2s ease;
 }

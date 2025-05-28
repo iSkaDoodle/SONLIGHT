@@ -15,7 +15,7 @@
   <!-- header -->
   <header>
     <div class="left-header">
-      <div id="toggleBtn" class="burger" onclick="toggleBurger(this)">
+      <div id="toggleBtn" class="burger">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
@@ -24,27 +24,35 @@
         <a href="shop.html"><img src="images/transparent-logo.png" alt="header-logo"></a>
       </div>
     </div>
+    <div class="middle-header">
+      <div class="search-box">
+        <input type="text" placeholder="Search "/>
+        <button type="submit">&#128269;</button>
+      </div>
+    </div>
     <div class="right-header">
-      <a href="profile.html"><img id="header-profile" src="images/icons/profile-icon.svg" alt="Header Profile"></a>
+      <img id="header-profile" class="profile-pic" src="images/profile/placeholdernimamtechno.jpg" alt="Header Profile Picture" onclick="profileClicked()"/>
       <img id="header-arrow-down" src="images/arrow-down.svg" alt="arrow down">
     </div>
-    <div id="header-drop-down">
-      <img src="images/icons/profile-icon.svg" alt="profile picture">
+    <div id="header-drop-down" class="close-drop-down-anim">
       <ul>
         <li>
-          <a href="index.html">
+          <a id="log-out-btn" href="index.html">
             <img id="log-out-img" src="images/icons/log-out-icon.svg" alt="log out icon">
             <p><strong>Log Out</strong></p>
           </a>
         </li>
       </ul>
-      <p><strong>Name</strong><br><em>email</em></p>
+      <img class="profile-pic" src="images/profile/placeholdernimamtechno.jpg" alt="Dropdown Profile Picture" onclick="profileClicked()"/>
+      <p><strong><span id="profile-username" onclick="profileClicked()">Loading...</span></strong><br>
+        <em><span id="profile-email" onclick="profileClicked()">Loading...</span></em></p>
     </div>
   </header>
 
   <!-- sidebar -->
   <aside class="sidebar collapsed" id="sidebar">
     <ul>
+<<<<<<< HEAD
       <li><a href="profile.html"><img src="images/icons/profile-icon.svg"><span>Profile</span></a></li>
       <li id="inShop"><a href="shop.html"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></a></li>
       <li><a href="about.html"><img src="images/icons/about-icon.svg"><span>About Us</span></a></li>
@@ -55,6 +63,14 @@
       <li><a href="chat.html"><img src="images/icons/mail.svg"/><span>Messages</span></a></li>
 >>>>>>> 947a68f82e2ce210a6727ac5ee06fb060631c193
       <li id="sidebar-help"><a href="help-page.html"><img src="images/icons/help-icon.svg"><span>Help</span></a></li>
+=======
+      <a href="profile.html"><li><img src="images/icons/profile-icon.svg"><span>Profile</span></li></a>
+      <a href="shop.html"><li id="inShop"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></li></a>
+      <a href="about.html"><li><img src="images/icons/about-icon.svg"><span>About Us</span></li></a>
+      <a href="#" id="rateUsTrigger"><li><img src="images/icons/star-icon.svg" /><span>Rate Us</span></li></a>
+      <a href="chat.html"><li><img src="images/icons/mail.svg"/><span>Messages</span></li></a>
+      <a id="sidebar-help" href="help-page.html"><li><img src="images/icons/help-icon.svg"><span>Help</span></li></a>
+>>>>>>> 471aff4c2ff5c87689871ec701b8d855d04ab350
     </ul>
   </aside>
 
@@ -71,11 +87,8 @@
         <p id="shop-time"><strong>10:00AM-6:00PM</strong></p>
         <p id="shop-ratings">
           <div class="star-row">
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
-            <span class="shop-stars">★</span>
+            <p style="height: fit-content; align-self: flex-end; font-size: 18px; font-weight: 550; margin: 0px;" id="num-ratings"></p>
+            <span style="height: fit-content; align-self: flex-end; font-size: 24px;" class="shop-stars">★</span>
           </div>
         </p>
         
@@ -106,36 +119,36 @@
     <h2 id="shop-service-h2">Lighting Equipment and Sound System</h2>
     <div id="services-container">
       <div class="service-block">
-        <img id="serv-img-1" class="serv-imgs" src="images/equipment-sets/set-1.png" alt="image-01">
-        <p id="price-1" class="prices">₱10,000</p>
+        <img id="serv-img-1" class="serv-imgs" src="" alt="image-01">
+        <p id="price-1" class="prices"></p>
       </div>
       <div class="service-block">
-        <img id="serv-img-2" class="serv-imgs" src="images/equipment-sets/set-2.png" alt="image-02">
-        <p id="price-2" class="prices">₱5,000</p>
+        <img id="serv-img-2" class="serv-imgs" src="" alt="image-02">
+        <p id="price-2" class="prices"></p>
       </div>
       <div class="service-block">
-        <img id="serv-img-3" class="serv-imgs" src="images/equipment-sets/set-3.png" alt="image-03">
-        <p id="price-3" class="prices">₱20,000</p>
+        <img id="serv-img-3" class="serv-imgs" src="" alt="image-03">
+        <p id="price-3" class="prices"></p>
       </div>
       <div class="service-block">
-        <img id="serv-img-4" class="serv-imgs" src="images/equipment-sets/set-4.png" alt="image-04">
-        <p id="price-4" class="prices">₱12,000</p>
+        <img id="serv-img-4" class="serv-imgs" src="" alt="image-04">
+        <p id="price-4" class="prices"></p>
       </div>
       <div class="service-block">
-        <img id="serv-img-5" class="serv-imgs" src="images/equipment-sets/set-5.png" alt="image-05">
-        <p id="price-5" class="prices">₱18,000</p>
+        <img id="serv-img-5" class="serv-imgs" src="" alt="image-05">
+        <p id="price-5" class="prices"></p>
       </div>
       <div class="service-block">
-        <img id="serv-img-6" class="serv-imgs" src="images/equipment-sets/set-6.png" alt="image-06">
-        <p id="price-6" class="prices">₱15,000</p>
+        <img id="serv-img-6" class="serv-imgs" src="" alt="image-06">
+        <p id="price-6" class="prices"></p>
       </div>
       <div class="service-block">
-        <img id="serv-img-7" class="serv-imgs" src="images/equipment-sets/set-7.svg" alt="image-07">
-        <p id="price-7" class="prices">₱28,000</p>
+        <img id="serv-img-7" class="serv-imgs" src="" alt="image-07">
+        <p id="price-7" class="prices"></p>
       </div>
       <div class="service-block">
-        <img id="serv-img-8" class="serv-imgs" src="images/equipment-sets/set-8.svg" alt="image-08">
-        <p id="price-8" class="prices">₱23,000</p>
+        <img id="serv-img-8" class="serv-imgs" src="" alt="image-08">
+        <p id="price-8" class="prices"></p>
       </div>
     </div>
     <!-- feedbacks -->
@@ -239,9 +252,62 @@
       <button id="submitRating">Submit</button>
     </div>
   </div>
+
   <!-- scripts -->
   <script src="scripts/rateus.js"></script>
   <script src="scripts/script.js"></script>
+
+  <script>
+    // viewShop elements
+    const shopImage = document.getElementById('shop-image'),
+          shopName = document.getElementById('shop-name'),
+          shopAddress = document.getElementById('shop-address'),
+          shopRatings = document.getElementById('num-ratings');
+
+    // those damn sets
+    const serv_img1 = document.getElementById('serv-img-1'),
+          serv_img2 = document.getElementById('serv-img-2'),
+          serv_img3 = document.getElementById('serv-img-3'),
+          serv_img4 = document.getElementById('serv-img-4'),
+          serv_img5 = document.getElementById('serv-img-5'),
+          serv_img6 = document.getElementById('serv-img-6'),
+          serv_img7 = document.getElementById('serv-img-7'),
+          serv_img8 = document.getElementById('serv-img-8');
+    // their prices
+    const price1 = document.getElementById('price-1'),
+          price2 = document.getElementById('price-2'),
+          price3 = document.getElementById('price-3'),
+          price4 = document.getElementById('price-4'),
+          price5 = document.getElementById('price-5'),
+          price6 = document.getElementById('price-6');
+          price7 = document.getElementById('price-7');
+          price8 = document.getElementById('price-8');
+
+    // loads bunch of stuffs
+    const loadChoice = JSON.parse(localStorage.getItem("shopDetails"));
+    if(loadChoice) {
+      console.log(loadChoice.equip_1);
+      shopName.textContent = loadChoice.name;
+      shopRatings.textContent = loadChoice.ratings;
+      serv_img1.src = loadChoice.equip_1;
+      serv_img2.src = loadChoice.equip_2;
+      serv_img3.src = loadChoice.equip_3;
+      serv_img4.src = loadChoice.equip_4;
+      serv_img5.src = loadChoice.equip_5;
+      serv_img6.src = loadChoice.equip_6;
+      serv_img7.src = loadChoice.equip_7;
+      serv_img8.src = loadChoice.equip_8;
+      price1.textContent = loadChoice.price_1;
+      price2.textContent = loadChoice.price_2;
+      price3.textContent = loadChoice.price_3;
+      price4.textContent = loadChoice.price_4;
+      price5.textContent = loadChoice.price_5;
+      price6.textContent = loadChoice.price_6;
+      price7.textContent = loadChoice.price_7;
+      price8.textContent = loadChoice.price_8;
+    }
+  </script>
+  
   <script src="scripts/shop.js"></script>
 </body>
 </html>
