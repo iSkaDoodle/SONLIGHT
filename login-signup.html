@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SonLight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome! | SonLight</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
   <link rel="stylesheet" href="styles/mobile-screen.css" />
   <style>
@@ -189,7 +189,9 @@
         <h1>Create an Account</h1>
         <input type="email" placeholder="Email" required />
         <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required minlength="8" />
+        <input type="password" id="signup-password" placeholder="Password" required minlength="8" />
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required minlength="8" />
+
         
         <div class="role-selector">
           <label>
@@ -333,25 +335,31 @@
 
       signupForm.addEventListener('submit', e => {
         e.preventDefault();
-        const email = signupForm.querySelector('input[type="email"]').value.trim();
-        const username = signupForm.querySelector('input[type="text"]').value.trim();
-        const password = signupForm.querySelector('input[type="password"]').value.trim();
-        const role = signupForm.querySelector('input[name="role"]:checked').value;
+const email = signupForm.querySelector('input[type="email"]').value.trim();
+const username = signupForm.querySelector('input[type="text"]').value.trim();
+const password = document.getElementById('signup-password').value.trim();
+const confirmPassword = document.getElementById('confirm-password').value.trim();
+const role = signupForm.querySelector('input[name="role"]:checked').value;
 
-        if (!email || !username || !password) {
-          alert('Please fill all fields.');
-          return;
-        }
+if (!email || !username || !password || !confirmPassword) {
+  alert('Please fill all fields.');
+  return;
+}
 
-        if (password.length < 8) {
-          alert('Password must be at least 8 characters.');
-          return;
-        }
+if (password.length < 8) {
+  alert('Password must be at least 8 characters.');
+  return;
+}
 
-        const userData = { email, username, password, role };
-        localStorage.setItem('sonlight-user', JSON.stringify(userData));
-        signupForm.reset();
-        showLogin();
+if (password !== confirmPassword) {
+  alert('Passwords do not match.');
+  return;
+}
+
+const userData = { email, username, password, role };
+localStorage.setItem('sonlight-user', JSON.stringify(userData));
+signupForm.reset();
+showLogin();
       });
 
       loginForm.addEventListener('submit', e => {
@@ -376,8 +384,7 @@
         if (email.toLowerCase() === ownerUser.email.toLowerCase() && password === ownerUser.password) {
           localStorage.setItem('sonlight-loggedin', 'true');
           localStorage.setItem('sonlight-role', 'owner'); // ano ginagawa ng roles?
-          location.href = 'shopowner/shop-owner.html';
-          return;
+          location.href = 'totallynotarobotshopowner.html';
         }
 
         // Regular user login
@@ -388,9 +395,9 @@
           localStorage.setItem('sonlight-role', savedUser.role);
 
           if (savedUser.role === 'owner') {
-            location.href = 'shop.html';
+            location.href = 'totallynotarobot.html';
           } else {
-            location.href = 'shop.html';
+            location.href = 'totallynotarobot.html';
           }
         } else {
           alert('Invalid credentials!');

@@ -264,6 +264,22 @@
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="********" required />
 
+        <label for="phone-number">Phone Number</label>
+<div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 20px;">
+  <span style="font-weight: bold; font-size: 1rem; color: #01303f;">+63</span>
+  <input
+    type="text"
+    id="phone-number"
+    name="phone-number"
+    placeholder="9123456789"
+    maxlength="10"
+    pattern="\d*"
+    inputmode="numeric"
+    style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; width: 160px;"
+    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);"
+  />
+</div>
+
         <button type="submit">Save Changes</button>
       </form>
     </div>

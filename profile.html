@@ -290,7 +290,6 @@
       <li id="sidebar-help"><a href="help-page.html"><img src="images/icons/help-icon.svg" /><span>Help</span></a></li>
     </ul>
   </aside>
-  
 
   <main class="profile">
     <div class="profile-card-grid">
@@ -301,6 +300,28 @@
         <p><strong>Name</strong><br><span id="profile-username">Loading...</span></p>
         <p><strong>Email</strong><br><span id="profile-email">Loading...</span></p>
         <p><strong>Password</strong><br><span id="profile-password">**********</span></p>
+
+        <!-- Verification number input and button -->
+        <div style="display: flex; gap: 10px; margin-top: 10px; align-items: center;">
+  <span style="font-weight: bold; font-size: 1rem; color: #01303f;">+63</span>
+  <input
+    type="text"
+    id="verify-number-input"
+    placeholder="9123456789"
+    maxlength="10"
+    pattern="\d*"
+    inputmode="numeric"
+    style="padding: 6px; border-radius: 8px; border: 1px solid #ccc; width: 150px;"
+    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);"
+  />
+  <button
+    onclick="verifyNumber()"
+    style="padding: 6px 12px; border-radius: 8px; background-color: #01303f; color: white; border: none; cursor: pointer;"
+  >
+    Verify
+  </button>
+</div>
+<p id="verify-status" style="margin-top: 8px; color: #01303f;"></p>
       </div>
       <a href="edit-profile.html" class="profile-edit-btn">Edit</a>
     </div>
@@ -331,6 +352,7 @@
     <p id="no-bookings" style="display:none;">No booking history available.</p>
   </section>
 
+  <!-- Rate Us Modal -->
   <div id="rateUsModal" class="rateus-modal" style="display: none;">
     <div class="rateus-content">
       <span class="close-rateus" id="closeRateUsBtn">&times;</span>
@@ -356,29 +378,28 @@
       sidebar.classList.toggle('show');
       sidebar.classList.toggle('hidden');
 
-      if (sidebar.classList.contains('show')) {
-        burger.style.display = 'none';
-        closeBtn.style.display = 'block';
-      } else {
-        burger.style.display = 'block';
-        closeBtn.style.display = 'none';
-      }
+      burger.style.display = sidebar.classList.contains('show') ? 'none' : 'block';
+      closeBtn.style.display = sidebar.classList.contains('show') ? 'block' : 'none';
     }
 
+  function verifyNumber() {
+    const status = document.getElementById("verify-status");
+    status.textContent = "Verification sent";
+    status.style.color = "green";
+  }
+
     document.addEventListener('DOMContentLoaded', () => {
-      // Highlight current sidebar link
+      // Sidebar active state
       const links = document.querySelectorAll('.sidebar ul li a');
       const currentPage = window.location.pathname.split('/').pop();
-
       links.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
           link.classList.add('active');
         }
       });
 
-      // Load user info from localStorage
+      // Load user info
       const user = JSON.parse(localStorage.getItem('sonlight-user'));
-
       if (user && user.username && user.email) {
         document.getElementById('profile-username').textContent = user.username;
         document.getElementById('profile-email').textContent = user.email;
@@ -392,7 +413,7 @@
         document.getElementById('profile-password').textContent = '**********';
       }
 
-      // Booking history sort toggle
+      // Sort booking history
       const sortButton = document.querySelector(".sort-btn");
       const bookingContainer = document.querySelector(".booking-list");
       const noBookingsMsg = document.getElementById('no-bookings');
@@ -406,7 +427,6 @@
 
       sortButton?.addEventListener("click", () => {
         const bookingCards = Array.from(document.querySelectorAll(".booking-card"));
-
         const sortedCards = bookingCards.sort((a, b) => {
           const nameA = parseInt(a.querySelector(".store-name").textContent.match(/\d+/)) || 0;
           const nameB = parseInt(b.querySelector(".store-name").textContent.match(/\d+/)) || 0;
@@ -415,11 +435,12 @@
 
         bookingCards.forEach(card => card.remove());
         sortedCards.forEach(card => bookingContainer.appendChild(card));
-
         isAscending = !isAscending;
       });
     });
   </script>
+
   <script src="scripts/rateus.js"></script>
 </body>
+</html>
 </html>
