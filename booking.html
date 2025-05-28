@@ -67,7 +67,7 @@
           <input type="email" id="customer-email" class="customer-details" required maxlength="50" placeholder="Email">
           <!-- system set -->
            <label for="light-and-sound-btn">Light and Sound System Set</label>
-          <div id="light-and-sound-btn" onclick="showChoices()"><p id="lght-snd-btn-p">Choose a System Set</p></div>
+          <div class="open-modals-btn" onclick="showChoices()"><p class="open-modals-p">Choose a System Set</p></div>
         </div>
       </div>
 
@@ -143,6 +143,8 @@
         <div id="booking-details-container">
           <!-- venue -->
           <!-- <input type="text" id="booking-venue" class="booking-details" required placeholder="Venue"> (old)-->
+          <label for="open-map-btn">Location</label>
+          <div id="pick-location-btn" class="open-modals-btn"><p class="open-modal-p">Open Map</p></div>
           <label for="booking-venue">Venue Type</label>
           <select name="venue type" id="booking-venue" class="booking-details" required>
             <option value="None">None</option>

@@ -72,11 +72,16 @@ body {
   background: #d9d9d9;
 }
 
+#pick-location-btn {
+  background: #d9d9d9;
+  font-size: 14px;
+}
+
 .customer-details::placeholder, .booking-details::placeholder {
   color: #96969d;
 }
 
-#light-and-sound-btn {
+.open-modals-btn {
   font-family: Verdana;
   color: #96969d;
   background: #fff;
@@ -88,12 +93,12 @@ body {
   transition: all 0.2s ease;
 }
 
-#light-and-sound-btn:hover {
+.open-modals-btn:hover {
   transform: scale(1.025);
   cursor: pointer;
 }
 
-#light-and-sound-btn:active {
+.open-modals-btn:active {
   transform: scale(1);
 }
 

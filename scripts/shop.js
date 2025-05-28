@@ -167,7 +167,7 @@ filterToggle.addEventListener("click", () => {
   if(filterClosed) {
     filterContainer.classList.remove("close-filters");
     filterContainer.classList.add("open-filters");
-    filterArrow.style.transform = "rotate(270deg)";
+    filterArrow.style.transform = "rotate(-90deg)";
     filterClosed = false;
   } else {
     filterContainer.classList.remove("open-filters");
@@ -181,86 +181,130 @@ const ratingBtn1 = document.getElementById("rating-btn-1"),
       ratingBtn2 = document.getElementById("rating-btn-2"),
       ratingBtn3 = document.getElementById("rating-btn-3"),
       ratingBtn4 = document.getElementById("rating-btn-4"),
-      ratingBtn5 = document.getElementById("rating-btn-5")
+      ratingBtn5 = document.getElementById("rating-btn-5"),
+      resetFilter = document.getElementById("reset-filter-btn");
+
+const allShops = document.querySelectorAll(".image-box"),
+      ratingButtons = document.querySelectorAll(".rating-buttons");
 let filterOn = false;
 
+// resets shops
 function showAllShops() {
-  shopA.style.display = "grid";
-  shopB.style.display = "grid";
-  shopC.style.display = "grid";
-  shopD.style.display = "grid";
-  shopE.style.display = "grid";
-  shopF.style.display = "grid";
+  allShops.forEach(s => {
+    s.style.display = "grid";
+  });
   filterOn = false;
 }
 
+// resets buttons
+function resetButtons() {
+  ratingButtons.forEach(b => {
+    b.style.background = "#f0f0f0";
+  });
+}
+
 ratingBtn1.addEventListener("click", () => {
-  if(filterOn) {
-    showAllShops();
-  } else {
-    shopA.style.display = "none";
-    shopB.style.display = "grid";
-    shopC.style.display = "none";
-    shopD.style.display = "none";
-    shopE.style.display = "none";
-    shopF.style.display = "none";
-    filterOn = true;
-  }
+  uncheck();
+  resetButtons();
+  ratingBtn1.style.background = "#ffc107";
+
+  allShops.forEach(s => {
+    s.style.display = "none";
+  });
+  shopB.style.display = "grid";
 });
 
 ratingBtn2.addEventListener("click", () => {
-  if(filterOn) {
-    showAllShops();
-  } else {
-    shopA.style.display = "none";
-    shopB.style.display = "none";
-    shopC.style.display = "none";
-    shopD.style.display = "grid";
-    shopE.style.display = "none";
-    shopF.style.display = "none";
-    filterOn = true;
-  }
+  uncheck();
+  resetButtons();
+  ratingBtn2.style.background = "#ffc107";
+
+  allShops.forEach(s => {
+    s.style.display = "none";
+  });
+  shopD.style.display = "grid";
 });
 
 ratingBtn3.addEventListener("click", () => {
-  if(filterOn) {
-    showAllShops();
-  } else {
-    shopA.style.display = "none";
-    shopB.style.display = "none";
-    shopC.style.display = "none";
-    shopD.style.display = "none";
-    shopE.style.display = "none";
-    shopF.style.display = "grid";
-    filterOn = true;
-  }
+  uncheck();
+  resetButtons();
+  ratingBtn3.style.background = "#ffc107";
+
+  allShops.forEach(s => {
+    s.style.display = "none";
+  });
+  shopF.style.display = "grid";
 });
 
 ratingBtn4.addEventListener("click", () => {
-  if(filterOn) {
-    showAllShops();
-  } else {
-    shopA.style.display = "grid";
-    shopB.style.display = "none";
-    shopC.style.display = "none";
-    shopD.style.display = "none";
-    shopE.style.display = "none";
-    shopF.style.display = "none";
-    filterOn = true;
-  }
+  uncheck();
+  resetButtons();
+  ratingBtn4.style.background = "#ffc107";
+
+  allShops.forEach(s => {
+    s.style.display = "none";
+  });
+  shopA.style.display = "grid";
 });
 
 ratingBtn5.addEventListener("click", () => {
-  if(filterOn) {
+  uncheck();
+  resetButtons();
+  ratingBtn5.style.background = "#ffc107";
+
+  allShops.forEach(s => {
+    s.style.display = "none";
+  });
+  shopC.style.display = "grid";
+  shopE.style.display = "grid";
+});
+
+// reset all filters
+resetFilter.addEventListener("click", () => {
+  uncheck();
+  showAllShops();
+  resetButtons();
+});
+
+const indoorCheckbox = document.getElementById("indoor-checkbox"),
+      outdoorCheckbox = document.getElementById("outdoor-checkbox");
+
+function uncheck() {
+  indoorCheckbox.checked = false;
+  outdoorCheckbox.checked = false;
+}
+
+indoorCheckbox.addEventListener("change", () => {
+  ratingButtons.forEach(b => {
+    b.style.background = "#f0f0f0";
+  });
+  if(!indoorCheckbox.checked) {
     showAllShops();
   } else {
-    shopA.style.display = "none";
-    shopB.style.display = "none";
+    allShops.forEach(s => {
+      s.style.display = "none";
+    });
+    shopA.style.display = "grid";
     shopC.style.display = "grid";
-    shopD.style.display = "none";
     shopE.style.display = "grid";
-    shopF.style.display = "none";
-    filterOn = true;
+    outdoorCheckbox.checked = false;
+  }
+});
+
+outdoorCheckbox.addEventListener("change", () => {
+  ratingButtons.forEach(b => {
+    b.style.background = "#f0f0f0";
+  });
+  if(!outdoorCheckbox.checked) {
+    showAllShops();
+  } else {
+    allShops.forEach(s => {
+      s.style.display = "none";
+    });
+    shopB.style.display = "grid";
+    shopD.style.display = "grid";
+    shopF.style.display = "grid";
+    indoorCheckbox. checked = false;
   }
 });
 

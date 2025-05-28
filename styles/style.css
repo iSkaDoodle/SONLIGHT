@@ -218,7 +218,7 @@ ul li #log-out-img {
   background: #a3d9ec;
   border-bottom-right-radius: 20px;
   padding-top: 80px;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease-in-out;
   overflow: hidden;
   z-index: 999;
   box-shadow: #20202040 2px 0px 4px;
@@ -752,20 +752,42 @@ a{
   grid-template-rows: repeat(5, 32px);
 }
 
-.filter-containers button {
+.filter-containers button, #reset-filter-btn {
   border: none;
   padding: 5px 10px;
   border-radius: 12px;
   height: fit-content;
+  transition: background 0.3s ease;
 }
 
-.filter-containers button:hover {
+#reset-btn-div {
+  margin-top: 20px;
+  justify-self: center;
+}
+
+.filter-containers button:hover, #reset-filter-btn:hover {
   border: 2px solid #ffc107;
   box-sizing: content-box;
 }
 
+#reset-filter-btn:active {
+  transform: scale(1.02);
+}
+
 .filter-containers input {
   width: fit-content;
+}
+
+#available-equipments {
+  display: grid;
+  grid-template-columns: 16px auto;
+  grid-template-columns: repeat(2, auto);
+  row-gap: 5px;
+  margin-top: 5px;
+}
+
+#available-equipments input[type="checkbox"] {
+  grid-column: 1/2;
 }
 
 /* ads css */
