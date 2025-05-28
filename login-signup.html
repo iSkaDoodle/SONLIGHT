@@ -249,6 +249,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const adminUser = { email: 'sonlight@admin.com', password: 'Cloud9niDariel' };
+      const ownerUser = { email: 'owner.2501@sonlight.com', password: 'Owner2501' }; //owner user
       const loginForm = document.getElementById('login-form');
       const signupForm = document.getElementById('signup-form');
       const showLoginBtn = document.getElementById('show-login');
@@ -342,6 +343,14 @@
           localStorage.setItem('sonlight-loggedin', 'true');
           localStorage.setItem('sonlight-role', 'admin');
           location.href = 'admin.html';
+          return;
+        }
+
+        // Owner login with exact match on email & password
+        if (email.toLowerCase() === ownerUser.email.toLowerCase() && password === ownerUser.password) {
+          localStorage.setItem('sonlight-loggedin', 'true');
+          localStorage.setItem('sonlight-role', 'owner'); // ano ginagawa ng roles?
+          location.href = 'shopowner/shop-owner.html';
           return;
         }
 
