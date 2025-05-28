@@ -10,7 +10,7 @@ const shopA = document.getElementById('shop-A'),
 shopA.addEventListener("click", () => {
     const shopDetails = {
         name: "Light and Sound A",
-        ratings: "4",
+        ratings: "4.89",
         equip_1: "images/equipment-sets/set-1.png",
         equip_2: "images/equipment-sets/unavailable.png",
         equip_3: "images/equipment-sets/set-3.png",
@@ -35,7 +35,7 @@ shopA.addEventListener("click", () => {
 shopB.addEventListener("click", () => {
     const shopDetails = {
         name: "Light and Sound B",
-        ratings: "1",
+        ratings: "1.24",
         equip_1: "images/equipment-sets/unavailable.png",
         equip_2: "images/equipment-sets/set-3.png",
         equip_3: "images/equipment-sets/set-8.svg",
@@ -60,7 +60,7 @@ shopB.addEventListener("click", () => {
 shopC.addEventListener("click", () => {
     const shopDetails = {
         name: "Light and Sound C",
-        ratings: "5",
+        ratings: "4.57",
         equip_1: "images/equipment-sets/set-8.svg",
         equip_2: "images/equipment-sets/set-7.svg",
         equip_3: "images/equipment-sets/set-5.png",
@@ -85,7 +85,7 @@ shopC.addEventListener("click", () => {
 shopD.addEventListener("click", () => {
     const shopDetails = {
         name: "Light and Sound D",
-        ratings: "2",
+        ratings: "2.34",
         equip_1: "images/equipment-sets/set-8.svg",
         equip_2: "images/equipment-sets/set-7.svg",
         equip_3: "images/equipment-sets/set-6.png",
@@ -110,7 +110,7 @@ shopD.addEventListener("click", () => {
 shopE.addEventListener("click", () => {
     const shopDetails = {
         name: "Light and Sound E",
-        ratings: "5",
+        ratings: "4.75",
         equip_1: "images/equipment-sets/set-4.png",
         equip_2: "images/equipment-sets/set-3.png",
         equip_3: "images/equipment-sets/unavailable.png",
@@ -135,7 +135,7 @@ shopE.addEventListener("click", () => {
 shopF.addEventListener("click", () => {
     const shopDetails = {
         name: "Light and Sound F",
-        ratings: "3",
+        ratings: "3.33",
         equip_1: "images/equipment-sets/unavailable.png",
         equip_2: "images/equipment-sets/set-7.svg",
         equip_3: "images/equipment-sets/set-8.svg",

@@ -26,8 +26,10 @@
     </div>
     <div class="middle-header">
       <div class="search-box">
-        <input type="text" placeholder="Search "/>
-        <button type="submit">&#128269;</button>
+        <input id="header-search-box" type="text" placeholder="Search "/>
+        <button id="search-btn" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#999"><path d="M380-320q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l224 224q11 11 11 28t-11 28q-11 11-28 11t-28-11L532-372q-30 24-69 38t-83 14Zm0-80q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+        </button>
       </div>
     </div>
     <div class="right-header">
@@ -52,25 +54,12 @@
   <!-- sidebar -->
   <aside class="sidebar collapsed" id="sidebar">
     <ul>
-<<<<<<< HEAD
-      <li><a href="profile.html"><img src="images/icons/profile-icon.svg"><span>Profile</span></a></li>
-      <li id="inShop"><a href="shop.html"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></a></li>
-      <li><a href="about.html"><img src="images/icons/about-icon.svg"><span>About Us</span></a></li>
-<<<<<<< HEAD
-      <li><a href="rateUsTrigger"><img src="images/icons/star-icon.svg"><span>Rate Us</span></a></li>
-=======
-      <li><a href="#" id="rateUsTrigger"><img src="images/icons/star-icon.svg"><span>Rate Us</span></a></li>
-      <li><a href="chat.html"><img src="images/icons/mail.svg"/><span>Messages</span></a></li>
->>>>>>> 947a68f82e2ce210a6727ac5ee06fb060631c193
-      <li id="sidebar-help"><a href="help-page.html"><img src="images/icons/help-icon.svg"><span>Help</span></a></li>
-=======
       <a href="profile.html"><li><img src="images/icons/profile-icon.svg"><span>Profile</span></li></a>
       <a href="shop.html"><li id="inShop"><img src="images/icons/store-icon.svg"><span>Rental Stores</span></li></a>
       <a href="about.html"><li><img src="images/icons/about-icon.svg"><span>About Us</span></li></a>
       <a href="#" id="rateUsTrigger"><li><img src="images/icons/star-icon.svg" /><span>Rate Us</span></li></a>
       <a href="chat.html"><li><img src="images/icons/mail.svg"/><span>Messages</span></li></a>
       <a id="sidebar-help" href="help-page.html"><li><img src="images/icons/help-icon.svg"><span>Help</span></li></a>
->>>>>>> 471aff4c2ff5c87689871ec701b8d855d04ab350
     </ul>
   </aside>
 
@@ -87,8 +76,9 @@
         <p id="shop-time"><strong>10:00AM-6:00PM</strong></p>
         <p id="shop-ratings">
           <div class="star-row">
-            <p style="height: fit-content; align-self: flex-end; font-size: 18px; font-weight: 550; margin: 0px;" id="num-ratings"></p>
             <span style="height: fit-content; align-self: flex-end; font-size: 24px;" class="shop-stars">★</span>
+            <p style="height: fit-content; align-self: flex-end; font-size: 18px; font-weight: 550; margin: 0px;" id="num-ratings"></p>
+            <span style="height: fit-content; align-self: flex-end; font-size: 18px; font-weight: 550; margin: 0px;">/5.00</span>
           </div>
         </p>
         

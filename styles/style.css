@@ -36,10 +36,35 @@ header {
 }
 
 .middle-header {
-  width: 33.33%;
+  min-width: 33.33%;
   overflow: hidden;
   animation: openSesame 1s ease-in-out 0s 1;
 }
+
+#header-search-box {
+  border-top-left-radius: 48px;
+  border-bottom-left-radius: 48px;
+}
+
+#search-btn {
+  height: 40.8px;
+  width: 40.8px;
+  padding: 10px;
+  padding-left: 6px;
+  border-top-right-radius: 48px;
+  border-bottom-right-radius: 48px;
+  background: #ccc;
+  transition: all 0.3s ease;
+}
+
+#search-btn:hover {
+  background: #d3d3d3;
+}
+
+#search-btn:active {
+  background: #dadada;
+}
+
 
 /* @keyframes openSesame {
   from{width: 0px;}
