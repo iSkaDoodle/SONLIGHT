@@ -146,6 +146,12 @@
     label { display: block; margin: 10px 0; }
     #proceedBtn { margin-top: 10px; }
 
+    /* proceed disabled */
+    .proceed-disabled {
+      background: #eee;
+      color: #aaa;
+    }
+
     /* Role selector styles */
     .role-selector {
       margin-bottom: 15px;
@@ -281,14 +287,35 @@
       toLogin.addEventListener('click', showLogin);
       toSignup.addEventListener('click', showSignup);
 
-      proceedBtn.disabled = true;
+      proceedBtn.style.pointerEvents = "none";
+      proceedBtn.classList.add("proceed-disabled");
+
       agreeCheckbox.addEventListener('change', () => {
-        proceedBtn.disabled = !agreeCheckbox.checked;
+        if(agreeCheckbox.checked) {
+          proceedBtn.classList.remove("proceed-disabled");
+          proceedBtn.style.pointerEvents = "auto";
+          proceedBtn.disabled = false;
+        } else {
+          proceedBtn.classList.add("proceed-disabled");
+          proceedBtn.style.pointerEvents = "none";
+        }
       });
       proceedBtn.addEventListener('click', () => {
         termsModal.style.display = 'none';
+        alert('Signup successful! Please login.');
         showLogin();
       });
+
+      signupForm.onsubmit = e => {
+        e.preventDefault();
+        const [email, username, password] = [...signupForm.querySelectorAll('input')].map(i => i.value.trim());
+        if (!email || !username || !password) {
+          alert('Please fill in all fields.');
+          return;
+        }
+        tempSignupData = { email, username, password };
+        termsModal.style.display = 'flex';
+      };
 
       tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -323,7 +350,6 @@
 
         const userData = { email, username, password, role };
         localStorage.setItem('sonlight-user', JSON.stringify(userData));
-        alert('Signup successful! Please login.');
         signupForm.reset();
         showLogin();
       });
