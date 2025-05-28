@@ -67,7 +67,7 @@
           <input type="email" id="customer-email" class="customer-details" required maxlength="50" placeholder="Email">
           <!-- system set -->
            <label for="light-and-sound-btn">Light and Sound System Set</label>
-          <div class="open-modals-btn" onclick="showChoices()"><p class="open-modals-p">Choose a System Set</p></div>
+          <div id="light-and-sound-btn" class="open-modals-btn" onclick="showChoices()"><p id="lght-snd-btn-p" class="open-modals-p">Choose a System Set</p></div>
         </div>
       </div>
 
@@ -75,7 +75,7 @@
       <div id="choices-div">
         <!-- choices -->
         <div id="choices-container">
-          <span id="close-choices-btn" onclick="closeChoices()">&times;</span>
+          <span class="close-modal-btn" onclick="closeChoices()">&times;</span>
           <!-- <img id="close-choices-btn" src="" alt="close button" onclick="closeChoices()"> -->
           <strong id="choose-strng">Chooose a Light an Sound Equipment Set</strong>
 
@@ -136,7 +136,7 @@
             </div>
           </div>
         </div>
-       </div>
+      </div>
 
       <!-- right side -->
       <div id="booking-right-side" class="booking-sections">
@@ -173,6 +173,14 @@
             <a href="view-shop.html" id="cancel-button" class="booking-buttons">Cancel</a>
             <div id="place-book-button" class="booking-buttons">Book</div>
           </div>
+        </div>
+      </div>
+
+      <!-- map modal -->
+      <div id="map-div">
+        <div id="map-modal">
+          <strong style="font-size: 24px; height: fit-content; width: fit-content; margin: 5px;">Choose a location</strong>
+          <span id="close-map-div" class="close-modal-btn" onclick="closeMap()">&times;</span>
         </div>
       </div>
 

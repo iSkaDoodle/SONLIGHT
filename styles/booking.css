@@ -77,6 +77,29 @@ body {
   font-size: 14px;
 }
 
+#map-div {
+  display: none;
+  position: fixed;
+  align-content: center;
+  top: 0px;
+  left: 0px;
+  padding-top: 73.6px;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px); /* Blur the background */
+}
+
+#map-modal {
+  display: grid;
+  height: 90%;
+  width: 75%;
+  justify-self: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 8px #20202090;
+  border-radius: 24px;
+  padding: 10px 15px;
+}
+
 .customer-details::placeholder, .booking-details::placeholder {
   color: #96969d;
 }
@@ -110,16 +133,17 @@ body {
   grid-row: 1/2;
 }
 
-#close-choices-btn {
+.close-modal-btn {
   grid-column: 4/5;
   font-size: 32px;
   cursor: pointer;
   color: #999;
   transition: color 0.2s;
   justify-self: end;
+  height: fit-content;
 }
 
-#close-choices-btn:hover {
+.close-modal-btn:hover {
     color: #000;
 }
 
@@ -142,7 +166,7 @@ body {
   grid-template-rows: 32px 1fr 1fr;
   gap: 20px 10px;
   background-color: #fff;
-  box-shadow: 0px 0px 8px #20202033;
+  box-shadow: 0px 0px 8px #20202090;
   border-radius: 24px;
   justify-self: center;
   grid-row: 2/20;
@@ -424,7 +448,7 @@ a {
     margin-bottom: 5px;
    }
 
-  #close-choices-btn {
+  #close-modal-btn {
     top: 15px;
     right: 15px;
   }

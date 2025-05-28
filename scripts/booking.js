@@ -114,6 +114,19 @@ function closeChoices() {
   setChoices.style.display = "none";
 }
 
+// map
+const openMapButton = document.getElementById('pick-location-btn'),
+      closeMapDiv = document.getElementById('close-map-div'),
+      mapModalDiv = document.getElementById('map-div');
+
+openMapButton.addEventListener("click", event => {
+  mapModalDiv.style.display = "block";
+});
+
+closeMapDiv.addEventListener("click", event => {
+  mapModalDiv.style.display = "none";
+});
+
 // 24-hour to 12-hour format converter
 function convertTime(time) {
   let timeStr = String(time).split(":");
@@ -160,7 +173,6 @@ function hideMessage() {
   message.style.display = "none";
   receipt.style.display = "block";
   goBack.style.display = "block";
-
 }
 
 // pre-loads user email
