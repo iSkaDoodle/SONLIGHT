@@ -156,37 +156,37 @@
 </head>
 <body>
 
-  <a href="admin.html" class="back-arrow" aria-label="Go back">
+  <a href="shop-owner.html" class="back-arrow" aria-label="Go back">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#01303f">
       <path d="m326.15-434.5 218.74 218.74L480-151.87 151.87-480 480-808.13l64.89 63.89L326.15-525.5h481.98v91H326.15Z"/>
     </svg>
   </a>
 
   <main class="profile" role="main">
-    <h1>Welcome, <span id="profile-welcome-name">Admin</span></h1>
-    <div class="profile-card-grid" aria-label="Admin Profile Information">
+    <h1>Welcome, <span id="profile-welcome-name">Shop Owner</span></h1>
+    <div class="profile-card-grid" aria-label="Shop Owner Profile Information">
       <div class="profile-avatar">
-        <img src="images/profile/placeholdernimamtechno.jpg" alt="Admin Profile Picture" class="profile-pic-preview" id="profile-pic" />
+        <img src="../images/profile/placeholdernimamtechno.jpg" alt="Shop Owner Profile Picture" class="profile-pic-preview" id="profile-pic" />
       </div>
       <div class="profile-info">
         <p><strong>Name</strong><br><span id="profile-username">Loading...</span></p>
         <p><strong>Email</strong><br><span id="profile-email">Loading...</span></p>
         <p><strong>Password</strong><br><span id="profile-password">**********</span></p>
       </div>
-      <a href="admin-edit-profile.html" class="profile-edit-btn" role="button" tabindex="0">Edit</a>
+      <a href="owner-edit-profile.html" class="profile-edit-btn" role="button" tabindex="0">Edit</a>
     </div>
   </main>
 
   <script>
-    // Retrieve admin user data from localStorage
-    const storedProfile = JSON.parse(localStorage.getItem('adminUser'));
+    // Retrieve owner user data from localStorage
+    const storedProfile = JSON.parse(localStorage.getItem('ownerUser'));
 
     // Fallback default profile
     const defaultProfile = {
-      name: 'Admin',
-      email: 'sonlight@admin.com',
+      name: 'Owner',
+      email: 'owner@sonlight.com',
       password: '',
-      picture: 'images/profile/placeholdernimamtechno.jpg'
+      picture: '../images/profile/placeholdernimamtechno.jpg'
     };
 
     const profile = storedProfile || defaultProfile;

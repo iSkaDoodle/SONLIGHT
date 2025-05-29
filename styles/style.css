@@ -757,6 +757,7 @@ a{
   padding: 5px 10px;
   border-radius: 12px;
   height: fit-content;
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
@@ -767,7 +768,6 @@ a{
 
 .filter-containers button:hover, #reset-filter-btn:hover {
   border: 2px solid #ffc107;
-  box-sizing: content-box;
 }
 
 #reset-filter-btn:active {
@@ -776,6 +776,7 @@ a{
 
 .filter-containers input {
   width: fit-content;
+  cursor: pointer;
 }
 
 #available-equipments {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home | SonLight Dashboard</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * {
@@ -270,11 +270,11 @@
       <nav class="sidebar-nav">
         <ul>
           <li><a href="#" class="active">Dashboard</a></li>
-          <li><a href="#">Manage Bookings</a></li>
+          <li><a href="manage-bookings.html">Manage Bookings</a></li>
           <li><a href="#">My shop</a></li>
           <li><a href="#">Reports</a></li>
           <li><a href="#">Settings</a></li>
-          <li><a href="#" id="logout-link">Log out</a></li>
+          <li><a href="../index.html" id="logout-link">Log out</a></li>
         </ul>
       </nav>
     </aside>
@@ -304,7 +304,7 @@
       <section class="data-cards">
         <div class="card"><h3>Total Sales</h3><p>$345</p></div>
         <div class="card"><h3>Customer Visits</h3><p>150</p></div>
-        <div class="card"><h3>Bookings</h3><p>25</p></div>
+        <div class="card"><h3>Overall Bookings</h3><p>25</p></div>
         <div class="card"><h3>Revenue Growth</h3><p>+5%</p></div>
       </section>
     </main>
@@ -395,6 +395,7 @@
         e.preventDefault();
         document.querySelectorAll('.sidebar-nav ul li a').forEach(l => l.classList.remove('active'));
         link.classList.add('active');
+        window.location.href = link;
       });
     });
 
@@ -409,7 +410,7 @@
     });
 
     document.getElementById('profile-btn').addEventListener('click', function () {
-  window.location.href = 'admin-profile.html';
+  window.location.href = 'owner-profile.html';
     });
   });
 </script>

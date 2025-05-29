@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | SonLight Dashboard</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .manage-bookings-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #a3d9ec;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar-header h2 {
+      color: #000;
+      font-size: 1.8em;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+    }
+
+    .sidebar-nav ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-nav ul li a {
+      display: block;
+      padding: 10px 15px;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .sidebar-nav ul li a:hover,
+    .sidebar-nav ul li a.active {
+      background-color: #0056b3;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="manage-bookings-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Shop Owner Panel</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="shop-owner.html">Dashboard</a></li>
+          <li><a href="#" class="active">Manage Bookings</a></li>
+          <li><a href="#">My shop</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="../index.html" id="logout-link">Log out</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+    
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.sidebar-nav ul li a').forEach(link => {
+          link.addEventListener('click', e => {
+          e.preventDefault();
+          document.querySelectorAll('.sidebar-nav ul li a').forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+          window.location.href = link;
+        });
+      });
+
+      document.getElementById('logout-link').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        localStorage.clear();
+        sessionStorage.clear();
+
+        window.location.href = '../index.html';
+      });
+
+      document.getElementById('profile-btn').addEventListener('click', function () {
+        window.location.href = 'admin-profile.html';
+      });
+    });
+  </script>
+</body>
+</html>

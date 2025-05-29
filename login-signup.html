@@ -385,6 +385,7 @@ showLogin();
           localStorage.setItem('sonlight-loggedin', 'true');
           localStorage.setItem('sonlight-role', 'owner'); // ano ginagawa ng roles?
           location.href = 'totallynotarobotshopowner.html';
+          return;
         }
 
         // Regular user login
@@ -395,7 +396,7 @@ showLogin();
           localStorage.setItem('sonlight-role', savedUser.role);
 
           if (savedUser.role === 'owner') {
-            location.href = 'totallynotarobot.html';
+            location.href = 'totallynotarobotshopowner.html';
           } else {
             location.href = 'totallynotarobot.html';
           }

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
   <title>Edit Profile | SonLight Dashboard</title>
   <style>
     * {
@@ -151,26 +152,26 @@
     const profilePicInput = document.getElementById('profile-picture');
     const profilePicPreview = document.getElementById('profile-picture-preview');
 
-    // Load profile from localStorage key 'adminUser'
+    // Load profile from localStorage key 'ownerUser'
     function loadProfile() {
-      const profile = JSON.parse(localStorage.getItem('adminUser')) || {
-        name: 'Admin',
-        email: 'sonlight@admin.com',
+      const profile = JSON.parse(localStorage.getItem('ownernUser')) || {
+        name: 'Owner',
+        email: 'owner@sonlight.com',
         password: '',
-        picture: 'images/profile/placeholdernimamtechno.jpg'
+        picture: '../images/profile/placeholdernimamtechno.jpg'
       };
       document.getElementById('name').value = profile.name;
       document.getElementById('email').value = profile.email;
       // For security, do NOT prefill password input field with real password
       document.getElementById('password').value = '';
 
-      profilePicPreview.src = profile.picture || 'images/profile/placeholdernimamtechno.jpg';
+      profilePicPreview.src = profile.picture || '../images/profile/placeholdernimamtechno.jpg';
       profilePicPreview.dataset.newPicture = ''; // clear temp new picture data
     }
 
-    // Save profile to localStorage key 'adminUser'
+    // Save profile to localStorage key 'ownerUser'
     function saveProfile(data) {
-      localStorage.setItem('adminUser', JSON.stringify(data));
+      localStorage.setItem('ownernUser', JSON.stringify(data));
     }
 
     loadProfile();
@@ -202,7 +203,7 @@
       }
 
       // Get the existing profile to keep password if not changed
-      const existingProfile = JSON.parse(localStorage.getItem('adminUser')) || {};
+      const existingProfile = JSON.parse(localStorage.getItem('ownernUser')) || {};
 
       const newProfile = {
         name: form.name.value.trim(),
@@ -215,11 +216,11 @@
       saveProfile(newProfile);
 
       alert('Profile saved successfully!');
-      window.location.href = 'admin-profile.html'; // Redirect after save
+      window.location.href = 'owner-profile.html'; // Redirect after save
     });
 
     cancelBtn.addEventListener('click', () => {
-      window.location.href = 'admin-profile.html'; // Redirect on cancel
+      window.location.href = 'owner-profile.html'; // Redirect on cancel
     });
   </script>
 </body>
