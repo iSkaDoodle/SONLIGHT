@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home | SonLight Dashboard</title>
+  <title>Bookings | SonLight</title>
   <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
   <style>
     * {
@@ -17,7 +17,7 @@
       min-height: 100vh;
       font-family: Arial, sans-serif;
       background: #f5f5f5;
-      color: #333;
+      color: #01303f;
       line-height: 1.6;
     }
 
@@ -27,7 +27,7 @@
     }
 
     .sidebar {
-      width: 250px;
+      min-width: 250px;
       background-color: #a3d9ec;
       padding: 20px;
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -68,6 +68,168 @@
       background-color: #0056b3;
       color: #fff;
     }
+    /* main */
+    #manage-book-main {
+      min-height: 100%;
+      width: 100%;
+      padding: 50px 20px;
+    }
+
+    #tabs-container {
+      display: flexbox;
+      flex-direction: row;
+    }
+
+    .book-manager-tabs {
+      cursor: pointer;
+      border: none;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      color: #555;
+      background-color: #aaa;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .book-manager-tabs:hover {
+      color: #fff;
+      background: #0056b3;
+    }
+
+    .work-areas {
+      height: 593.6px;
+      border: 1.5px solid #aaa;
+      background: #eeee;
+      border-radius: 24px;
+      border-top-left-radius: 0px;
+      padding: 15px 20px;
+      transition: all 0.3s ease;
+    }
+
+    #accepted-book-work-area {
+      display: none;
+    }
+
+    #declined-book-work-area {
+      display: none;
+    }
+
+    .active-tab {
+      color: #fff;
+      background: #0056b3;
+    }
+
+    /* container styles */
+    .books-container {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      margin-top: 10px;
+    }
+
+    .books-container button {
+      color: #fff;
+      background: #0056b3;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: 700;
+      grid-row: 3/4;
+      grid-column: 6/7;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .books-container button:hover {
+      background: #1b74d4;
+    }
+
+    .books {
+      min-height: 100px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0px 0px 5px #0000001a;
+      padding: 10px 20px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    #accepted-books-container, #declined-books-container {
+      display: none;
+    }
+
+    /* details modal */
+    #details-div {
+      display: none;
+      position: fixed;
+      align-content: center;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(5px); /* Blur the background */
+      background: #20202020;
+    }
+
+    #details-modal {
+      justify-self: center;
+      height: fit-content;
+      width: 80%;
+      padding: 30px 25px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0px 0px 5px #0000001a;
+    }
+
+    #details-modal > strong {
+      display: block;
+      text-align: center;
+      font-size: 28px;
+    }
+
+    #details-labels-values {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      row-gap: 10px;
+    }
+
+    #modal-buttons-div button {
+      border: none;
+      padding: 10px 40px;
+      font-weight: 700px;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      margin-left: 10px;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #accept-btn {
+      background: #0056b3;
+    }
+
+    #accept-btn:hover {
+      background: #1b74d4;
+    }
+
+    #decline-btn {
+      background: #e02424;
+    }
+
+    #decline-btn:hover {
+      background: #ec3d3d;
+    }
+
+    .finished-customer {
+      background: #fff;
+      border-radius: 24px;
+      padding: 15px 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+    }
+
   </style>
 </head>
 <body>
@@ -87,6 +249,77 @@
         </ul>
       </nav>
     </aside>
+    <!-- main -->
+    <main id="manage-book-main">
+      <!-- tabs -->
+      <div id="tabs-container">
+        <button id="new-book-tab" class="book-manager-tabs active-tab">New Bookings</button>
+        <button id="accepted-tab" class="book-manager-tabs">Accepted Bookings</button>
+        <button id="declined-tab" class="book-manager-tabs">Declined Bookings</button>
+      </div>
+
+      <!-- area where yo do things -->
+      <!-- for new books -->
+      <div id="new-book-work-area" class="work-areas">
+        <h3>New Bookings</h3>
+        <div id="new-books-container" class="books-container">
+          <div id="book-1" class="books">
+            <strong id="book-customer-name" style="grid-column: 1/4; grid-row: 1/2; font-size: 20px;">Name</strong>
+            <strong id="book-equip-set" style="grid-column: 1/4; grid-row: 2/3; font-size: 18px;">Equipment Set</strong>
+            <button id="view-details-button" >View Full Details</button>
+            <span id="book-ref-number" style="grid-column: 1/4; grid-row: 3/4;">reference number</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- for accepted books -->
+      <div id="accepted-book-work-area" class="work-areas">
+        <h3>Accepted Bookings</h3>
+        <div id="accepted-books-container" class="books-container">
+          <div class="finished-customer">
+            <strong class="fin-customer-name">null</strong><strong class="fin-equip-set">null</strong>
+            <span class="fin-customer-contact">null</span><span class="fin-when-where">null</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- for declined books -->
+      <div id="declined-book-work-area" class="work-areas">
+        <h3>Declined Bookings</h3>
+        <div id="declined-books-container" class="books-container">
+          <div class="finished-customer">
+            <strong class="fin-customer-name">null</strong><strong class="fin-equip-set">null</strong>
+            <span class="fin-customer-contact">null</span><span class="fin-when-where">null</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="details-div">
+        <div id="details-modal">
+          <strong>Booking Details</strong>
+          <div id="details-labels-values">
+            <strong>Reference Number :</strong>
+            <p id="ref-num-p">null</p>
+            <strong>Customer Name :</strong>
+            <p id="name-p">null</p>
+            <strong>Customer Number :</strong>
+            <p id="num-p">null</p>
+            <strong>Customer Email :</strong>
+            <p id="email-p">null</p>
+            <strong>Equipment Set :</strong>
+            <p id="equipment-p">null</p>
+            <strong>Event type and venue :</strong>
+            <p id="event-p">null</p>
+            <strong>Event date and time :</strong>
+            <p id="when-p">null</p>
+          </div>
+          <div id="modal-buttons-div" style="width: fit-content; justify-self: end;">
+            <button id="accept-btn">Accept</button>
+            <button id="decline-btn">Decline</button>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
     
   <script>
@@ -109,10 +342,89 @@
         window.location.href = '../index.html';
       });
 
-      document.getElementById('profile-btn').addEventListener('click', function () {
-        window.location.href = 'admin-profile.html';
+      // new stuffs
+      document.querySelectorAll('.book-manager-tabs').forEach(t => {
+          t.addEventListener('click', e => {
+          e.preventDefault();
+          document.querySelectorAll('.book-manager-tabs').forEach(t => t.classList.remove('active-tab'));
+          t.classList.add('active-tab');
+        });
       });
+
+      // specific declarations
+      const newBookTab = document.getElementById("new-book-tab"),
+            acceptedBookTab = document.getElementById("accepted-tab"),
+            declinedBookTab = document.getElementById("declined-tab");
+
+      const newBookArea = document.getElementById("new-book-work-area"),
+            acceptedBookArea = document.getElementById("accepted-book-work-area"),
+            declinedBookArea = document.getElementById("declined-book-work-area");
+
+      document.querySelectorAll(".books-container");
+
+      function removeAreas() {
+        document.querySelectorAll(".work-areas").forEach(a => a.style.display = "none");
+      }
+
+      newBookTab.addEventListener("click", e => {
+        removeAreas();
+        newBookArea.style.display = "block";
+      });
+
+      acceptedBookTab.addEventListener("click", e => {
+        removeAreas();
+        acceptedBookArea.style.display = "block";
+      });
+      
+      declinedBookTab.addEventListener("click", e => {
+        removeAreas();
+        declinedBookArea.style.display = "block";
+      });
+      
+      // loads booking details
+      const loadDetails = JSON.parse(localStorage.getItem("booking_details"));
+
+      const bookCustomerName = document.getElementById("book-customer-name"),
+            bookRefNumber = document.getElementById("book-ref-number"),
+            bookEquipSet = document.getElementById("book-equip-set"),
+            viewDetailsButton = document.getElementById("view-details-button"),
+            detailsDiv = document.getElementById("details-div");
+      // the P's of details
+      document.getElementById("ref-num-p").textContent = loadDetails.reference_number;
+      document.getElementById("name-p").textContent = loadDetails.customer_name;
+      document.getElementById("num-p").textContent = loadDetails.customer_number;
+      document.getElementById("email-p").textContent = loadDetails.customer_email;
+      document.getElementById("equipment-p").textContent = loadDetails.equipment_set;
+      document.getElementById("event-p").textContent = loadDetails.event_type_venue;
+      document.getElementById("when-p").textContent = loadDetails.date_time;
+
+      bookCustomerName.textContent = loadDetails.customer_name;
+      bookRefNumber.textContent = loadDetails.reference_number;
+      bookEquipSet.textContent = loadDetails.equipment_set;
+
+      viewDetailsButton.addEventListener("click", e =>{
+        detailsDiv.style.display = "block";
+      });
+
+      document.getElementById("accept-btn").addEventListener("click", e => {
+        detailsDiv.style.display = "none";
+        document.getElementById("new-books-container").style.display = "none";
+        document.getElementById("accepted-books-container").style.display = "flex";
+      });
+
+      document.getElementById("decline-btn").addEventListener("click", e => {
+        detailsDiv.style.display = "none";
+        document.getElementById("new-books-container").style.display = "none";
+        document.getElementById("declined-books-container").style.display = "flex";
+      });
+
+      document.querySelectorAll(".fin-customer-name").forEach(n => n.textContent = loadDetails.customer_name);
+      document.querySelectorAll(".fin-customer-contact").forEach(n => n.textContent = `tel: ${loadDetails.customer_number} | email: ${loadDetails.customer_email}`);
+      document.querySelectorAll(".fin-equip-set").forEach(n => n.textContent = `${loadDetails.equipment_set} | ref: ${loadDetails.reference_number}`);
+      document.querySelectorAll(".fin-when-where").forEach(n => n.textContent = `${loadDetails.event_type_venue} | ${loadDetails.date_time}`);
+
     });
+
   </script>
 </body>
 </html>

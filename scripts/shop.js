@@ -285,7 +285,7 @@ indoorCheckbox.addEventListener("change", () => {
       s.style.display = "none";
     });
     shopA.style.display = "grid";
-    shopC.style.display = "grid";
+    shopB.style.display = "grid";
     shopE.style.display = "grid";
     outdoorCheckbox.checked = false;
   }
@@ -301,7 +301,7 @@ outdoorCheckbox.addEventListener("change", () => {
     allShops.forEach(s => {
       s.style.display = "none";
     });
-    shopB.style.display = "grid";
+    shopC.style.display = "grid";
     shopD.style.display = "grid";
     shopF.style.display = "grid";
     indoorCheckbox. checked = false;

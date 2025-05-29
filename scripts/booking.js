@@ -157,8 +157,25 @@ bookBtn.onclick = function()  {
   emailDetail.textContent = customerEmail.value;
   lightSoundSet.textContent = setChoice;
   dateTimeDetail.textContent = `${date.value} | ${convertTime(time.value)}`;
+  saveToLocal();
   hideForm();
 };
+
+// saves booking details in localStorage
+function saveToLocal() {
+  const bookingDetails = {
+    reference_number: refNumber,
+    customer_name: customerName.value,
+    customer_email: customerEmail.value,
+    customer_number: customerTel.value,
+    event_type_venue: `${Evntvenue.value} ${eventType.value}`,
+    equipment_set: setChoice,
+    date_time: `${date.value} | ${convertTime(time.value)}`
+  };
+
+  localStorage.setItem("booking_details", JSON.stringify(bookingDetails));
+}
+
 
 viewDetailsBtn.onclick = function() {
   hideMessage();
